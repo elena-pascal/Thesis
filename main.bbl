@@ -1,0 +1,1529 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.6 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{Ardenne38}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Ardenne}{A.}%
+     {M.~von}{M.~v.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer}%
+  }
+  \strng{namehash}{AMv1}
+  \strng{fullhash}{AMv1}
+  \field{labelalpha}{Ard38}
+  \field{sortinit}{A}
+  \field{number}{9-10}
+  \field{pages}{553\bibrangedash 572}
+  \field{title}{The Electron Scanning Microscope}
+  \field{volume}{109}
+  \field{journaltitle}{Journal of Physics}
+  \field{year}{1938}
+\endentry
+
+\entry{IntTableCrysBX}{incollection}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Authier}{A.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer}%
+  }
+  \strng{namehash}{AA1}
+  \strng{fullhash}{AA1}
+  \field{labelalpha}{Aut06}
+  \field{sortinit}{A}
+  \field{booktitle}{International Tables for Crystallography Volume B:
+  Reciprocal space}
+  \field{pages}{534\bibrangedash 551}
+  \field{title}{Dynamical theory of X-ray diffraction}
+  \field{year}{2006}
+\endentry
+
+\entry{Bragg13}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Bragg}{B.}%
+     {W.~H.}{W.~H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bragg}{B.}%
+     {B.A.~WL.}{B.~W.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {The Royal Society}%
+  }
+  \strng{namehash}{BWHBBW1}
+  \strng{fullhash}{BWHBBW1}
+  \field{labelalpha}{BB13}
+  \field{sortinit}{B}
+  \field{number}{605}
+  \field{pages}{428\bibrangedash 438}
+  \field{title}{The reflection of {X}-rays by crystals}
+  \field{volume}{88}
+  \field{journaltitle}{Proceedings of the Royal Society of London A}
+  \field{year}{1913}
+\endentry
+
+\entry{Baines73}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Baines}{B.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Clarke}{C.}%
+     {D.~R.}{D.~R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Howie}{H.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Inst. of Physics London}%
+  }
+  \strng{namehash}{BMCDRHA1}
+  \strng{fullhash}{BMCDRHA1}
+  \field{labelalpha}{BCH73}
+  \field{sortinit}{B}
+  \field{title}{Backscattered images of dislocations and crystal defects}
+  \field{volume}{18}
+  \field{journaltitle}{Scanning Electron Microscopy Systems and Applications}
+  \field{year}{1973}
+\endentry
+
+\entry{Bethe28}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Bethe}{B.}%
+     {H.}{H.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BH1}
+  \strng{fullhash}{BH1}
+  \field{labelalpha}{Bet28}
+  \field{sortinit}{B}
+  \field{number}{17}
+  \field{pages}{55\bibrangedash 129}
+  \field{title}{Theory on the diffraction of electrons in crystals}
+  \field{volume}{392}
+  \field{journaltitle}{Annalen der Physik}
+  \field{year}{1928}
+\endentry
+
+\entry{Booker67}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Booker}{B.}%
+     {G.~R.}{G.~R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Shaw}{S.}%
+     {A.~M.~B.}{A.~M.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Whelan}{W.}%
+     {M.~J.}{M.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hirsch}{H.}%
+     {P.~B.}{P.~B.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Taylor \& Francis}%
+  }
+  \strng{namehash}{BGR+1}
+  \strng{fullhash}{BGRSAMBWMJHPB1}
+  \field{labelalpha}{Boo+67}
+  \field{sortinit}{B}
+  \field{number}{144}
+  \field{pages}{1185\bibrangedash 1191}
+  \field{title}{Some comments on the interpretation of the ‘kikuchi-like
+  reflection patterns’ observed by scanning electron microscopy}
+  \field{volume}{16}
+  \field{journaltitle}{Philosophical magazine}
+  \field{year}{1967}
+\endentry
+
+\entry{Brandt68}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Brandt}{B.}%
+     {Werner}{W.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BW1}
+  \strng{fullhash}{BW1}
+  \field{labelalpha}{Bra68}
+  \field{sortinit}{B}
+  \field{number}{3}
+  \field{pages}{90\bibrangedash 101}
+  \field{title}{Channeling in crystals}
+  \field{volume}{218}
+  \field{journaltitle}{Scientific American}
+  \field{year}{1968}
+\endentry
+
+\entry{Britton16}{article}{}
+  \name{author}{8}{}{%
+    {{}%
+     {Britton}{B.}%
+     {T.~B.}{T.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Jiang}{J.}%
+     {J.}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Guo}{G.}%
+     {Y.}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vilalta-Clemente}{V.-C.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wallis}{W.}%
+     {D.}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hansen}{H.}%
+     {L.~N.}{L.~N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Winkelmann}{W.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wilkinson}{W.}%
+     {A.~J.}{A.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Elsevier}%
+  }
+  \strng{namehash}{BTB+1}
+  \strng{fullhash}{BTBJJGYVCAWDHLNWAWAJ1}
+  \field{labelalpha}{Bri+16}
+  \field{sortinit}{B}
+  \field{pages}{113\bibrangedash 126}
+  \field{title}{Tutorial: {C}rystal orientations and {EBSD}—{O}r which way is
+  up?}
+  \field{volume}{117}
+  \field{journaltitle}{Materials Characterization}
+  \field{year}{2016}
+\endentry
+
+\entry{Bunge}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Bunge}{B.}%
+     {H.~J.}{H.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Butterworths}%
+  }
+  \strng{namehash}{BHJ1}
+  \strng{fullhash}{BHJ1}
+  \field{labelalpha}{Bun82}
+  \field{sortinit}{B}
+  \field{title}{Texture analysis in materials science: mathematical methods}
+  \field{year}{1982}
+\endentry
+
+\entry{Clarke71}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Clarke}{C.}%
+     {D.~R.}{D.~R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Howie}{H.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CDRHA1}
+  \strng{fullhash}{CDRHA1}
+  \field{labelalpha}{CH71}
+  \field{sortinit}{C}
+  \field{number}{190}
+  \field{title}{Calculations of lattice defect images for scanning electron
+  microscopy}
+  \field{volume}{24}
+  \field{journaltitle}{Philosophical Magazine}
+  \field{year}{1971}
+\endentry
+
+\entry{Coates67}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Coates}{C.}%
+     {D.~G.}{D.~G.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Taylor \& Francis}%
+  }
+  \strng{namehash}{CDG1}
+  \strng{fullhash}{CDG1}
+  \field{labelalpha}{Coa67}
+  \field{sortinit}{C}
+  \field{number}{144}
+  \field{pages}{1179\bibrangedash 1184}
+  \field{title}{Kikuchi-like reflection patterns obtained with the scanning
+  electron microscope}
+  \field{volume}{16}
+  \field{journaltitle}{Philosophical magazine}
+  \field{year}{1967}
+\endentry
+
+\entry{IntTableCrysBe}{incollection}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Cowley}{C.}%
+     {J.~M.}{J.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Goodman}{G.}%
+     {P.}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vainshtein}{V.}%
+     {B.~K.}{B.~K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zvyagin}{Z.}%
+     {B.~B.}{B.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dorset}{D.}%
+     {D.~L.}{D.~L.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer}%
+  }
+  \strng{namehash}{CJM+1}
+  \strng{fullhash}{CJMGPVBKZBBDDL1}
+  \field{labelalpha}{Cow+06}
+  \field{sortinit}{C}
+  \field{booktitle}{International Tables for Crystallography Volume B:
+  Reciprocal space}
+  \field{pages}{276\bibrangedash 345}
+  \field{title}{Electron diffraction and electron microscopy in structure
+  determination}
+  \field{year}{2006}
+\endentry
+
+\entry{Darwin14}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Darwin}{D.}%
+     {C.~G.}{C.~G.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Taylor \& Francis}%
+  }
+  \strng{namehash}{DCG1}
+  \strng{fullhash}{DCG1}
+  \field{labelalpha}{Dar14}
+  \field{sortinit}{D}
+  \field{number}{158}
+  \field{pages}{315\bibrangedash 333}
+  \field{title}{The theory of {X}-ray reflexion}
+  \field{volume}{27}
+  \field{journaltitle}{The London, Edinburgh, and Dublin Philosophical Magazine
+  and Journal of Science}
+  \field{year}{1914}
+\endentry
+
+\entry{Darwin22}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Darwin}{D.}%
+     {C.~G.}{C.~G.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Taylor \& Francis}%
+  }
+  \strng{namehash}{DCG1}
+  \strng{fullhash}{DCG1}
+  \field{labelalpha}{Dar22}
+  \field{sortinit}{D}
+  \field{number}{257}
+  \field{pages}{800\bibrangedash 829}
+  \field{title}{XCII. The reflexion of {X}-rays from imperfect crystals}
+  \field{volume}{43}
+  \field{journaltitle}{The London, Edinburgh, and Dublin Philosophical Magazine
+  and Journal of Science}
+  \field{year}{1922}
+\endentry
+
+\entry{Davenport73}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Davenport}{D.}%
+     {P.~B.}{P.~B.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{DPB1}
+  \strng{fullhash}{DPB1}
+  \field{labelalpha}{Dav73}
+  \field{sortinit}{D}
+  \field{number}{6}
+  \field{title}{Rotation about nonortogonal axes}
+  \field{volume}{11}
+  \field{journaltitle}{American institute of Aeronautics and Astronautics}
+  \field{year}{1973}
+\endentry
+
+\entry{Davies83}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Davies}{D.}%
+     {J.A.}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {IOP Publishing}%
+  }
+  \strng{namehash}{DJ1}
+  \strng{fullhash}{DJ1}
+  \field{labelalpha}{Dav83}
+  \field{sortinit}{D}
+  \field{number}{3}
+  \field{pages}{294}
+  \field{title}{The channeling phenomenon-and some of its applications}
+  \field{volume}{28}
+  \field{journaltitle}{Physica Scripta}
+  \field{year}{1983}
+\endentry
+
+\entry{Dearnaley68}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Dearnaley}{D.}%
+     {G.}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mitchell}{M.}%
+     {I.~V.}{I.~V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nelson}{N.}%
+     {R.~S.}{R.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Farmery}{F.}%
+     {B.~W.}{B.~W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Thompson}{T.}%
+     {M.~W.}{M.~W.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{DG+1}
+  \strng{fullhash}{DGMIVNRSFBWTMW1}
+  \field{labelalpha}{Dea+68}
+  \field{sortinit}{D}
+  \field{number}{155}
+  \field{pages}{985\bibrangedash 1016}
+  \field{title}{Proton channelling through thin crystals}
+  \field{volume}{18}
+  \field{journaltitle}{Philosophical Magazine}
+  \field{year}{1968}
+\endentry
+
+\entry{Dennett}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Dennett}{D.}%
+     {D.~C.}{D.~C.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {WW Norton \& Company}%
+  }
+  \strng{namehash}{DDC1}
+  \strng{fullhash}{DDC1}
+  \field{labelalpha}{Den17}
+  \field{sortinit}{D}
+  \field{title}{From bacteria to Bach and back: The evolution of minds}
+  \field{year}{2017}
+\endentry
+
+\entry{MarcTEM03}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {De~Graef}{D.~G.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Cambridge university Press, New York}%
+  }
+  \strng{namehash}{DGM1}
+  \strng{fullhash}{DGM1}
+  \field{labelalpha}{DG03}
+  \field{sortinit}{D}
+  \field{title}{Introduction to transmission electon microscopy}
+  \field{year}{2003}
+\endentry
+
+\entry{teachingPointGroup}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {De~Graef}{D.~G.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{DGM1}
+  \strng{fullhash}{DGM1}
+  \field{labelalpha}{DG08}
+  \field{sortinit}{D}
+  \field{howpublished}{International Union of Crystallography}
+  \field{note}{\href{https://www.iucr.org/education/pamphlets/23/full-text}{{https://www.iucr.org/education/pamphlets/23/full-text}}}
+  \field{title}{Teaching crystallographic and magnetic point group symmetry
+  using three-dimensional rendered visualizations}
+  \field{year}{2008}
+\endentry
+
+\entry{EMsoft}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {De~Graef}{D.~G.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Research Group}%
+  }
+  \strng{namehash}{DGM1}
+  \strng{fullhash}{DGM1}
+  \field{labelalpha}{DG13}
+  \field{sortinit}{D}
+  \field{howpublished}{\url{https://github.com/marcdegraef/EMsoft}}
+  \field{title}{EMsoft}
+  \list{location}{1}{%
+    {Carnegie Mellon University}%
+  }
+  \field{journaltitle}{GitHub repository}
+  \field{year}{2013-2017}
+\endentry
+
+\entry{3Drot}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {De~Graef}{D.~G.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Research Group}%
+  }
+  \strng{namehash}{DGM1}
+  \strng{fullhash}{DGM1}
+  \field{labelalpha}{DG14}
+  \field{sortinit}{D}
+  \field{howpublished}{https://github.com/marcdegraef/3Drotations}
+  \field{title}{3Drotations}
+  \list{location}{1}{%
+    {Carnegie Mellon University}%
+  }
+  \field{journaltitle}{GitHub repository}
+  \field{year}{2014-2017}
+\endentry
+
+\entry{Davisson27}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Davisson}{D.}%
+     {C.}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Germer}{G.}%
+     {L.~H.}{L.~H.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {APS}%
+  }
+  \strng{namehash}{DCGLH1}
+  \strng{fullhash}{DCGLH1}
+  \field{labelalpha}{DG27}
+  \field{sortinit}{D}
+  \field{number}{6}
+  \field{pages}{705}
+  \field{title}{Diffraction of electrons by a crystal of nickel}
+  \field{volume}{30}
+  \field{journaltitle}{Physical review}
+  \field{year}{1927}
+\endentry
+
+\entry{DeGraef98}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {De~Graef}{D.~G.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{DGM1}
+  \strng{fullhash}{DGM1}
+  \field{labelalpha}{DG98}
+  \field{sortinit}{D}
+  \field{title}{A novel way to represent the 32 crystallographic point groups}
+  \field{volume}{20}
+  \field{journaltitle}{J. Matter: Educ}
+  \field{year}{1998}
+\endentry
+
+\entry{SoM}{book}{}
+  \name{author}{2}{}{%
+    {{}%
+     {De~Graef}{D.~G.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McHenry}{M.}%
+     {M.~E.}{M.~E.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Cambridge University Press}%
+  }
+  \strng{namehash}{DGMMME1}
+  \strng{fullhash}{DGMMME1}
+  \field{labelalpha}{DGM12}
+  \field{sortinit}{D}
+  \field{edition}{second}
+  \field{title}{Structure of Materials; an introduction to crystallography,
+  diffraction and symmetry}
+  \field{year}{2012}
+\endentry
+
+\entry{Doyle68}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Doyle}{D.}%
+     {P.~A.}{P.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Turner}{T.}%
+     {P.~S.}{P.~S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{DPATPS1}
+  \strng{fullhash}{DPATPS1}
+  \field{labelalpha}{DT68}
+  \field{sortinit}{D}
+  \field{title}{Relativistic Hartree-Fock X-ray and electron scattering
+  factors}
+  \field{volume}{24}
+  \field{journaltitle}{Acta Crystallographica}
+  \field{year}{1968}
+\endentry
+
+\entry{Ewald17}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Ewald}{E.}%
+     {P.~P.}{P.~P.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Wiley Online Library}%
+  }
+  \strng{namehash}{EPP1}
+  \strng{fullhash}{EPP1}
+  \field{labelalpha}{Ewa17}
+  \field{sortinit}{E}
+  \field{number}{23}
+  \field{pages}{519\bibrangedash 556}
+  \field{title}{Zur begr{\"u}ndung der kristalloptik}
+  \field{volume}{359}
+  \field{journaltitle}{Annalen der Physik}
+  \field{year}{1917}
+\endentry
+
+\entry{Friedrich12}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Friedrich}{F.}%
+     {W.}{W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Knipping}{K.}%
+     {P.}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Laue}{L.}%
+     {M.~V.}{M.~V.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{FWKPLMV1}
+  \strng{fullhash}{FWKPLMV1}
+  \field{labelalpha}{FKL12}
+  \field{sortinit}{F}
+  \field{pages}{303}
+  \field{title}{Interference phenomena with R{\"o}ntgen rays}
+  \field{volume}{22}
+  \field{journaltitle}{Sitzber. Math-phys. Kl. bayer. Akad. Wiss. Manche}
+  \field{year}{1912}
+\endentry
+
+\entry{Frank65}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Frank}{F.}%
+     {F.~C.}{F.~C.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{FFC1}
+  \strng{fullhash}{FFC1}
+  \field{labelalpha}{Fra65}
+  \field{sortinit}{F}
+  \field{number}{862}
+  \field{title}{On {M}iller-{B}ravais Indices and four-dimensional {V}ectors}
+  \field{volume}{18}
+  \field{journaltitle}{Acta Crystalographica}
+  \field{year}{1965}
+\endentry
+
+\entry{Gao99}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Gao}{G.}%
+     {H.~X.}{H.~X.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Peng}{P.}%
+     {L.~M.}{L.~M.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GHXPLM1}
+  \strng{fullhash}{GHXPLM1}
+  \field{labelalpha}{GP99}
+  \field{sortinit}{G}
+  \field{number}{55}
+  \field{title}{Parametrization of the temperature dependence of the
+  Debye-Waller factor}
+  \field{volume}{A}
+  \field{journaltitle}{Acta Crystalographica}
+  \field{year}{1999}
+\endentry
+
+\entry{IntTableCrysA}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Hahn}{H.}%
+     {T.}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Kluwer Academic Pub}%
+  }
+  \strng{namehash}{HT1}
+  \strng{fullhash}{HT1}
+  \field{labelalpha}{Hah96}
+  \field{sortinit}{H}
+  \field{title}{International tables for crystallography: Brief teaching
+  edition of volume A, Space-group symmetry}
+  \field{volume}{1}
+  \field{year}{1996}
+\endentry
+
+\entry{Hirsch60}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Hirsch}{H.}%
+     {P.~B.}{P.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Howie}{H.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Whelan}{W.}%
+     {M.~J.}{M.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{HPBHAWMJ1}
+  \strng{fullhash}{HPBHAWMJ1}
+  \field{labelalpha}{HHW60}
+  \field{sortinit}{H}
+  \field{title}{A kinematical theory of diffraction contrast of electrons
+  transmission microscope images of dislocations and other defects}
+  \field{volume}{252}
+  \field{journaltitle}{Philosophical Transactions A}
+  \field{year}{1960}
+\endentry
+
+\entry{electronMicroscopy}{book}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Hirsch}{H.}%
+     {P.~B.}{P.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Howie}{H.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nicholson}{N.}%
+     {R.~B.}{R.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pahley}{P.}%
+     {D.~W.}{D.~W.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {London Butterworths}%
+  }
+  \strng{namehash}{HPB+1}
+  \strng{fullhash}{HPBHANRBPDW1}
+  \field{labelalpha}{Hir+65}
+  \field{sortinit}{H}
+  \field{title}{Electron microscopy of thin crystals}
+  \field{year}{1965}
+\endentry
+
+\entry{Howie78}{inproceedings}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Howie}{H.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dobson}{D.}%
+     {P.~J.}{P.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pendry}{P.}%
+     {J.~B.}{J.~B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Humphreys}{H.}%
+     {C.~J.}{C.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{HA+1}
+  \strng{fullhash}{HADPJPJBHCJ1}
+  \field{labelalpha}{How+78}
+  \field{sortinit}{H}
+  \field{booktitle}{Eds., P. J. Dobson, J. B. Pendry and C. J. Humphreys. IOP
+  Conf. Series}
+  \field{title}{Electron Diffraction (1927--1977)}
+  \field{volume}{41}
+  \field{year}{1978}
+\endentry
+
+\entry{Howie61}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Howie}{H.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Whelan}{W.}%
+     {M.~J.}{M.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{HAWMJ1}
+  \strng{fullhash}{HAWMJ1}
+  \field{labelalpha}{HW61}
+  \field{sortinit}{H}
+  \field{booktitle}{Proceedings of Royal Society of London A}
+  \field{title}{Diffraction contrast of electron microscope images of crystal
+  lattice defects - {II}. {T}he development of a dynamical theory}
+  \field{volume}{263}
+  \field{year}{1961}
+\endentry
+
+\entry{Keller12}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Keller}{K.}%
+     {R.~R.}{R.~R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Geiss}{G.}%
+     {R.~H.}{R.~H.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Wiley Online Library}%
+  }
+  \strng{namehash}{KRRGRH1}
+  \strng{fullhash}{KRRGRH1}
+  \field{labelalpha}{KG12}
+  \field{sortinit}{K}
+  \field{number}{3}
+  \field{pages}{245\bibrangedash 251}
+  \field{title}{Transmission {EBSD} from 10 nm domains in a scanning electron
+  microscope}
+  \field{volume}{245}
+  \field{journaltitle}{Journal of Microscopy}
+  \field{year}{2012}
+\endentry
+
+\entry{Knoll32}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Knoll}{K.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ruska}{R.}%
+     {E.}{E.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer}%
+  }
+  \strng{namehash}{KMRE1}
+  \strng{fullhash}{KMRE1}
+  \field{labelalpha}{KR32}
+  \field{sortinit}{K}
+  \field{number}{5-6}
+  \field{pages}{318\bibrangedash 339}
+  \field{title}{Das elektronenmikroskop}
+  \field{volume}{78}
+  \field{journaltitle}{Zeitschrift f{\"u}r Physik}
+  \field{year}{1932}
+\endentry
+
+\entry{Laue31}{incollection}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Laue}{L.}%
+     {M.~von}{M.~v.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer}%
+  }
+  \strng{namehash}{LMv1}
+  \strng{fullhash}{LMv1}
+  \field{labelalpha}{Lau31}
+  \field{sortinit}{L}
+  \field{booktitle}{Ergebnisse der exakten naturwissenschaften}
+  \field{pages}{133\bibrangedash 158}
+  \field{title}{Die dynamische Theorie der R{\"o}ntgenstrahlinterferenzen in
+  neuer Form}
+  \field{year}{1931}
+\endentry
+
+\entry{Lindhard65}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Lindhard}{L.}%
+     {J.}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{LJ1}
+  \strng{fullhash}{LJ1}
+  \field{labelalpha}{Lin65}
+  \field{sortinit}{L}
+  \field{number}{14}
+  \field{title}{Influence of Crystal Lattice on Motion of energetic charged
+  particle}
+  \field{volume}{34}
+  \field{journaltitle}{Kgl. Danske Vidensk. Selskab. Mat. Fys. Medd}
+  \field{year}{1965}
+\endentry
+
+\entry{Miu2018}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Miu}{M.}%
+     {E.}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gulley}{G.}%
+     {N.}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Laland}{L.}%
+     {K.~N.}{K.~N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rendell}{R.}%
+     {L}{L}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{ME+1}
+  \strng{fullhash}{MEGNLKNRL1}
+  \field{labelalpha}{Miu+18}
+  \field{sortinit}{M}
+  \field{number}{2321}
+  \field{title}{Innovation and cumulative culture through tweaks and leaps in
+  online programming contests}
+  \field{volume}{9}
+  \field{journaltitle}{Nature Communications}
+  \field{year}{2018}
+\endentry
+
+\entry{Nicholas66}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Nicholas}{N.}%
+     {J.~F.}{J.~F.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{NJF1}
+  \strng{fullhash}{NJF1}
+  \field{labelalpha}{Nic66}
+  \field{sortinit}{N}
+  \field{number}{880}
+  \field{title}{The simplicity of {M}iller-{B}ravais indexing}
+  \field{volume}{21}
+  \field{journaltitle}{Acta Crystalographica}
+  \field{year}{1966}
+\endentry
+
+\entry{Nishikawa28}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Nishikawa}{N.}%
+     {S.}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kikuchi}{K.}%
+     {S.}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Nature Publishing Group}%
+  }
+  \strng{namehash}{NSKS1}
+  \strng{fullhash}{NSKS1}
+  \field{labelalpha}{NK28}
+  \field{sortinit}{N}
+  \field{number}{3080}
+  \field{pages}{726}
+  \field{title}{Diffraction of cathode rays by calcite}
+  \field{volume}{122}
+  \field{journaltitle}{Nature}
+  \field{year}{1928}
+\endentry
+
+\entry{Nolze07}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Nolze}{N.}%
+     {Gert}{G.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Elsevier}%
+  }
+  \strng{namehash}{NG1}
+  \strng{fullhash}{NG1}
+  \field{labelalpha}{Nol07}
+  \field{sortinit}{N}
+  \field{number}{2-3}
+  \field{pages}{172\bibrangedash 183}
+  \field{title}{Image distortions in {SEM} and their influences on {EBSD}
+  measurements}
+  \field{volume}{107}
+  \field{journaltitle}{Ultramicroscopy}
+  \field{year}{2007}
+\endentry
+
+\entry{Okamoto68}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Okamoto}{O.}%
+     {P.R.}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Thomas}{T.}%
+     {G}{G}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{OPTG1}
+  \strng{fullhash}{OPTG1}
+  \field{labelalpha}{OT68}
+  \field{sortinit}{O}
+  \field{title}{On the Four-Axis Hexagonal Reciprocal Lattice and its use in
+  Indexing of {T}ransmission {E}lectron {D}iffraction {P}atterns}
+  \field{volume}{25}
+  \field{journaltitle}{phys. stat. sol.}
+  \field{year}{1968}
+\endentry
+
+\entry{myGitHub}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Pascal}{P.}%
+     {E.}{E.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {GitHub}%
+  }
+  \strng{namehash}{PE1}
+  \strng{fullhash}{PE1}
+  \field{labelalpha}{Pas15}
+  \field{sortinit}{P}
+  \field{howpublished}{https://github.com/elena-pascal/SEM-diffraction}
+  \field{title}{SEM-diffraction}
+  \list{location}{1}{%
+    {University of Strathclyde}%
+  }
+  \field{journaltitle}{GitHub repository}
+  \field{year}{2015-2018}
+\endentry
+
+\entry{Piercy63}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Piercy}{P.}%
+     {G.~R.}{G.~R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Brown}{B.}%
+     {F.}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Davies}{D.}%
+     {J.~A.}{J.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McCargo}{M.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {APS}%
+  }
+  \strng{namehash}{PGR+1}
+  \strng{fullhash}{PGRBFDJAMM1}
+  \field{labelalpha}{Pie+63}
+  \field{sortinit}{P}
+  \field{number}{9}
+  \field{pages}{399}
+  \field{title}{Experimental evidence for the increase of heavy ion ranges by
+  channeling in crystalline structure}
+  \field{volume}{10}
+  \field{journaltitle}{Physical Review Letters}
+  \field{year}{1963}
+\endentry
+
+\entry{Prins30}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Prins}{P.}%
+     {J.A.}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer}%
+  }
+  \strng{namehash}{PJ1}
+  \strng{fullhash}{PJ1}
+  \field{labelalpha}{Pri30}
+  \field{sortinit}{P}
+  \field{number}{7-8}
+  \field{pages}{477\bibrangedash 493}
+  \field{title}{Die Reflexion von R{\"o}ntgenstrahlen an absorbierenden idealen
+  Kristallen}
+  \field{volume}{63}
+  \field{journaltitle}{Zeitschrift f{\"u}r Physik}
+  \field{year}{1930}
+\endentry
+
+\entry{Rowenhorst15}{article}{}
+  \name{author}{7}{}{%
+    {{}%
+     {Rowenhorst}{R.}%
+     {D.}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rollett}{R.}%
+     {A.~D.}{A.~D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rohrer}{R.}%
+     {G.~S.}{G.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Groeber}{G.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Jackson}{J.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Konijnenberg}{K.}%
+     {P.~J.}{P.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {De~Graef}{D.~G.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {IOP Publishing}%
+  }
+  \strng{namehash}{RD+1}
+  \strng{fullhash}{RDRADRGSGMJMKPJDGM1}
+  \field{labelalpha}{Row+15}
+  \field{sortinit}{R}
+  \field{number}{8}
+  \field{pages}{083501}
+  \field{title}{Tutorial: {C}onsistent representations of and conversions
+  between 3{D} rotations}
+  \field{volume}{23}
+  \field{journaltitle}{Modelling and Simulation in Materials Science and
+  Engineering}
+  \field{year}{2015}
+\endentry
+
+\entry{Schowalter09}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Schowalter}{S.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rosenauer}{R.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Titantah}{T.}%
+     {J.~T.}{J.~T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lamoen}{L.}%
+     {D.}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SM+1}
+  \strng{fullhash}{SMRATJTLD1}
+  \field{labelalpha}{Sch+09}
+  \field{sortinit}{S}
+  \field{number}{65}
+  \field{title}{Temperature-dependent Debye-Waller factors for semiconductors
+  with wurtzite-type structure}
+  \field{volume}{A}
+  \field{journaltitle}{Acta Crystallographica}
+  \field{year}{2009}
+\endentry
+
+\entry{Spencer80}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Spencer}{S.}%
+     {J.~P.}{J.~P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Humphreys}{H.}%
+     {C.~J.}{C.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SJPHCJ1}
+  \strng{fullhash}{SJPHCJ1}
+  \field{labelalpha}{SH80}
+  \field{sortinit}{S}
+  \field{number}{4}
+  \field{title}{A multiple scattering transport theory for electron}
+  \field{volume}{42}
+  \field{journaltitle}{Philosophical Magazine A}
+  \field{year}{1980}
+\endentry
+
+\entry{Spencer72}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Spencer}{S.}%
+     {J.~P.}{J.~P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Humphreys}{H.}%
+     {C.~J.}{C.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hirsch}{H.}%
+     {P.~B.}{P.~B.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SJPHCJHPB1}
+  \strng{fullhash}{SJPHCJHPB1}
+  \field{labelalpha}{SHH72}
+  \field{sortinit}{S}
+  \field{number}{1}
+  \field{title}{A dynamical theory for the contrast of perfect and imperfect
+  crystals in the scanning electron microscope using backscattered electrons}
+  \field{volume}{26}
+  \field{journaltitle}{Philosophical Magazine}
+  \field{year}{1972}
+\endentry
+
+\entry{Thomson27}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Thomson}{T.}%
+     {G.~P.}{G.~P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Reid}{R.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Nature Publishing Group}%
+  }
+  \strng{namehash}{TGPRA1}
+  \strng{fullhash}{TGPRA1}
+  \field{labelalpha}{TR27}
+  \field{sortinit}{T}
+  \field{number}{3007}
+  \field{pages}{890}
+  \field{title}{Diffraction of cathode rays by a thin film}
+  \field{volume}{119}
+  \field{journaltitle}{Nature}
+  \field{year}{1927}
+\endentry
+
+\entry{Trimby12}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Trimby}{T.}%
+     {P.~W.}{P.~W.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Elsevier}%
+  }
+  \strng{namehash}{TPW1}
+  \strng{fullhash}{TPW1}
+  \field{labelalpha}{Tri12}
+  \field{sortinit}{T}
+  \field{pages}{16\bibrangedash 24}
+  \field{title}{Orientation mapping of nanostructured materials using
+  transmission {K}ikuchi diffraction in the scanning electron microscope}
+  \field{volume}{120}
+  \field{journaltitle}{Ultramicroscopy}
+  \field{year}{2012}
+\endentry
+
+\entry{VanDyck76}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Van~Dyck}{V.~D.}%
+     {D.}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{VDD1}
+  \strng{fullhash}{VDD1}
+  \field{labelalpha}{VD76}
+  \field{sortinit}{V}
+  \field{number}{1}
+  \field{pages}{301\bibrangedash 308}
+  \field{title}{The importance of backscattering in high-energy electron
+  diffraction calculations}
+  \field{volume}{77}
+  \field{journaltitle}{physica status solidi (b)}
+  \field{year}{1976}
+\endentry
+
+\entry{Venables73}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Venables}{V.}%
+     {J.~A.}{J.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Harland}{H.}%
+     {C.~J.}{C.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Taylor \& Francis}%
+  }
+  \strng{namehash}{VJAHCJ1}
+  \strng{fullhash}{VJAHCJ1}
+  \field{labelalpha}{VH73}
+  \field{sortinit}{V}
+  \field{number}{5}
+  \field{pages}{1193\bibrangedash 1200}
+  \field{title}{Electron back-scattering patterns—{A} new technique for
+  obtaining crystallographic information in the scanning electron microscope}
+  \field{volume}{27}
+  \field{journaltitle}{Philosophical Magazine}
+  \field{year}{1973}
+\endentry
+
+\entry{Wilkinson95}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Wilkinson}{W.}%
+     {A.~J.}{A.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hirsch}{H.}%
+     {P.~B.}{P.~B.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{WAJHPB1}
+  \strng{fullhash}{WAJHPB1}
+  \field{labelalpha}{WH95}
+  \field{sortinit}{W}
+  \field{number}{1}
+  \field{title}{The effects of surface stress relaxation on electron
+  channelling contrast images of dislocations}
+  \field{volume}{72}
+  \field{journaltitle}{Philosophical Magazine A}
+  \field{year}{1995}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput
