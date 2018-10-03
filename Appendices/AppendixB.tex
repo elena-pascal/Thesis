@@ -42,7 +42,7 @@ In the following we will explore a non-exhaustive list of symmetry operations. W
 A pure rotation is fully determined by a rotation axis and a rotation angle which is chosen to be positive in the counter-clockwise direction. The rotation axis is given as a vector \hkl[uvw] and the rotation angle is given as fraction of $2\pi$. For instance a rotation of order three or three-fold rotation is a rotation by angle $2\pi/3$. In general an $n$-fold rotation is represented by symbol \textsf{n} (\textsf{C}$_n$) and Table~\ref{Table:rotation} shows examples for three-fold and six-fold rotations together with their graphical symbols which are filled polygons with $n$ sides.
  
 
-\begin{table}[h!]
+\begin{table}[ht]
 \caption{Examples of pure rotation symbols.}
 \label{Table:rotation}
 \centering
@@ -56,10 +56,10 @@ A pure rotation is fully determined by a rotation axis and a rotation angle whic
 \end{tabular}
 \end{table}
 
-\begin{figure}[!h]
+\begin{figure}[ht]
     \centering
 \includegraphics[width=0.9\linewidth]{Figures/pureRotation.png}
-\caption{Rendered 3D graphical representations of a) three-fold and b) six-fold pure rotations. The circles in the bottom right of the images represent the stereographic projections of the operators.   }
+\caption[Graphical representations of a) three-fold and b) six-fold pure rotations.]{Rendered 3D graphical representations of a) three-fold and b) six-fold pure rotations. The circles in the bottom right of the images represent the stereographic projections of the operators.   }
 \label{Fig:pureRotation}
 \end{figure}
 
@@ -262,7 +262,7 @@ Combining translation with rotation yields a new type of symmetry operation, kno
 \begin{figure}[ht]
     \centering
 \includegraphics[width=1.\linewidth]{Figures/screwRotation.png}
-\caption{Rendered 3D graphical representations and (sequentially numbered) operations involved in the construction of screw axis a)~$\mathsf{2_1}$ and b)~$\mathsf{6_3}$. Standard 2D graphical projections are included at the bottom. }
+\caption[Operations steps for screw axis.]{Rendered 3D graphical representations and (sequentially numbered) operations involved in the construction of screw axis a)~$\mathsf{2_1}$ and b)~$\mathsf{6_3}$. Standard 2D graphical projections are included at the bottom. }
 \label{Fig:ScrewRotation}
 \end{figure}
 
@@ -383,7 +383,7 @@ If we give a mirror plane ($\mathsf{m}$) a six-fold rotation axis ($\mathsf{6}$)
 \begin{figure}[ht]
     \centering
 \includegraphics[width=0.85\linewidth]{Figures/pointGroup.png}
-\caption{ Graphical 3D representation of $\mathbf{6mm}$ point group together with its stereographic projection in the bottom corner right. }
+\caption[ $\mathbf{6mm}$ point group. ]{ Graphical 3D representation of $\mathbf{6mm}$ point group together with its stereographic projection in the bottom corner right. }
 \label{Fig:6mm}
 \end{figure}
 
@@ -399,7 +399,7 @@ Another point group property is that of \textit{centrosymmetry}.  If we define p
 
 To find the full symmetry of a point group starting with the list of generator matrices, we multiply each operator with itself and the others, remembering that matrix multiplication is not commutative. For every resulting matrix that is not the identity matrix we check if we already have it in the set. If not then we can add it and start the matrix multiplications again. When we did all the possible operations in a set without finding any new matrices we can stop looking and declare we found the full symmetry operations group. The \emph{Python} style pseudocode for this is shown below in Algorithm~\ref{Fc:symMatrices}. This function is implemented in the Jupyter notebook \texttt{Symmetry\_matrices.ipynb}. 
 
-\begin{algorithm}[H]
+\begin{algorithm}[ht]
 \caption{Recursive function to find the symmetry matrices of a space group starting from the list of generators. }
 \DontPrintSemicolon
 \SetKwProg{Fn}{def}{\string:}{end}
@@ -473,7 +473,7 @@ Depending on whether or not the space group contains any glide planes or screw a
  
 
 
-
+%%
 \subsection{The \textit{International Tables for Crystallography, Volume A}}
 \label{chap:int}
 

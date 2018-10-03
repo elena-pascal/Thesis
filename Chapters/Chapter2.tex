@@ -1,23 +1,27 @@
 \chapter{Background and Basics} % Main chapter title
-
-
-
 \label{Background} 
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 I often made the mistake to start talking about diffraction assuming the audience knows exactly what I mean. I'd like to rectify that here and introduce the concept and physics of \textit{diffraction} in the SEM. I wrote this chapter as an introduction to theory the first year PhD me would have liked to have read, assuming the wisdom of today. 
 
-In this introductory chapter I will first lay out some key crystallography concepts as the Bravais lattice, indices notations and the reciprocal space. All these concepts will be illustrated by examples using the hexagonal lattice. In this way I can cover both the some basic physics concepts, introduce language and notations commonly used in this field but also evidence where some of the computations used in the later chapters come from. 
+In this introductory chapter I will first lay out some key crystallography concepts as the Bravais lattice (page~\pageref{Sect:spaceLattice}), indices notations (page~\pageref{subChap:MB indices}) and the reciprocal space (page~\pageref{sec:recMB}). All these concepts will be illustrated by examples using the hexagonal lattice. In this way I can cover some basic physics concepts, introduce language and notations commonly used in this field but also evidence where some of the computations used in the later chapters come from. 
+
+Since we will make use of quantum mechanical notions such as the \textit{wavefunction} I'll briefly lay out on page~\pageref{sec:wave} what is meant by it in this document. Similarly, another useful concept used in diffraction, that of \textit{plane waves} is outlines on page~\pageref{Fig:planeWaves}. 
+I will remind the reader, on page~\pageref{Sec:Bragg},  the condition for  elastic coherent scattering along a set of crystal lattice planes or, more concise, the \textit{Bragg's law}. 
+
+
+Next, starting with page~\pageref{chap:real+recAlg}, I will painstakingly go through the core algebra used in crystallography, both in the real and reciprocal space, covering notions such as the \textit{metric tensor} and \textit{structure matrix}. I will examples from the hexagonal lattice to highlight the implications of these computations. 
 
 
 We cannot make a single dent in diffraction without a working knowledge of symmetry in crystallography, which is why I will take a few pages to explore \textit{crystal symmetry} and \textit{point group} analysis in Appendix~\ref{Chap:Symmetry}. Here I also will limit the examples to the wurtzite system to keep it relevant. On page~\pageref{sec:Wsymmetry}, I go over the defining symmetry operation of wurtzite space group derived in this Appendix. These operations are defining the relative positions of the atoms in the unit cell and  will be used in next chapter for computations of electron scattering factors.  
 
-I will then talk about the interaction of electrons with the crystal lattice that gives rise to elastic coherent scattering along certain directions and touch on \textit{Bragg's law} and it's geometrical form, the \textit{Ewald sphere}. I will also talk about the interaction of the electrons with the unit cell, which affects the intensity of the diffracting beam along chosen direction through the parameter known as the \textit{scattering factor}. There are always these two conditions to take into account when figuring out the diffraction intensity along a certain direction. And both of these parameters (scattering angle from lattice plane and scattering factor) can have values for which the diffraction beam intensity vanishes.
+
+Finally, before we leave this introductory chapter, I will outline on page~\pageref{sec:sem} a few features of the SEM that are key in modelling. 
 
 
 \section{Primer}
-But first things first. We need to define terms and notions that we've both seen before but maybe are not quite as within reach as they ought to be in order to comfortably embark on this journey.
+But first things first. We need to define terms and notions that we've both seen before but maybe are not quite as within reach as they ought to be in order to comfortably embark on this journey. Better accounts of the basics covered here can be found in many textbooks~\cite{Hirsch11,Williams96,Reimer13}. The following is only my attempt inspired in large parts by \textit{Structure of materials: an introduction to crystallography, diffraction and symmetry}~\cite{SoM} and \textit{Introduction to Conventional Transmission Electron Microscopy}~\cite{MarcTEM03}.
 
 \subsection{Crystal structure}
 \label{Sec:crystalStruct}
@@ -27,10 +31,10 @@ The rigorous definition involves the mathematical construct of crystal \textit{l
 
 
 %---------
-\begin{figure}[!ht]
+\begin{figure}[ht]
     \centering
 \includegraphics[width=0.9\linewidth]{Figures/motif.png}
-\caption{A periodic structure (c) showing copies of a 2D motif (a) at every lattice point on a 2D lattice. The translation vector $t_{uv}$ moves the lattice to a position indistinguishable from the original one.}
+\caption[2D crystal lattice definition.]{A periodic structure (c) showing copies of a 2D motif (a) at every lattice point on a 2D lattice. The translation vector $t_{uv}$ moves the lattice to a position indistinguishable from the original one.}
 \label{Fig:motif}
 \end{figure}
 %---------
@@ -38,13 +42,78 @@ The rigorous definition involves the mathematical construct of crystal \textit{l
 
 
 
+\subsection{Debye-Waller correction factor}
+\label{Sec:DWf}
+
+When we say that a crystal is a rigid structure, we mean that over time the average positions of the atoms/molecules does not change. However, even at room temperature, the atoms exhibit thermal motion, small oscillations around their average ``real values''. While this motion does not affect the crystal structure description (\ie we can ignore small thermal effects when describing the crystal structure), it must be taken into account when the the diffraction measurement is to be interpreted.
+
+Due to these small vibrations, the electron cloud will spread over a larger space than a frozen atom would, which will reduce the electron density, and, for our purpose, will reduce or dampen the electron-electron scattering process. An adequate approximation when accounting for atomic thermal vibration is the Debye-Waller (DW) factor $B(T)$. If we assume the scattering probability for a certain set of planes is $f_0$ when the lattice is frozen in place, \ie at \SI{0}{\kelvin}, then we can use the DW factor to correct the scattering probability $f_T$ at temperature $T$:
+
+\begin{equation}
+\label{eq:correctedScattter}
+f_T=f_0 e^{-B(T)s^2}, \quad \text{with}\quad s=\frac{\sin\theta_B}{\lambda}
+\end{equation}
+where $s$ is half of the inverse of interplanar distance $d_{hkl}$. We will see in next chapter that $f$ is commonly known as the scattering factor and how we can calculate its value. From dimensional analysis we can see that B is proportional to the mean square displacement of the atom in the direction normal to the Bragg plane. We can also read from this equation that the intensity of the diffracted beam is reduced by a factor $e^{-B(T)s^2}$ with respect to the intensity of the same beam interacting with the sample at~$\SI{0}{\kelvin}$.
+
+A good approximation, and the one we will use here, is to assume that for close-packed structures the atomic vibration amplitude is isotropic, such that we only require one DW parameter for each element in the crystal structure. This is not a generally valid assumption, however, first principles phonon density calculations for wurtzite-type III-V semiconductors by Schowalter \etal~\cite{Schowalter09} showed that these materials have only small anisotropies of their Debye-Waller factors.
+
+\begin{table}[ht]
+\caption[Debye-Waller factor for cubic elemental crystals.]{Debye-Waller fitting parameters for cubic elemental crystals from~\cite{Gao99} and the calculated DW values at 300\si{\kelvin}.}
+\label{Table:DWGao}
+\centering
+\begin{tabular}{ l c c c c c r r}
+\toprule
+\tabhead{{\small Element}} & \tabhead{$a_0$} & \tabhead{$a_1$} &\tabhead{$a_2$} &\tabhead{$a_3$} & \tabhead{$a_4$} & \tabhead{{\small ME(\si{\percent})}} & \tabhead{{\small B(\si{\angstrom^2})}}   \\
+\midrule
+  Al & {\small 0.19} & {\small \num{0.16e-02}} & {\small \num{0.25d-05}} & {\small \num{-0.26d-08}} & {\small \num{0.10d-11}} & 1.31 &  0.83\\
+  Ga & {\small 0.11} & {\small \num{0.40e-03}} & {\small \num{0.66d-05}} & {\small \num{-0.18d-07}} & {\small \num{0.19d-10}} & 0.05 & 0.49\\
+  In & {\small 0.08 }& {\small \num{0.77d-02}} & {\small \num{0.48d-05}} & {\small \num{-0.12d-07}} & {\small \num{0.11d-11}} &  0.08 & 0.43\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Gao and Peng~\cite{Gao99} used a fourth degree polynomial regression fit to determine the temperature dependent DW factor for elemental cubic crystal from experimental data. These fit parameters are shown in Table~\ref{Table:DWGao} for the metal elements Al, Ga and In together with their estimated maximum error (ME) values. The form of the polynomial fit function is shown below:
+
+\begin{equation*}
+B(T) = a_0 + a_1T + a_2T^2 + a_3T^3 + a_4T^4
+\end{equation*}
+
+We must note here, that the measured Debye-Waller factors for defective materials will be different from that of perfect crystals since defects also scatter electrons. For this reason and the fact that first principles calculations can only be trusted if they predict experimental values, it is always  a good rule to use experimental values wherever possible. 
+
+This being said, the literature on DW factors for nitrogen is limited and we must turn to theoretical predictions. Schowalter \etal~\cite{Schowalter09} calculated these values for a number of wurtzite structures. We show below, in Table~\ref{Table:DWSchowalter}, the values predicted for the DW factor of N in AlN, GaN and InN\footnote{ We will see later, that since N scatters electrons significantly less then the heavier metallic elements in the system, its DW factors will not carry great importance. However, we did include the computations here for completeness.}.
+
+
+
+\begin{table}[ht]
+\caption[Debye-Waller factors for N in wurtzite materials.]{Static correction functions for N in wurtzite materials from DFT LDA calculations~\cite{Schowalter09} at 300\si{\kelvin} and the predicted DW factor.}
+\label{Table:DWSchowalter}
+\centering
+\begin{tabular}{ l c c  l}
+\toprule
+\tabhead{N in Material} &\tabhead{$\left\langle u^2_{11}(N)\right\rangle$(\si{\angstrom^2})} &\tabhead{$\left\langle u^2_{33}(N)\right\rangle$(\si{\angstrom^2})} & \tabhead{B(\si{\angstrom^2})}   \\
+\midrule
+  AlN & 0.0036 & 0.0034 & \num{0.28} \\
+  GaN & 0.0039 & 0.0037 & \num{0.29} \\
+  InN & 0.0065 & 0.0062 &\num{0.51} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The Debye-Waller factor of en element, $B(el.)$, is related to the electron static correlation function, $\langle u_{\alpha}(el.) \rangle$, which is the average displacement of an atom of $el.$ in the direction $\alpha$ by:
+\begin{equation*}
+B(el.) = \frac{8 \pi^2}{3}\left( 2\left\langle u^2_{11}(el.)\right\rangle + \left\langle u^2_{33}(el.)\right\rangle \right).
+\end{equation*}
+
+
+The computations that generated the values in the tables in this section can be conveniently found in the Jupyter Notebook titled \texttt{Debye-Waller.ipynb}.
 
 
 
 
+
+
+%%%%%%%%%
 \subsection{ \textbf{\textit{hP}} Bravais lattice and the hexagonal crystal system}
-
-
      
 \label{Sect:spaceLattice}
 There are as many lattices as there are possible regular arrangements of lattice points and there are as many possible arrangements as variety of crystal forms observed in nature. In the example above we placed the motifs such that its four corners coincide with four lattice points. In this case the motif maps exactly to one lattice point. In 3D space, we would have had the option to map a 3D motif on one, two or tree lattice points, defining lattices known as primitive ($P$), either body-centred ($I$) or base-centred ($C$), and face-centred ($F$), respectively. It is also easy to see that a motif with a very different shape will need a different arrangement of lattice points in order to cover the entire space neatly with no gaps or overlaps. We need, therefore, to unambiguously define both the lattice arrangement and the motif that define a crystal structure.   
@@ -65,7 +134,7 @@ If the lattice parameter values are chosen with no restriction, the resulting la
  \centering
 \includegraphics[width=1\linewidth]{Figures/hex2Dlattice.png}
 \captionsetup{width=.8\linewidth}
-\captionof{figure}{Hexagonal 2D lattice with basis vectors \{$\vb{a}_1$, $\vb{a}_2$, $\vb{c}$\}. The lattice parameters can be chosen to be \{$\mathrm{a}$,~$\mathrm{a}$,~$2\pi/3$\} or  \{$\mathrm{a}$,~$\mathrm{a}$,~$\pi/3$\}. }
+\captionof{figure}[Hexagonal 2D lattice.]{Hexagonal 2D lattice with basis vectors \{$\vb{a}_1$, $\vb{a}_2$, $\vb{c}$\}. The lattice parameters can be chosen to be \{$\mathrm{a}$,~$\mathrm{a}$,~$2\pi/3$\} or  \{$\mathrm{a}$,~$\mathrm{a}$,~$\pi/3$\}. }
 \label{Fig:hex2dlattice}
 \end{minipage}
  
@@ -78,15 +147,15 @@ We defined our unit cell as having the edges at lattice points but we did not ye
 
 
  
-\begin{figure}[!htb]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.7\linewidth]{Figures/hex3Dlattice.png}
-\caption{3D hexagonal crystal system  with lattice parameters \{$a$, $a$, $c$, 90\si{\degree}, 90\si{\degree}, 120\si{\degree}\} (a) and the 3D hexagonal primitive lattice (b).  }
+\caption[3D hexagonal crystal system.]{3D hexagonal crystal system  with lattice parameters \{$a$, $a$, $c$, 90\si{\degree}, 90\si{\degree}, 120\si{\degree}\} (a) and the 3D hexagonal primitive lattice (b).  }
 \label{Fig:hex3lattice}
 \end{figure}
 
 
-The same crystal system can be populated with lattice points in different manners such that it ends up describing different lattices. However, the number of choices of unique lattice points arrangements is limited to 5 for 2D lattices and 14 for 3D lattices. These unique lattice generators are known as \textit{Bravais}. The cubic crystal system ($c$), for instance, can be populated by a different number of lattice points: one to form the \textbf{p}rimitive cubic Bravais lattice ($cP$), two in the body centred lattice ($cI$) \footnote{ The label $I$ comes from the German word for body centred \textit{Innenzentriert}. } or three for the \textbf{f}ace centred one ($cF$). See ref.~\cite{Wolff85} for more information on lattice labels nomenclature. The hexagonal Bravais lattice ($h$) comes only in one type: primitive ($hP$), as shown in Fig.~\ref{Fig:hex3lattice}~(b).  
+The same crystal system can be populated with lattice points in different manners such that it ends up describing different lattices. However, the number of choices of unique lattice points arrangements is limited to 5 for 2D lattices and 14 for 3D lattices. These unique lattice generators are known as \textit{Bravais}. The cubic crystal system ($c$), for instance, can be populated by a different number of lattice points: one to form the \textbf{p}rimitive cubic Bravais lattice ($cP$), two in the body centred lattice ($cI$) \footnote{ The label $I$ comes from the German word for body centred \textit{Innenzentriert}. See ref.~\cite{Wolff85} for more information on lattice labels nomenclature.} or three for the \textbf{f}ace centred one ($cF$). The hexagonal Bravais lattice ($h$) comes only in one type: primitive ($hP$), as shown in Fig.~\ref{Fig:hex3lattice}~(b).  
 
 We can also write out now, from geometry, the volume of a primitive hexagonal lattice $\Omega_{hex}$ which will become useful later:
 \begin{equation}
@@ -98,7 +167,7 @@ With the notion of a hexagonal crystal system and its cell parameters well laid 
 
 
 
-
+%%%%
 \subsection{Lattice planes and directions in the hexagonal system}
 \label{sec:latMB}
 
@@ -114,13 +183,14 @@ For directions, usually labelled \hkl[uvw], the process is simpler; find the coo
 
 While the Miller indices notation is tremendously helpful when looking at families of planes in a cubic system, its powers become limited when tackling lower crystal symmetry. For instance in a system with lower than cubic symmetry, the family of planes for a given \hkl(hkl) plane is no longer made up of \emph{all} possible permutations of the Miller indices $h$, $k$ and $l$.
 
+%%%%%%%
 \subsubsection{Miller-Bravais indices}
 \label{subChap:MB indices}
 
 The hexagonal system indexing is a very different story. Usually treated as a special case in itself, the hexagonal system can keep the permutation equivalence property of Miller indexes as long as an extra, redundant basis vector is added. The new set of basis vectors, \{$\mathbf{A_1},\mathbf{A_2}, \mathbf{A_3}, \mathbf{C} $\}, introduces 4-dimensional type vectors~\cite{Frank65} in what is called \textit{Miller-Bravais indexing}~\cite{Nicholas66}. This notation replaces the rhombic prism primitive unit cell with a hexagonal one  made up of three primitive hexagonal Bravais lattices ($hP$), as seen in Fig.~\ref{Fig:hexPrism}. We show here the three-vectors basis set together with the four-vector one.
 
 
-Three of the Miller-Bravais basis vectors are the Miller basis vectors: $\mathbf{A_1}=\mathbf{a_1}$, $\mathbf{A_2}=\mathbf{a_2}$ and $\mathbf{C}=\mathbf{c}$. The extra basis vector is coplanar with the first two and, therefore, linearly dependent on them: 
+Three of the Miller-Bravais basis vectors are the Miller basis vectors: $\mathbf{A_1}=\mathbf{a_1}$, $\mathbf{A_2}=\mathbf{a_2}$ and $\mathbf{C}=\mathbf{c}$. The extra basis vector is co-planar with the first two and, therefore, linearly dependent on them: 
 \begin{equation}
 \label{eq:a1a2a3}
 \mathbf{A_3} = - (\mathbf{a_1} + \mathbf{a_2)}=- (\mathbf{A_1} + \mathbf{A_2)}. 
@@ -133,13 +203,13 @@ A vector $\vb{p}$ in this system is defined as $\vb{p} = p_1\mathbf{A_1}+p_2\mat
 	\centering
 \captionsetup{width=.9\linewidth}
 \includegraphics[width=0.75\linewidth]{Figures/Miller_Bravais.png}
-\captionof{figure}{Hexagonal prism unit cell and the Miller-Bravais basis vectors \{$\mathbf{A}_1$,~$\mathbf{A}_2$,~$\mathbf{A}_3$,~$\mathbf{C}$\}. }
+\captionof{figure}[Miller-Bravais basis vectors.]{Hexagonal prism unit cell and the Miller-Bravais basis vectors \{$\mathbf{A}_1$,~$\mathbf{A}_2$,~$\mathbf{A}_3$,~$\mathbf{C}$\}. }
 \label{Fig:hexPrism}
 \end{minipage}
 \begin{minipage}{0.6\linewidth}
     \centering
 \includegraphics[width=0.65\linewidth]{Figures/fam_directions.png}
-\captionof{figure}{Directions belonging to the \hkl<2-1-10> family. The yellow line shows the formation of the vector $\vb{t}_{\hkl[11-20]}$.  }
+\captionof{figure}[The \hkl<2-1-10> direction family.]{Directions belonging to the \hkl<2-1-10> family. The yellow line shows the formation of the vector $\vb{t}_{\hkl[11-20]}$.  }
 \label{Fig:directions}
 \end{minipage}
 %-------------
@@ -172,8 +242,8 @@ t=-(u+v).
 Because the first three basis vectors are not linearly independent, writing out their Miller-Bravais indices is somewhat awkward as seen in Fig.~\ref{Fig:directions}. The three coplanar vectors ensure that any given directions will have at least two non-zero components, and the $\mathbf{A}_i$ basis vectors themselves have three non-zero components. While the Miller direction vectors corresponding to the basis vectors directions have the same lengths as the basis vectors themselves, this is not the case in the Miller-Bravais notation, see vector $\vb{t}_{\hkl[11-20]}$. Nevertheless, we can find families of directions through the usual permutations which would not be possible using the Miller notation as we can see from Table~\ref{Table:MB_directions}. 
 
 %--------
-\begin{table}[!htb]
-\caption{Some common directions in hexagonal system given in Miller and Miller-Bravais notation.}
+\begin{table}[htb]
+\caption[Miller versus Miller-Bravais direction notation.]{Some common directions in hexagonal system given in Miller and Miller-Bravais notation.}
 \label{Table:MB_directions}
 \centering
 \begin{tabular}{ l c c }
@@ -209,11 +279,11 @@ A plane description in the new basis set will be of the form \hkl(hkil) where $i
 \hkl{hkil} = \{\hkl(hkil), \hkl(ihkl), \hkl(kihl)\,\hkl(-h-k-il), \hkl(-i-h-kl), \hkl(-k-i-hl) \}.
 \end{equation*}
 
-Table~\ref{Table:MB_planes} shows a list of commonly used families of planes in a hexagonal system. A graphical representation of these planes is shown in Fig.~\ref{Fig:planes}. It is clear that the Miller indices are counterintuitive in this system and the Miller-Bravais notation is preferred. We also mention the polarity of each family of planes but we will postpone the explanation of polarity until the point group discussion on page~\pageref{subChap:pointGroup}.
+Table~\ref{Table:MB_planes} shows a list of commonly used families of planes in a hexagonal system. A graphical representation of these planes is shown in Fig.~\ref{Fig:planes}. The Miller indices are counter-intuitive in this system and often the Miller-Bravais notation is preferred. We also mention the polarity of each family of planes but we will postpone the explanation of polarity for the point group discussion on page~\pageref{subChap:pointGroup}.
 
 %--------
-\begin{table}[!htb]
-\caption{Common planes in hexagonal system given in Miller and Miller-Bravais notation.}
+\begin{table}[htb]
+\caption[Miller versus Miller-Bravais planes notation.]{Common planes in hexagonal system given in Miller and Miller-Bravais notation.}
 \label{Table:MB_planes}
 \centering
 \begin{tabular}{ l c c }
@@ -259,7 +329,7 @@ Table~\ref{Table:MB_planes} shows a list of commonly used families of planes in 
 
 
 %---------
-\begin{figure}[!htb]
+\begin{figure}[htb]
     \centering
 \includegraphics[width=0.85\linewidth]{Figures/hex_planes.png}
 \caption{Common planes in hexagonal crystal structures.}
@@ -339,10 +409,10 @@ Where the reciprocal hexagonal lattice translational vector is, from Eq.~\ref{eq
 
 
 %---------
-\begin{figure}[!htb]
+\begin{figure}[htb]
     \centering
 \includegraphics[width=.8\linewidth]{Figures/recHex.png}
-\caption{Reciprocal 2D hexagonal lattice with basis vectors \{$\vb{a^*_1}$, $\vb{a^*_2}$\} and lattice parameters \{$a^*, a^*, 60\si{\degree}$\} (a) and the 3D reciprocal hexagonal crystal system with lattice parameters \{$a^*, a^*, c^*, 60\si{\degree}, 90\si{\degree}, 90\si{\degree}$\} over-imposed on the real space one while keeping the same origin (b).}
+\caption[Reciprocal 2D hexagonal lattice.]{Reciprocal 2D hexagonal lattice with basis vectors \{$\vb{a^*_1}$, $\vb{a^*_2}$\} and lattice parameters \{$a^*, a^*, 60\si{\degree}$\} (a) and the 3D reciprocal hexagonal crystal system with lattice parameters \{$a^*, a^*, c^*, 60\si{\degree}, 90\si{\degree}, 90\si{\degree}$\} over-imposed on the real space one while keeping the same origin (b).}
 \label{Fig:recHex}
 \end{figure}
 %---------
@@ -374,7 +444,7 @@ Where the four index reciprocal space translation vector is:%
 %---------
 \centering
 \includegraphics[width=.6\linewidth]{Figures/Miller_Bravais_rec.png}
-\captionof{figure}{Relationship between real and reciprocal space hexagonal system basis sets. }
+\captionof{figure}[Real and reciprocal space hexagonal system basis sets.]{Relationship between real and reciprocal space hexagonal system basis sets. }
 \label{Fig:recBasis}
 %---------
 \end{minipage}
@@ -385,7 +455,7 @@ The crystallographer must always be extra careful if using both notations. The t
 
 We will explore, in more depth, crystallographic computations in the hexagonal system, both in the real and the reciprocal space in Section~\ref{chap:real+recAlg} on page~\pageref{chap:real+recAlg}.
 
-%
+%%%%%
 \subsection{Wavefunction as physical observable}
 \label{sec:wave}
 In the language of quantum mechanics, physical quantities are described via operators. The allowed values of the physical quantities are then eigenvalues of these operators. One must find the eigenfunctions of the corresponding operator in order to compute the value of a certain physical observable (\ie one must solve the equation $\hat{f}\ket{\Psi}=f\ket{\Psi}$).
@@ -455,7 +525,7 @@ where $\mathbf{r_0}$ is the position vector of the origin of the wave vector $\m
 \centering
 \captionsetup{width=.7\linewidth}
 \includegraphics[width=1\linewidth]{Figures/planeWaves.png}
-\captionof{figure}{Schematic drawing of plane waves and the vectors considered in this section.}
+\captionof{figure}[Plane waves.]{Schematic drawing of plane waves and the vectors considered in this section.}
 \label{Fig:planeWaves}
 
 \end{minipage}
@@ -473,19 +543,19 @@ e^{2 \pi i  \mathbf{k} \cdot \mathbf{r}}
 
 
 
-%
+%%%%
 \subsection{Bragg's law in real space}
 \label{Sec:Bragg}
 
 \begin{minipage}{0.5\textwidth}
-Consider the drawing in Fig.~\ref{Fig:Bragg}. A plane wave of wavelength $\lambda$ and wave vector $\mathbf{k}$ is incident with incidence angle $\theta$ on a set of parallel plane with Miller indices \hkl(h k l). The planes are partially transparent and partially reflective, such that the reflected beams together with the incident ones and the normal to the planes are coplanar. We ask the question: ``\textit{What is the condition that two reflected plane waves (1) and (2) will be in phase?}''. 
+Consider the drawing in Fig.~\ref{Fig:Bragg}. A plane wave of wavelength $\lambda$ and wave vector $\mathbf{k}$ is incident with incidence angle $\theta$ on a set of parallel plane with Miller indices \hkl(h k l). The planes are partially transparent and partially reflective, such that the reflected beams together with the incident ones and the normal to the planes are co-planar. We ask the question: ``\textit{What is the condition that two reflected plane waves (1) and (2) will be in phase?}''. 
 \end{minipage}
 %---------
 \begin{minipage}{0.5\textwidth}
     \centering
 \captionsetup{width=.7\linewidth}
 \includegraphics[width=0.8\linewidth]{Figures/Bragg.png}
-\captionof{figure}{Geometrical representation of Bragg's equation in real space. The path difference of the reflected plane wave (2) with respect to (1) is shown in orange.}
+\captionof{figure}[Bragg's equation in real space.]{Geometrical representation of Bragg's equation in real space. The path difference of the reflected plane wave (2) with respect to (1) is shown in orange.}
 \label{Fig:Bragg}
 \end{minipage}
 
@@ -511,8 +581,8 @@ The angle $\theta$ for which constructive interference occurs is known as \texti
 
 
 
-\begin{table}[!ht]
-\caption{Bragg angles for the most common planes in wurtzite materials for 20 \si{\kilo \eV} incident electrons.}
+\begin{table}[ht]
+\caption{Bragg angles for the most common planes in wurtzite materials for \SI{20}{\kilo \eV} incident electrons.}
 \label{table:Bragg}
 \centering
 \begin{tabular}{ l l c r r r}
@@ -528,73 +598,6 @@ The angle $\theta$ for which constructive interference occurs is known as \texti
 \end{table}
 
 Note that while the Bragg equation describes the geometric condition for diffraction, as constructive interference, to occur it does not, however, provide any information on the intensity (if any) of the diffracted beam. The real space form of this equation is only useful in determining the Bragg angles for a given wavelength and crystal structure as we have done here. More useful is the study of the direction of the diffracted beam for a given crystal structure which require the expression of some reference frame. In order to tackle this problem, it is common to express the Bragg equation to the reciprocal reference frame and introduce the Ewald sphere as we will do in the next section.
-
-
-\subsection{Debye-Waller correction factor}
-\label{Sec:DWf}
-
-When we say that a crystal is a rigid structure, as we did in Section~\ref{Sec:crystalStruct} on page \pageref{Sec:crystalStruct}, we mean that over time the average positions of the atoms/molecules does not change. However, even at room temperature, the atoms exhibit thermal motion, small oscillations around their average ``real values''. While this motion does not affect the crystal structure description (\ie we can ignore small thermal effects when describing the crystal structure), it must be taken into account when the the diffraction measurement is to be interpreted.
-
-Due to these small vibrations, the electron cloud will spread over a larger space than a frozen atom would, which will reduce the electron density, and, for our purpose, will reduce or dampen the electron-electron scattering process. An adequate approximation when accounting for atomic thermal vibration is the Debye-Waller (DW) factor $B(T)$. If we assume the scattering probability for a certain set of planes is $f_0$ when the lattice is frozen in place, \ie at \SI{0}{\kelvin}, then we can use the DW factor to correct the scattering probability $f_T$ at temperature $T$:
-
-\begin{equation}
-\label{eq:correctedScattter}
-f_T=f_0 e^{-B(T)s^2}, \quad \text{with}\quad s=\frac{\sin\theta_B}{\lambda}
-\end{equation}
-where $s$ is half of the inverse of interplanar distance $d_{hkl}$. We will see in next chapter that $f$ is commonly known as the scattering factor and how we can calculate its value. From dimensional analysis we can see that B is proportional to the mean square displacement of the atom in the direction normal to the Bragg plane. We can also read from this equation that the intensity of the diffracted beam is reduced by a factor $e^{-B(T)s^2}$ with respect to the intensity of the same beam interacting with the sample at~$\SI{0}{\kelvin}$.
-
-A good approximation, and the one we will use here, is to assume that for close-packed structures the atomic vibration amplitude is isotropic, such that we only require one DW parameter for each element in the crystal structure. This is not a generally valid assumption, however, first principles phonon density calculations for wurtzite-type III-V semiconductors by Schowalter \etal~\cite{Schowalter09} showed that these materials have only small anisotropies of their Debye-Waller factors.
-
-\begin{table}[h!]
-\caption{Debye-Waller fitting parameters for cubic elemental crystal from~\cite{Gao99} and the calculated DW values at 300\si{\kelvin}.}
-\label{Table:DWGao}
-\centering
-\begin{tabular}{ l c c c c c r r}
-\toprule
-\tabhead{{\small Element}} & \tabhead{$a_0$} & \tabhead{$a_1$} &\tabhead{$a_2$} &\tabhead{$a_3$} & \tabhead{$a_4$} & \tabhead{{\small ME(\si{\percent})}} & \tabhead{{\small B(\si{\angstrom^2})}}   \\
-\midrule
-  Al & {\small 0.19} & {\small \num{0.16e-02}} & {\small \num{0.25d-05}} & {\small \num{-0.26d-08}} & {\small \num{0.10d-11}} & 1.31 &  0.83\\
-  Ga & {\small 0.11} & {\small \num{0.40e-03}} & {\small \num{0.66d-05}} & {\small \num{-0.18d-07}} & {\small \num{0.19d-10}} & 0.05 & 0.49\\
-  In & {\small 0.08 }& {\small \num{0.77d-02}} & {\small \num{0.48d-05}} & {\small \num{-0.12d-07}} & {\small \num{0.11d-11}} &  0.08 & 0.43\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Gao and Peng~\cite{Gao99} used a fourth degree polynomial regression fit to determine the temperature dependent DW factor for elemental cubic crystal from experimental data. These fit parameters are shown in Table~\ref{Table:DWGao} for the metal elements Al, Ga and In together with their estimated maximum error (ME) values. The form of the polynomial fit function is shown below:
-
-\begin{equation*}
-B(T) = a_0 + a_1T + a_2T^2 + a_3T^3 + a_4T^4
-\end{equation*}
-
-We must note here, that the measured Debye-Waller factors for defective materials will be different from that of perfect crystals since defects also scatter electrons. For this reason and the fact that first principles calculations can only be trusted if they predict experimental values, it is always  a good rule to use experimental values wherever possible. 
-
-This being said, the literature on DW factors for nitrogen is limited and we must turn to theoretical predictions. Schowalter \etal~\cite{Schowalter09} calculated these values for a number of wurtzite structures. We show below, in Table~\ref{Table:DWSchowalter}, the values predicted for the DW factor of N in AlN, GaN and InN\footnote{ We will see later, that since N scatters electrons significantly less then the heavier metallic elements in the system, its DW factors will not carry great importance. However, we did include the computations here for completeness.}.
-
-
-
-\begin{table}[h!]
-\caption{Static correction functions for N in wurtzite materials from DFT LDA calculations~\cite{Schowalter09} at 300\si{\kelvin} and the predicted DW factor.}
-\label{Table:DWSchowalter}
-\centering
-\begin{tabular}{ l c c  l}
-\toprule
-\tabhead{N in Material} &\tabhead{$\left\langle u^2_{11}(N)\right\rangle$(\si{\angstrom^2})} &\tabhead{$\left\langle u^2_{33}(N)\right\rangle$(\si{\angstrom^2})} & \tabhead{B(\si{\angstrom^2})}   \\
-\midrule
-  AlN & 0.0036 & 0.0034 & \num{0.28} \\
-  GaN & 0.0039 & 0.0037 & \num{0.29} \\
-  InN & 0.0065 & 0.0062 &\num{0.51} \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The Debye-Waller factor of en element, $B(el.)$, is related to the electron static correlation function, $\langle u_{\alpha}(el.) \rangle$, which is the average displacement of an atom of $el.$ in the direction $\alpha$ by:
-\begin{equation*}
-B(el.) = \frac{8 \pi^2}{3}\left( 2\left\langle u^2_{11}(el.)\right\rangle + \left\langle u^2_{33}(el.)\right\rangle \right).
-\end{equation*}
-
-
-The computations that generated the values in the tables in this section can be conveniently found in the Jupyter Notebook titled \texttt{Debye-Waller.ipynb}.
-
 
 
 
@@ -617,7 +620,7 @@ Then, the contribution of a wave vector $\vb{k}$ to the wave function $\Psi{(\vb
 \end{equation}
 
 
-The Fourier Transform $\mathcal{F}$ allows us to transform a wave function from the real space, $\Psi(\vb{r})$, to the momentum space, $\Psi(\vb{k})$,  by using the equation above.\footnote{ Note on the sign convention chosen: the sign of Fourier function in eq.~\ref{eq:FT} is due to the order chosen in the bra-ket and it is opposite from the crystallographic sign convention. Also note on the wave vector definition convention used here lacking the factor of $2\pi$ ($|\vb{k}|=1/\lambda$) which shows up sometimes in solid state physics. Consistent with this choice, the Fourier transform definition used here is missing the $1/2\pi$ pre-factor and reader should pay attention to the convention used when comparing with the form of these formulas with literature.} The reciprocal relationship is defined by the \textit{inverse Fourier transform}:
+The Fourier Transform $\mathcal{F}$ allows us to transform a wave function from the real space, $\Psi(\vb{r})$, to the momentum space, $\Psi(\vb{k})$,  by using the equation above.\footnote{ Note on the sign convention chosen: the sign of Fourier function in Eq.~\ref{eq:FT} is due to the order chosen in the bra-ket and it is opposite from the crystallographic sign convention. Also note on the wave vector definition convention used here lacking the factor of $2\pi$ ($|\vb{k}|=1/\lambda$) which shows up sometimes in solid state physics. Consistent with this choice, the Fourier transform definition used here is missing the $1/2\pi$ pre-factor and reader should pay attention to the convention used when comparing with the form of these formulas with literature.} The reciprocal relationship is defined by the \textit{inverse Fourier transform}:
 
 \begin{equation}
 \Psi(\vb{r})= \mathcal{F}^{-1}[\Psi(\vb{k})] \equiv\iiint \Psi(\vb{k}) e^{\,2 \pi i \vb{k}\cdot \vb{r}} \dd \vb{k}
@@ -807,7 +810,7 @@ We can also find the distance between a set of hexagonal system planes \hkl{hkil
 Table~\ref{Table:dhkl} shows a few examples of calculated interplanar distances for common families of planes in wurtzite nitride systems (see Fig.~\ref{Fig:planes}). Spot that the distance between consecutive \textit{c-planes} is the lattice parameter \textit{c} while the one between \textit{a-planes} is half the lattice parameter \textit{a}. 
 
 
-\begin{table}[h!]
+\begin{table}[ht]
 \caption{Calculated interplanar distances in wurtzite nitrides.}
 \label{Table:dhkl}
 \vspace{-0.5cm}
@@ -984,7 +987,7 @@ We can now define the reciprocal structure matrix for a hexagonal lattice, $\mat
 \end{bmatrix}.
 \end{equation}
 
-
+%%%%%%
 \subsection{Metric tensor implementations}
 I took the time to write out a good number of equations in this section. While these are well established and, probably, well  understood vectorial manipulation in the world of X-ray diffraction, electron microscopists don't often incorporate basis transformations language in their work. I make this claim based on the observation that, while the implementation would be trivial, there is a lack of mature, accessible and easy to plug-and-play (ideally open) software out there to answer some of the crystallographic questions the material scientists might ask when using an SEM as a characterisation tool. 
 
@@ -1010,7 +1013,7 @@ In the following section I will assume the reader has working knowledge of cryst
 \begin{figure}
     \centering
 \includegraphics[width=1.\linewidth]{Figures/6_3mc.png}
-\caption{Graphical 3D representation of the $\mathbf{6_3mc}$ symmetry combination. Blue planes represent the mirror planes and the grey ones the glide planes. See Appendix~\ref{Chap:Symmetry} for discussion on squiggly objects. The 2D projection is shown in the bottom right corner. Filled circles indicate the object is in the plane of the drawing, open circles indicate the object is above the plane at the indicated height). Dotted lines represent a glide plane with translation normal to the drawing plane and solid lines are mirrors. }
+\caption[Graphical 3D representation of the $\mathbf{6_3mc}$ symmetry.]{Graphical 3D representation of the $\mathbf{6_3mc}$ symmetry combination. Blue planes represent the mirror planes and the grey ones the glide planes. See Appendix~\ref{Chap:Symmetry} for discussion on squiggly objects. The 2D projection is shown in the bottom right corner. Filled circles indicate the object is in the plane of the drawing, open circles indicate the object is above the plane at the indicated height). Dotted lines represent a glide plane with translation normal to the drawing plane and solid lines are mirrors. }
 \label{Fig:6_3mc}
 \end{figure}
 
@@ -1026,12 +1029,12 @@ Note that this combination does not make up a point group as it does not present
 \begin{figure}
     \centering
 \includegraphics[width=0.9\linewidth]{Figures/spaceGroup.png}
-\caption{Top view construction of space group $\mathbf{P6_3mc}$ from the Bravais lattice $hP$ combined with the symmetry combination $\mathbf{6_3mc}$. [Right image taken taken from ref.~\cite{IntTableCrysA}.]}
+\caption[Space group $\mathbf{P6_3mc}$.]{Top view construction of space group $\mathbf{P6_3mc}$ from the Bravais lattice $hP$ combined with the symmetry combination $\mathbf{6_3mc}$. [Right image taken taken from ref.~\cite{IntTableCrysA}.]}
 \label{Fig:P63mc}
 \end{figure}
 
 \begin{table}
-\caption{The $\mathbf{P6_3mc}$ space group with its corresponding number and crystallographic point group.}
+\caption[The $\mathbf{P6_3mc}$ space group number.]{The $\mathbf{P6_3mc}$ space group with its corresponding number and crystallographic point group.}
 \label{Table:wurtziteSpace}
 \centering
 \begin{tabular}{l c c c }
@@ -1077,16 +1080,16 @@ With the help of Appendix~\ref{Chap:Symmetry} we can read all the symmetry opera
 
 
 
-
+%%%%%%
 \subsection{Wurtzite crystal structure}
-It is customary to describe a crystal structure by its space group, lattice parameters and atom positions in the asymmetric unit cell. We have covered group symmetries so far, and it is therefore time to place atoms on the lattice. 
+On page~\pageref{Sect:spaceLattice} we mentioned that a crystal structure is described by its space group, lattice parameters and atom positions in the asymmetric unit cell. We have covered group symmetries so far, and it is therefore time to place atoms on the lattice. 
 
 Unfortunately, some ambiguity about the positions of the wurtzite atoms in the unit cell exists. Figure~\ref{Fig:wurtzite} a) shows the common representation of a wurtzite unit cell. This is a didactically useful way to visualise the hexagonal close packing (hcp) structure that wurtzite exhibits. For this unit cell we can place an atom at $(0,0,0)$ and another, identical one at $(1/3, 2/3, 1/2)$. A pair of atoms of a  different species can then be displaced by a value $x$ in the \textbf{c}-$axis$ direction with respect to the first two. For the perfect wurtzite structure $x=3/8$. This unit cell will have the translational symmetry of the primitive hexagonal Bravais lattice, $hP$. 
 
 \begin{figure}
     \centering
 \includegraphics[width=1.0\linewidth]{Figures/wurtzite_compare.png}
-\caption{3D render of: a) hexagonal unit cell representation of hcp structure of wurtzite, not respecting group symmetry; b)  wurtzite crystal structure  hexagonal primitive cell ($hP$) enclosed by blue edges and the tetrahedral asymmetric unit cell enclosed by glass faces. The 4 highlighted atoms are the ones contained by the primitive unit cell.}
+\caption[Wurzite unit cell crystallographic representation versus hcp structure.]{3D render of: a) hexagonal unit cell representation of hcp structure of wurtzite, not respecting group symmetry; b)  wurtzite crystal structure  hexagonal primitive cell ($hP$) enclosed by blue edges and the tetrahedral asymmetric unit cell enclosed by glass faces. The 4 highlighted atoms are the ones contained by the primitive unit cell.}
 \label{Fig:wurtzite}
 \end{figure}
 
@@ -1125,8 +1128,8 @@ The files used to render the $^*.png$ and $^*.gif$ versions of the images shown 
 Finally, the lattice parameters can be calculated from first principles and/or from diffraction experiments. I am showing in Table~\ref{Table:wurtziteLatPar} the currently accepted lattice parameters for the three wurtzite systems we tackled in this work. The last entry shows the volume of the fundamental cell calculated using Eq.~\ref{eq:UnitCellVolume} derived on page~\pageref{eq:UnitCellVolume}.
 
 
-\begin{table}[h]
-\caption{Lattice parameters and unit cell volume, $\Omega$, for some common nitrides with wurtzite crystal structure.}
+\begin{table}[ht]
+\caption[Lattice parameters for some common wurtzite nitrides.]{Lattice parameters and unit cell volume, $\Omega$, for some common nitrides with wurtzite crystal structure.}
 \label{Table:wurtziteLatPar}
 \centering
 \begin{tabular}{l c c c }
@@ -1140,57 +1143,81 @@ Finally, the lattice parameters can be calculated from first principles and/or f
 \end{tabular}
 \end{table}
  
+
+
 \pagebreak
 
-\section{Electron scattering}
+\section{The scanning electron microscope}
+\label{sec:sem}
+% microscopy
+The phenomena described in the previous section occur at a scale too small to be measured by the naked eye. Luckily,  development of science had brought us two main extension  to the range of scales we can study. On one hand,  the telescope brings very distant object closer and is optimised to collect as much light as possible and, on the other, the microscope makes very close objects appear many times larger.
+Interestingly, both these aids can be traced back to a \nth{17} century event: the development of glass lenses used in spectacles. Fundamentally, both these visual extensions are governed by the same optics laws. 
+
+While modern light microscopes can showcase a magnification of about $2000\times$, their spatial resolution is limited the wavelength of visible light, which is of the order of hundreds of nanometers, through Abbe's equation. One way around it is to use  different imaging particles, for instance, X-rays or electrons which have significantly smaller wavelengths (see Table~\ref{table:diffractingParticles} for wavelength comparison between X-ray photons and electrons).   
+
+We will explore further the electron microscope, excellent detailed description of which can be found in ref.~\cite{Hearle72} and ref.~\cite{Reimer13}. There are various ways of generating an electron beam. For instance, in our FEI SEM, a wire of tungsten with a sharp tip is used to generate a beam of electrons through field emission. This beam is then focused through a series of condenser lenses onto the surface of a sample such that the beam spot size on the sample can go down to 1 \SI{1}{\nano \meter} in diameter in practice.  After the beam is focused on the sample, scanning coils are used to deflect the beam on a set of orthogonal directions in a predefined manner. 
+
+Depending on the geometry of imaging we classify electron microscopy into \textit{transmission electron microscopy} (TEM) on one hand, where the image is formed by electrons which have travelled through a very thin sample, and \textit{scanning electron microscopy} (SEM), where the imaging electrons come from the same, top surface of the sample with which the incident beam interacts with\footnote{ Advances in both world make this distinction imperfect. There is an exception to the rule above, in the form of transmission SEM. To make things even harder to classify there is also scanning TEM.}. Both of them have advantages and downsides. The TEM geometry minimises the lateral spread of the electron-sample interaction volume providing therefore higher resolutions, but it also limits its field of view. Additionally, thinning the sample to the sizes required by this geometry can be cumbersome, time consuming and irremediably damaging to the sample. There is the additional question the microscopist must answer, whether the features observed are intrinsic to the sample or they were introduced during the polishing process. On the other side, the SEM requires minimal sample preparation since the thickness of the sample does limit its capabilities. The downside, as we will see, is that the SEM is not optimised for diffraction contrast in the same way the TEM is. 
 
 
-Before we can talk about diffraction we need to address the phenomena of scattering. Classically, the collision of particles is fully defined by their velocities and interaction parameters. However, high energy electrons are quantum mechanical objects. The notion of defined path for particles with known velocity is meaningless in the quantum mechanical world. Instead, we are interested in defining the probability that, as a result of the collision, the particle will deviate by a given angle. We call this \textit{scattering}.
-
-Electrons are small charged particles that will suffer multiple scattering events even in thin samples in contrast to X-ray and neutron interactions with matter. Electron scattering in a solid is a complex multi dimensional problem. For practical considerations it is common to classify the interaction of electrons with a crystal in two distinct processes:
+Since electrons interact strongly with matter they can generate a plethora of signals for one to measure in the SEM using the right, specialised detector:
 \begin{itemize}
-\item \textit{Elastic scattering}, defined as a process which does not change the state of the crystal. Mostly made up by interactions with the nucleus: Rutherford scattering taking into account just Coulomb forces between the charged electron and the nucleus. This account for most of the angular scattering.
-
-
-\item \textit{Inelastic scattering}, defined as the process in which the state of the crystal is modified by the interaction. Important contribution here is made by the electron-electron scattering which cause the incident beam electron to loose small amounts of energy but cause relatively little angular deflections.
+    \item Most commonly, low-energy ($<$\SI{50}{\electronvolt}) \textit{secondary} electrons (SE) are ejected by those atoms with which the incident electrons inelastically scattered. Since they cannot come from very deep in the sample, the interaction volume is narrow enough to provide a tool for high resolution surface imaging. These electrons are collected by attracting them to an electrically biased grid and then further accelerated towards a phosphor or scintillator, in what is know as a Everhart-Thornley detector\cite{ETdetector}.
+    
+    
+    
+    \item In addition to secondary electrons, excited atoms will also emit a variety of electromagnetic radiation such as characteristic X-rays which can provide information on the distribution of different elements in the sample as long as the SEM is equipped with wavelength dispersive \textit{X-ray spectroscopy}. 
+    
+    \item As the atoms relax back to their ground state after the encounter with the high energy electrons, they can generate light which can provide useful optical information in a technique known as \textit{cathodoluminescence} (CL).
+    
+    \item The incident electrons can escape the sample eventually, after having lost more or less energy through inelastic scattering. This implies, at some point in their trajectory, the incident electrons suffer a large angle elastic scattering such that they turn their path back to the surface of entry. All the incident electrons that suffer an elastic scattering event and manage to escape through the entry surface are collectively known as \textit{backscattered electrons} (BSE) and can be detected by a scintillator or a solid state detector. Since heavier atoms will elastically scatter electrons more strongly, BSEs are used to detect contrast due different chemical compositions. Additionally, if the detector is not collecting a symmetric radial distribution of BSEs, then the image will also contain strong topographic contrast. 
+    
+    \item Figure~\ref{Fig:Espectrum} shows the energy distribution of electrons reaching the BSE detector for an incident beam of energy $E$. Over-imposed on the BSE energy curve there are a few other signals. We will only talk here about the elastic peak as it makes the core of this work. A subset of BSE will loose almost no energy before they reach the detector either because they have been backscattered by the top layer of the sample, or, more likely, because they underwent diffraction, a case in which inelastic scattering processes are reduced (see the discussion on channelling on page~\ref{sec:channelling}). We will call this the \textit{elastically BSE}. This signal can provide information on the crystallographic orientation of a small region of the sample or about small changes in local strain. More on this in the rest of the thesis. One could use energy sensitive detector to select only this signal~\cite{Stefano}.
 \end{itemize}
 
-
-%-----------------------------------
-%	Scattering, see Joy and MC modelling
-%-----------------------------------
-\pagebreak
-\subsection{Elastic scattering }
-
-Elastic collision reduces, in the quantum mechanical world, to the interaction of a free particle interacting with a fixed potential field $U(\mathbf{r})$.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.62\linewidth]{Figures/spectrum.png}
+\caption[SEM electrons energy spectrum.]{Schematic energy spectrum of secondary and backscattered electrons in an SEM [after~\cite{bell12}].}
+\label{Fig:Espectrum}
+\end{figure}
 
 
-\paragraph{Rutherford scattering}
-
-\subsection{Inelastic scattering }
-
-\paragraph{Bethe's equation}
+We will be concerned from now on only with elastically scattered BSEs. The sample geometry optimised for this signal is shown below in Fig.~\ref{Fig:sillySEM}. The sample is tilted with respect to the incident beam and the detector is position such that it can collect the solid angle of the backscattered electrons which highest intensity. We call this geometry forward-scattering. 
 
 
 
-\pagebreak
-\section{The scanning electron microscope}
+\vspace{0.2cm}
 
-% microscopy
-The phenomena described in the previous section occur at a scale too small to be measured by the naked eye. Luckily,  development of science had brought us two main extension  to the range of scales we can study. Interestingly, both these aids can be traced back to a \nth{17} century event: the development of glass lenses used in spectacles, and both are governed by the same optics laws. On one hand the telescope brings very distant object closer and is optimised to collect as much light as possible and, on the other, the microscope makes very close close objects appear many times larger. 
+\noindent\begin{minipage}{0.5\textwidth}
+The method of operation of the SEM is shown Figure~\ref{Fig:sillySEM}. A collimated beam of electrons is focused on the surface of a tilted sample. The beam is then scanned in a raster manner over the area of interest of the sample. The detector collects one pixel worth of BSEs intensity at a time. The beam is moved by the deflector coil to the next position on the sample defined by the step size. The resulting image is made up of the ordered collected pixels, and, at the end of the scan, has as many pixels as steps used in scanning.  
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+    \centering
+\includegraphics[width=0.48\linewidth]{Figures/sillySEM.png}
+\captionsetup{width=.7\linewidth}
+\captionof{figure}{SEM schematics in forward-scattering geometry.}
+\label{Fig:sillySEM}
+\end{minipage}
 
-While modern light microscopes can showcase a magnification of about $2000\times$, their resolution is limited by Abbe's equation. One way around it is to use imaging particles with smaller wavelength like electrons.   
+\vspace{0.4cm}
+
+
+
+% TILT
+The tilt of the sample in the SEM ensures that  enough electrons reach the detector. It also makes the geometry of diffraction very different from that in the TEM. The sample's z-direction in the SEM is not the same as the beam direction which is the case for the TEM sample geometry. This means that if we are to use the diffraction models developed for TEM, they must be generalised for the sample tilt.  More about this in the next chapter. 
+
+References~\cite{Hearle72, Reimer13} also discuss the electron optics as well and we will not delve on it here. We will however mention that the tilt of the sample affects the ``squareness'' of the scanned area. The trapezoidal area scanned will produce a distorter image, which can be corrected to some degree using the tilt correction function (see page 50 in ref.~\cite{SEMbooklet} for tilt correction artefacts). The tilt can also change the shape of the beam on the sample which not only affects the imaging but also the diffraction interaction volume. 
+
 
 %relativistic correction
 Let us shortly address relativistic corrections for electrons used in electron microscopy. The de Broglie equation for the relativistic electron  wavelength, $\lambda$, can be written in terms of the accelerating voltage $V$ (equation 2.4 in \cite{goodhew88}) as:
 \begin{equation}
     \lambda = \sqrt{\frac{150}{V + 10^{-6}\, V^2}} \,\, [\si{\angstrom}]
 \end{equation}
-where the second term is the correction term and becomes important for voltages grater than $20$ \si{\kilo \electronvolt} as we can see in Table~\ref{Table:wavelength}.
+where the second term is the correction term and becomes important for voltages grater than $20$ \si{\kilo \electronvolt} as we can see in Table~\ref{Table:wavelength}. For SEM applications discussed in this work we will focus on $20$ \si{\kilo \electronvolt} incident electrons, and discard, quite acceptably, relativistic effects. 
 
-For SEM applications discussed in this work we will focus on $20$ \si{\kilo \electronvolt} incident electrons, and discard, quite acceptably, relativistic effects. 
-
-\begin{table}
+\begin{table}[ht]
 \caption{Corrected and uncorrected electron wavelengths for voltages used in  electron microscopy.}
 \label{Table:wavelength}
 \vspace{-0.4cm}
@@ -1204,24 +1231,3 @@ For SEM applications discussed in this work we will focus on $20$ \si{\kilo \ele
 \bottomrule
 \end{longtable}
 \end{table}
-
-
-\noindent\begin{minipage}{0.5\textwidth}
-Another key difference between the SEM and the TEM is the operation method. Excellent detailed description of the scanning electron microscope can be found in ref.~\cite{Hearle72} and~\cite{Reimer13}.  For our purposes the simplified schematics in Figure~\ref{Fig:sillySEM} will be enough. As the electron beam is scanned in a raster manner over the area of interest on a tilted sample, the detector collects one pixel worth of information at a time and the entire image is shown on a display when the scan ends.  
-\end{minipage}%
-\begin{minipage}{0.5\textwidth}
-    \centering
-\includegraphics[width=0.5\linewidth]{Figures/sillySEM.png}
-\captionsetup{width=.7\linewidth}
-\captionof{figure}{SEM schematics.}
-\label{Fig:sillySEM}
-\end{minipage}
-
-\vspace{0.4cm}
-
-There is a variety of signals that the SEM can measure. Traditionally, secondary electrons are collected for excellent surface imaging applications as well as information about density change across the sample. Optical information can also be inferred by collecting the light emitted by excited atoms in a technique known as cathodoluminescence. However, we will be concerned with none of these signals. The information we will be interested in this work will be made up of electrons undergoing diffraction in the crystal and being backscattered towards the detector. 
-
-% TILT
-The tilt of the sample in the SEM ensures that  enough electrons reach the detector. It also makes the geometry of diffraction very different from that in the TEM. The sample's z-direction in the SEM is not the same as the beam direction which is the case for the TEM sample geometry. This means that if we are to use the diffraction models developed for TEM, they must be generalised for the sample tilt.  More about his in the next chapter. 
-
-The references above discuss the electron optics as well and we will not delve on it here. We will however mention that the tilt of the sample affects the ``squareness'' of the scanned area. The trapezoidal area scanned will produce a distorter image, which can be corrected to some degree using the tilt correction function (see page 50 in ref.~\cite{SEMbooklet} for tilt correction artefacts). The tilt can also change the shape of the beam on the sample which not only affects the imaging but also the diffraction interaction volume. 
