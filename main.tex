@@ -80,6 +80,10 @@ chapterinoneline, % Uncomment to place the chapter title next to the number on o
 \usepackage{xargs}                      % Use more than one optional parameter in a new commands
 \usepackage{rotating}   % landscape figures
 
+
+\usepackage{combelow}
+
+
 % All the notes
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 \newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
@@ -212,7 +216,7 @@ complex-root-position = before-number
 
 \begin{titlepage}
 \begin{center}
-\vspace*{-.17\textheight}
+\vspace*{-.18\textheight}
 \begin{flushright}
  \includegraphics{logo.pdf}
  \end{flushright} % University/department logo - uncomment to place it
@@ -240,18 +244,11 @@ complex-root-position = before-number
 \end{flushright}
 \end{minipage}\\[3cm]
  
-\vfill
-
 \large \textit{A thesis submitted in fulfilment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
 \textit{in the}\\[0.4cm]
-\groupname\\\deptname\\[2cm] % Research group name and department name
- 
-\vfill
+\groupname\\\deptname\\%[2cm] % Research group name and department name
+{\large \the\year}\\%[4cm] % Date
 
-{\large \today}\\[4cm] % Date
-
- 
-\vfill
 \end{center}
 \end{titlepage}
 
@@ -261,17 +258,28 @@ complex-root-position = before-number
 
 \begin{declaration}
 \addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+
+
 \noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
 
 \begin{itemize} 
-\item This work was done wholly or mainly while in candidature for a research degree at this University.
-\item Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
+\item This thesis is the result of the author’s original research. It has been composed by
+the author and has not been previously submitted for examination which has led to
+the award of a degree.
+
 \item Where I have consulted the published work of others, this is always clearly attributed.
-\item Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
 \item I have acknowledged all main sources of help.
-\item Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
+\item Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.
+
 \end{itemize}
- 
+
+The copyright of this thesis belongs to the author under the terms of the United
+Kingdom Copyright Acts as qualified by University of Strathclyde Regulation 3.50.
+Due acknowledgement must always be made of the use of any material contained
+in, or derived from, this thesis.
+
+\vfill
+
 \noindent Signed:\\
 \rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
  
@@ -339,6 +347,7 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 
 \begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
 \textbf{BSEs} & \textbf{B}ack  \textbf{S}cattered \textbf{E}lectrons\\
+\textbf{CSDA} & \textbf{C}ontinuously  \textbf{S}lowing \textbf{D}own \textbf{A}pproximation\\
 \textbf{EBSD} & \textbf{E}lectron  \textbf{B}ack\textbf{s}cattered \textbf{D}iffraction\\
 \textbf{EBSP} & \textbf{E}lectron  \textbf{B}ack\textbf{s}cattering \textbf{P}attern\\
 \textbf{ECC} & \textbf{E}lectron  \textbf{C}hannelling \textbf{C}ontrast \\
@@ -348,6 +357,7 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 \textbf{FSEs} & \textbf{F}orward  \textbf{S}cattered \textbf{E}lectrons\\
 \textbf{FE-SEM} & \textbf{F}ield \textbf{E}mission - \textbf{S}canning \textbf{E}lectron \textbf{M}icroscopy\\
 \textbf{SEM} & \textbf{S}canning \textbf{E}lectron \textbf{M}icroscopy\\
+\textbf{SP} & \textbf{S}tereographic \textbf{P}rojection \\
 \textbf{TEM} & \textbf{T}ransmission  \textbf{E}lectron \textbf{M}icroscopy\\
 \textbf{TKD} & \textbf{T}ransmission  \textbf{K}ikuchi \textbf{D}iffraction\\
 \textbf{t-EBSB} & \textbf{t}ansmission \textbf{E}lectron  \textbf{B}ack\textbf{s}cattered \textbf{D}iffraction\\
@@ -440,13 +450,13 @@ $\delta_{ij}$                                                        & Kronecker
 
 % Include the chapters of the thesis as separate files from the Chapters folder
 % Uncomment the lines as you write the chapters
-\listoftodos[Notes]
+%\listoftodos[Notes]
 \include{Chapters/Intro}
 \include{Chapters/Chapter2} 
 \include{Chapters/Chapter3}
 \include{Chapters/Chapter4} 
 \include{Chapters/Chapter5} 
-%\include{Chapters/Conclusions}
+\include{Chapters/Conclusions}
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES

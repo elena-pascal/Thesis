@@ -479,7 +479,7 @@ For the following calculations and plots I am considering a \hkl[001] grown GaN 
 %%%%%%%%%
 \subsubsection{Screw versus Edge TD isosurfaces}
 
-There is insight that can be gained by looking at the shape of the strain components introduced by the threading dislocation in the Howie-Whelan two beam equations. I did that in Fig.~\ref{fig:edge} for an edge dislocation and   Fig.~\ref{fig:screw} for an screw dislocation in a GaN sample tilted at \SI{50}{degree}. Because strain is a three dimensional function it can be difficult to visualise, so what I did here is to plot only surfaces of contrast strain component values both for a positive value (compressive strain) in red and a negative one (tensile strain) in blue, where the negative and positive values have the same absolute values. The isosurface values chosen are the same for the edge and screw dislocation.  The white cylinder in the middle indicated the position of the dislocation line which runs along the z direction. The red rod shows the projection of the diffraction condition vector \textbf{g}. The grey rod indicated the direction of the Burgers' vector \textbf{b}, which is normal on the dislocation line for an edge dislocation and along the dislocation line, and here invisible, for a screw dislocation. 
+There is insight that can be gained by looking at the shape of the strain components introduced by the threading dislocation in the Howie-Whelan two beam equations. I did that in Fig.~\ref{fig:edge} for an edge dislocation and   Fig.~\ref{fig:screw} for an screw dislocation in a GaN sample tilted at \SI{50}{degree}. Because strain is a three dimensional function it can be difficult to visualise, so what I did here is to plot only surfaces of constant strain component values (isosurfaces) both for a positive value (compressive strain) in red and a negative one (tensile strain) in blue, where the negative and positive values have the same absolute values. The isosurface values chosen are the same for the edge and screw dislocation.  The white cylinder in the middle indicated the position of the dislocation line which runs along the z direction. The red rod shows the projection of the diffraction condition vector \textbf{g}. The grey rod indicated the direction of the Burgers' vector \textbf{b}, which is normal on the dislocation line for an edge dislocation and along the dislocation line, and here invisible, for a screw dislocation. 
 
 
 A first observation to draw here is that in a highly tilted sample, the ECC-strain introduced by an edge TD will generally be larger than that introduced by a screw dislocation far away from the surface. This relates back to the discussion we had in Section~\ref{sec:tilteffect} on page~\pageref{sec:tilteffect} and has to do with unlocking larger strain components for an edge dislocation when tilting the sample. 
@@ -608,7 +608,7 @@ With the electron beam wavefunction numerically solved, I then ``integrate along
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.65\linewidth]{Figures/code.png}
+    \includegraphics[width=0.6\linewidth]{Figures/code.png}
     \caption{ The code structure  schematics for predicting TD contrast in ECCI . }
     \label{fig:code}
 \end{figure}
@@ -624,9 +624,9 @@ Dislocation analysis of GaN cross sections in TEM shows that the TDs predominant
 
 The ECC images of these types of TDs in the forescatter geometry with the film tilted at a high angle will sample strain components which are not parallel to the dislocation line. While the plan view TEM images show TD black-white contrast being aligned perpendicularly to the dislocation Burgers' vector, the geometry of the ECCI highlights a different set of strain components which can align the contrast direction along the Burger vector.
 
-In Fig.~\ref{fig:rotateEdge} we show possible strain profiles sampled in a sub-surface plane parallel to the top of the film (similar to Fig.~\ref{fig:tilting} for three geometries of orientation of \textbf{b} with respect to \textbf{g}. In Fig.~\ref{fig:rotateEdge} a) and c) the maximum variation in strain is aligned with the direction of the Burgers vector. The image in Fig.~\ref{fig:rotateEdge} b) shows a quasi-invisibility (drastic reduction in strain variation) criterion when the infinite-lattice dislocation strain component dominates, in particular in the case when \textbf{g} is perpendicular to~\textbf{b}.
+In Fig.~\ref{fig:rotateEdge} we show possible strain profiles sampled in a sub-surface plane parallel to the top of the film (similar to Fig.~\ref{fig:tilting} for three geometries of orientation of \textbf{b} with respect to \textbf{g}. In Fig.~\ref{fig:rotateEdge} a) and c) the maximum variation in strain is aligned with the direction of the Burgers vector. The image in Fig.~\ref{fig:rotateEdge} b) shows a quasi-invisibility (drastic reduction in strain variation) criterion when the infinite-lattice dislocation strain component dominates, in particular in the case when vector \textbf{g} is perpendicular to the Burger's vector~\textbf{b}.
 
-\begin{figure}
+\begin{figure}[ht]
     \centering
     \includegraphics[width=1.1\linewidth]{Figures/rotateEdge.png}
     \caption[Edge TD ECC-strain in different orientations.]{Accessible strain profiles for an edge TD in wurtzite GaN sampled in a plane parallel  to the surface and \SI{1}{\nano \meter} below the interface. The sample is tilted  \SI{60}{degree} from the original horizontal position. The marked red and blue arrows show the direction of the Burgers vector projection and the direction of the projection of the g vector respectively. Vector\textbf{ g} remains the same across the three images while vector \textbf{b} is rotated in  increments in the same plane such that the angle between the vectors is: a) \SI{30}{degree}, a) \SI{90}{degree}, a) \SI{150}{degree} }
@@ -666,8 +666,10 @@ The modelling parameters used here are shown in the Table~\ref{Table:params}. Th
 \end{table}
 
 The predicted contrasts shown are plotted as variation from the perfect crystal BSE yield. Namely, the calculated BSE intensity is normalised with respect to the BSE yield far away from the dislocation. Normalisation is not used when comparing with the experimental contrast images. The intensity is plotted using the BuPu multi-hue colour scheme with white showing the highest intensity, blue - intermediate values, and dark purple the lowest intensity.
+
 A very similar behaviour to the strain field profile in a plane is observed: the darker-lighter intensity appears to follow the Burgers vector direction. This points towards the fact that a qualitative prediction of TD behaviour can be achieved from a bare strain model correctly ``sampled''. In order to reduce the characterisation uncertainty a larger number of different diffraction conditions should be acquired.
 
+\pagebreak
 \subsection{Equivalence between contrast and ECC-strain}
 
 In the end, the only change in the crystal is the dislocation displacement field, which will affect locally the phase of an incident electron beam. The $\beta$ correction term is what tells the dynamical equations to locally change the position of the reciprocal lattice point closer to the Ewald sphere, resulting in an increase in intensity, or further from it, resulting in a decrease in intensity. This is what we see in the SEM microrgraph as TD contrast. 
@@ -675,28 +677,34 @@ In the end, the only change in the crystal is the dislocation displacement field
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\linewidth]{Figures/screwcompare.png}
-    \caption{ Comparison between ECC-strain and contrast for a screw TD in two different diffraction conditions $\textbf{g}_1$ and $\textbf{g}_2$.}
+    \caption[ECC-strain vs contrast for a screw TD]{  Comparison between ECC-strain (bottom left) and contrast (top left) for a screw TD in two different diffraction conditions $\textbf{g}_1$ and $\textbf{g}_2$ (given on the bottom right). On top right two TDs from ECC images taken in the same conditions as the simulations are shown.}
     \label{fig:screwcompare}
 \end{figure}
 
 
-In Fig.~\ref{fig:screwcompare} and Fig.~\ref{fig:edgecompare} I want to show that if I plot the ECC-strain isosurfaces and compare them to the resulting dynamical simulation prediction they show the exact same features. Again, I compare the contrast prediction to the ECC images in Naresh-Kumar's paper~\cite{Naresh}.
+In Fig.~\ref{fig:screwcompare} and Fig.~\ref{fig:edgecompare}, left columns, I want to show that if I plot the ECC-strain isosurfaces and compare them to the two-beam dynamical simulation prediction of TD contrast they show the exact same geometry of features.  Again, I compare the contrast prediction to selected TDs in ECC images taken in the same diffraction conditions as the simulations shown in the right column.  The ECCIs were taken by Naresh-Kumar and can be found in this paper~\cite{Naresh}.
 
-
-
-
-\begin{figure}[ht]
+\begin{figure}[htb]
     \centering
     \includegraphics[width=0.7\linewidth]{Figures/edgecompare.png}
-    \caption{ Comparison between ECC-strain and contrast for an edge TD in two different diffraction conditions $\textbf{g}_1$ and $\textbf{g}_2$.}
+    \caption[ECC-strain vs contrast for an edge TD]{ Comparison between ECC-strain (bottom left) and contrast (top left) for an edge TD in two different diffraction conditions $\textbf{g}_1$ and $\textbf{g}_2$ (given on the bottom right). On top right two TDs from ECC images taken in the same conditions as the simulations are shown.}
     \label{fig:edgecompare}
 
  \vspace*{\floatsep}
 
     \includegraphics[width=0.7\linewidth]{Figures/edgecompare0.png}
-    \caption{ Comparison between ECC-strain and contrast for an edge TD in two different diffraction conditions $\textbf{g}_1$ and $\textbf{g}_2$.}
+    \caption[Vanishing ECC-strain vs vanishing contrast for an edge TD]{ Comparison between vanishing ECC-strain (bottom left) and vanishing contrast (top left) for an edge TD in two different diffraction conditions $\textbf{g}_1$ and $\textbf{g}_2$ (given on the bottom right).}
     \label{fig:edgecompare0}
 \end{figure}
+
+
+Fig.~\ref{fig:screwcompare} shows the top surface view strain isosurfaces (bottom) of a screw TD in two different diffraction conditions $\mathbf{g_1}$ and $\mathbf{g_2}$, whose projections on the viewing plane is shown as red rods. Like before the modelled material is \hkl[001] GaN and red strain isosurface indicated compressive strain (positive) while blue isosurface indicates tensile strain (negative). As discussed on page~\pageref{fig:edge}, for a screw TD in forward-scattering geometry the ECC-strain will be significant close to the surface. 
+
+The calculated dynamical contrast (top figures) follows very closely the surface relaxation isosurface profile with high intensity mapping the tensile strain introduced by the dislocation, and low intensity matching the compressive part. This matching behaviour is not straightforward to generalise. Looking back at the rocking curves on page~\pageref{Fig:rocking}, Fig.~\ref{Fig:rocking}, and remembering that the contrast in the SEM has contributions from both the incident and diffracted beam, we can see that small variations in intensity occur with deviation from Bragg  condition in complex manner. Additionally, the rocking curves will look different for different diffraction conditions and integration depths. My argument here is that the ``proportionality factor'' between strain and intensity is non-trivial and simulations are required in order to predict the correct contrast. 
+
+
+
+A very similar behaviour is observed for an edge TD shown in Fig.~\ref{fig:edgecompare}. This time the surface relaxation is not as prominent in the strain surfaces plots and we mostly see the infinite dislocation strain components. Nevertheless the features of these strain components can be rediscovered in the contrast simulations. The TDs in the experimental images show the same contrast geometry, perhaps with higher intensity than my predictions. Note that my simple simulations do not take into account any texture on surface of the sample, or perhaps more problematic, low angle grains between which the dislocations are commonly found. I will discuss more about this in Chapter~\ref{chap:Conclusion} on page~\pageref{chap:Conclusion}.
 
 
 I conclude from these comparisons that it is the ECC-strain that gives the features of the contrast profile we observe in the SEM. If we are interesting in understanding what the ECCI TD contrast tells us about the dislocation observed then we ``simply'' need to simulate the ECC-strain. The simulation involves juggling a number of different frames as we have seen on page~\pageref{sec:coordinates} which, in turn, requires a good understanding not only of coordinates transformation calculations which we covered in the introductory chapter, but also of the diffraction condition and exact beam-sample-detector geometry. Unfortunately, none of these are obvious in an SEM; as previously discusses the SEM is not optimised for diffraction, especially not for channelling.
@@ -708,7 +716,9 @@ I conclude from these comparisons that it is the ECC-strain that gives the featu
 
 We can also see that for certain dislocation geometries like the one in Fig.~\ref{fig:edgecompare0} where the strain isosurfaces come very close to the core of the dislocation, \ie reduced ECC-strain, the contrast predicted will become faint. We do expect, then, that some dislocation can appear faint in the ECC images. If we were interested in a good approximation of their density, we would have to acquire multiple diffraction conditions images. 
 
-\pagebreak
+\pagebreak\clearpage
+
+
 
 \section{Conclusions}
 ECCI can be used as an alternative to, or jointly with, the established defect characterisations techniques. Since the usual defect identification procedure is not always appropriate for looking at TDs in ECCI, modelling the contrast predictions becomes critical. 
@@ -716,9 +726,10 @@ ECCI can be used as an alternative to, or jointly with, the established defect c
 The forescatter ECC images provide TD contrast features as cumulative sampled strain components defined in the Cartesian frames selected by the imaging diffraction condition. While the characterisation is more involved then in TEM, which benefits from the applicability of the 'invisibility criteria', simulations of ECCI dislocation strain profile can predict the observed dislocation contrast. As these features are unique for different dislocation characters, this technique can be used to identify the type of imaged dislocations by comparison between measured and simulated TDs. We propose that the ECCI dislocation contrast is uniquely predicted by the ECCI strain profile. The equivalence between ECCI strain and ECCI contrast can aid not only the physical understanding of the observed images but can predict the behaviour of the contrast. For instance, we can predict that the contrast profile will always follow the edge component of the Burgers vector and that the diffraction condition will not affect its symmetry.
 
 
-Finally, I show qualitative agreement for three different Burgers vector edge dislocations contrast against experimental images in two different diffraction conditions. 
+Finally, I show qualitative agreement between predictions of TD contrast in ECC images for two different diffraction conditions and the experimental images. These types of calculations can be use to identify unambiguously  the type of dislocation observed in ECCIs. 
 
-If you can, reader, take an ECP before trying to find dislocation contrast in the SEM, even if it is poor quality you can use it to navigate towards a band, close to a Bragg condition and increase your chances of succes. 
+
+If you can, reader, take an ECP before trying to find dislocation contrast in the SEM, even if it is poor quality you can use it to navigate towards a band, close to a Bragg condition and increase your chances of success. 
 
 
 

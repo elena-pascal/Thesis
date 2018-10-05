@@ -1,5 +1,5 @@
 \chapter{Background and Basics} % Main chapter title
-\label{Background} 
+\label{chap:Background} 
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
@@ -1146,88 +1146,3 @@ Finally, the lattice parameters can be calculated from first principles and/or f
 
 
 \pagebreak
-
-\section{The scanning electron microscope}
-\label{sec:sem}
-% microscopy
-The phenomena described in the previous section occur at a scale too small to be measured by the naked eye. Luckily,  development of science had brought us two main extension  to the range of scales we can study. On one hand,  the telescope brings very distant object closer and is optimised to collect as much light as possible and, on the other, the microscope makes very close objects appear many times larger.
-Interestingly, both these aids can be traced back to a \nth{17} century event: the development of glass lenses used in spectacles. Fundamentally, both these visual extensions are governed by the same optics laws. 
-
-While modern light microscopes can showcase a magnification of about $2000\times$, their spatial resolution is limited the wavelength of visible light, which is of the order of hundreds of nanometers, through Abbe's equation. One way around it is to use  different imaging particles, for instance, X-rays or electrons which have significantly smaller wavelengths (see Table~\ref{table:diffractingParticles} for wavelength comparison between X-ray photons and electrons).   
-
-We will explore further the electron microscope, excellent detailed description of which can be found in ref.~\cite{Hearle72} and ref.~\cite{Reimer13}. There are various ways of generating an electron beam. For instance, in our FEI SEM, a wire of tungsten with a sharp tip is used to generate a beam of electrons through field emission. This beam is then focused through a series of condenser lenses onto the surface of a sample such that the beam spot size on the sample can go down to 1 \SI{1}{\nano \meter} in diameter in practice.  After the beam is focused on the sample, scanning coils are used to deflect the beam on a set of orthogonal directions in a predefined manner. 
-
-Depending on the geometry of imaging we classify electron microscopy into \textit{transmission electron microscopy} (TEM) on one hand, where the image is formed by electrons which have travelled through a very thin sample, and \textit{scanning electron microscopy} (SEM), where the imaging electrons come from the same, top surface of the sample with which the incident beam interacts with\footnote{ Advances in both world make this distinction imperfect. There is an exception to the rule above, in the form of transmission SEM. To make things even harder to classify there is also scanning TEM.}. Both of them have advantages and downsides. The TEM geometry minimises the lateral spread of the electron-sample interaction volume providing therefore higher resolutions, but it also limits its field of view. Additionally, thinning the sample to the sizes required by this geometry can be cumbersome, time consuming and irremediably damaging to the sample. There is the additional question the microscopist must answer, whether the features observed are intrinsic to the sample or they were introduced during the polishing process. On the other side, the SEM requires minimal sample preparation since the thickness of the sample does limit its capabilities. The downside, as we will see, is that the SEM is not optimised for diffraction contrast in the same way the TEM is. 
-
-
-Since electrons interact strongly with matter they can generate a plethora of signals for one to measure in the SEM using the right, specialised detector:
-\begin{itemize}
-    \item Most commonly, low-energy ($<$\SI{50}{\electronvolt}) \textit{secondary} electrons (SE) are ejected by those atoms with which the incident electrons inelastically scattered. Since they cannot come from very deep in the sample, the interaction volume is narrow enough to provide a tool for high resolution surface imaging. These electrons are collected by attracting them to an electrically biased grid and then further accelerated towards a phosphor or scintillator, in what is know as a Everhart-Thornley detector\cite{ETdetector}.
-    
-    
-    
-    \item In addition to secondary electrons, excited atoms will also emit a variety of electromagnetic radiation such as characteristic X-rays which can provide information on the distribution of different elements in the sample as long as the SEM is equipped with wavelength dispersive \textit{X-ray spectroscopy}. 
-    
-    \item As the atoms relax back to their ground state after the encounter with the high energy electrons, they can generate light which can provide useful optical information in a technique known as \textit{cathodoluminescence} (CL).
-    
-    \item The incident electrons can escape the sample eventually, after having lost more or less energy through inelastic scattering. This implies, at some point in their trajectory, the incident electrons suffer a large angle elastic scattering such that they turn their path back to the surface of entry. All the incident electrons that suffer an elastic scattering event and manage to escape through the entry surface are collectively known as \textit{backscattered electrons} (BSE) and can be detected by a scintillator or a solid state detector. Since heavier atoms will elastically scatter electrons more strongly, BSEs are used to detect contrast due different chemical compositions. Additionally, if the detector is not collecting a symmetric radial distribution of BSEs, then the image will also contain strong topographic contrast. 
-    
-    \item Figure~\ref{Fig:Espectrum} shows the energy distribution of electrons reaching the BSE detector for an incident beam of energy $E$. Over-imposed on the BSE energy curve there are a few other signals. We will only talk here about the elastic peak as it makes the core of this work. A subset of BSE will loose almost no energy before they reach the detector either because they have been backscattered by the top layer of the sample, or, more likely, because they underwent diffraction, a case in which inelastic scattering processes are reduced (see the discussion on channelling on page~\ref{sec:channelling}). We will call this the \textit{elastically BSE}. This signal can provide information on the crystallographic orientation of a small region of the sample or about small changes in local strain. More on this in the rest of the thesis. One could use energy sensitive detector to select only this signal~\cite{Stefano}.
-\end{itemize}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.62\linewidth]{Figures/spectrum.png}
-\caption[SEM electrons energy spectrum.]{Schematic energy spectrum of secondary and backscattered electrons in an SEM [after~\cite{bell12}].}
-\label{Fig:Espectrum}
-\end{figure}
-
-
-We will be concerned from now on only with elastically scattered BSEs. The sample geometry optimised for this signal is shown below in Fig.~\ref{Fig:sillySEM}. The sample is tilted with respect to the incident beam and the detector is position such that it can collect the solid angle of the backscattered electrons which highest intensity. We call this geometry forward-scattering. 
-
-
-
-\vspace{0.2cm}
-
-\noindent\begin{minipage}{0.5\textwidth}
-The method of operation of the SEM is shown Figure~\ref{Fig:sillySEM}. A collimated beam of electrons is focused on the surface of a tilted sample. The beam is then scanned in a raster manner over the area of interest of the sample. The detector collects one pixel worth of BSEs intensity at a time. The beam is moved by the deflector coil to the next position on the sample defined by the step size. The resulting image is made up of the ordered collected pixels, and, at the end of the scan, has as many pixels as steps used in scanning.  
-\end{minipage}%
-\begin{minipage}{0.5\textwidth}
-    \centering
-\includegraphics[width=0.48\linewidth]{Figures/sillySEM.png}
-\captionsetup{width=.7\linewidth}
-\captionof{figure}{SEM schematics in forward-scattering geometry.}
-\label{Fig:sillySEM}
-\end{minipage}
-
-\vspace{0.4cm}
-
-
-
-% TILT
-The tilt of the sample in the SEM ensures that  enough electrons reach the detector. It also makes the geometry of diffraction very different from that in the TEM. The sample's z-direction in the SEM is not the same as the beam direction which is the case for the TEM sample geometry. This means that if we are to use the diffraction models developed for TEM, they must be generalised for the sample tilt.  More about this in the next chapter. 
-
-References~\cite{Hearle72, Reimer13} also discuss the electron optics as well and we will not delve on it here. We will however mention that the tilt of the sample affects the ``squareness'' of the scanned area. The trapezoidal area scanned will produce a distorter image, which can be corrected to some degree using the tilt correction function (see page 50 in ref.~\cite{SEMbooklet} for tilt correction artefacts). The tilt can also change the shape of the beam on the sample which not only affects the imaging but also the diffraction interaction volume. 
-
-
-%relativistic correction
-Let us shortly address relativistic corrections for electrons used in electron microscopy. The de Broglie equation for the relativistic electron  wavelength, $\lambda$, can be written in terms of the accelerating voltage $V$ (equation 2.4 in \cite{goodhew88}) as:
-\begin{equation}
-    \lambda = \sqrt{\frac{150}{V + 10^{-6}\, V^2}} \,\, [\si{\angstrom}]
-\end{equation}
-where the second term is the correction term and becomes important for voltages grater than $20$ \si{\kilo \electronvolt} as we can see in Table~\ref{Table:wavelength}. For SEM applications discussed in this work we will focus on $20$ \si{\kilo \electronvolt} incident electrons, and discard, quite acceptably, relativistic effects. 
-
-\begin{table}[ht]
-\caption{Corrected and uncorrected electron wavelengths for voltages used in  electron microscopy.}
-\label{Table:wavelength}
-\vspace{-0.4cm}
-\centering
-\begin{longtable}{l c c c}\toprule
-             \multirow{2}{*}{\tabhead{Voltage [\si{\kilo \electronvolt}] }} &  \multirow{2}{*}{\tabhead{Lorentz factor $\gamma$} \hspace{0.4cm}}  & \multicolumn{2}{c}{\tabhead{Wavelength  $\lambda$ [\si{\angstrom}]}}\\ \cmidrule{3-4}
-              &  &\tabhead{Uncorrected}        &  \tabhead{Corrected}  \\ \midrule
-20   & 1.04  & 0.086 & 0.086  \\
-100  & 1.20  & 0.039 & 0.037  \\
-1000 & 2.93  & 0.012 & 0.009  \\
-\bottomrule
-\end{longtable}
-\end{table}
