@@ -5,23 +5,21 @@
 %----------------------------------------------------------------------------------------
 I often made the mistake to start talking about diffraction assuming the audience knows exactly what I mean. I'd like to rectify that here and introduce the concept and physics of \textit{diffraction} in the SEM. I wrote this chapter as an introduction to theory the first year PhD me would have liked to have read, assuming the wisdom of today. 
 
-In this introductory chapter I will first lay out some key crystallography concepts as the Bravais lattice (page~\pageref{Sect:spaceLattice}), indices notations (page~\pageref{subChap:MB indices}) and the reciprocal space (page~\pageref{sec:recMB}). All these concepts will be illustrated by examples using the hexagonal lattice. In this way I can cover some basic physics concepts, introduce language and notations commonly used in this field but also evidence where some of the computations used in the later chapters come from. 
+In this introductory chapter I will first lay out some key crystallography concepts such as the Bravais lattice (page~\pageref{Sect:spaceLattice}), indices notations (page~\pageref{subChap:MB indices}) and the reciprocal space (page~\pageref{sec:recMB}). All these concepts will be illustrated by examples using the hexagonal lattice. In this way I can cover some basic physics concepts, introduce language and notations commonly used in this field but also evidence where some of the computations used in the later chapters come from. 
 
 Since we will make use of quantum mechanical notions such as the \textit{wavefunction} I'll briefly lay out on page~\pageref{sec:wave} what is meant by it in this document. Similarly, another useful concept used in diffraction, that of \textit{plane waves} is outlines on page~\pageref{Fig:planeWaves}. 
-I will remind the reader, on page~\pageref{Sec:Bragg},  the condition for  elastic coherent scattering along a set of crystal lattice planes or, more concise, the \textit{Bragg's law}. 
+I will remind the reader, on page~\pageref{Sec:Bragg},  the condition for  elastic coherent scattering along a set of crystal lattice planes or, more concisely, \textit{Bragg's law}. 
 
 
-Next, starting with page~\pageref{chap:real+recAlg}, I will painstakingly go through the core algebra used in crystallography, both in the real and reciprocal space, covering notions such as the \textit{metric tensor} and \textit{structure matrix}. I will examples from the hexagonal lattice to highlight the implications of these computations. 
+Next, starting with page~\pageref{chap:real+recAlg}, I will painstakingly go through the core algebra used in crystallography, both in the real and reciprocal space, covering notions such as the \textit{metric tensor} and \textit{structure matrix}. I will give examples from the hexagonal lattice to highlight the implications of these computations. 
 
 
 We cannot make a single dent in diffraction without a working knowledge of symmetry in crystallography, which is why I will take a few pages to explore \textit{crystal symmetry} and \textit{point group} analysis in Appendix~\ref{Chap:Symmetry}. Here I also will limit the examples to the wurtzite system to keep it relevant. On page~\pageref{sec:Wsymmetry}, I go over the defining symmetry operation of wurtzite space group derived in this Appendix. These operations are defining the relative positions of the atoms in the unit cell and  will be used in next chapter for computations of electron scattering factors.  
 
 
-Finally, before we leave this introductory chapter, I will outline on page~\pageref{sec:sem} a few features of the SEM that are key in modelling. 
-
 
 \section{Primer}
-But first things first. We need to define terms and notions that we've both seen before but maybe are not quite as within reach as they ought to be in order to comfortably embark on this journey. Better accounts of the basics covered here can be found in many textbooks~\cite{Hirsch11,Williams96,Reimer13}. The following is only my attempt inspired in large parts by \textit{Structure of materials: an introduction to crystallography, diffraction and symmetry}~\cite{SoM} and \textit{Introduction to Conventional Transmission Electron Microscopy}~\cite{MarcTEM03}.
+But first things first. We need to define terms and notions that we've both seen before but maybe are not quite as within reach as they ought to be in order to comfortably embark on this journey. Better accounts of the basics covered here can be found in many textbooks~\cite{electronMicroscopy,Williams96,reimerSEM}. The following is only my attempt inspired in large parts by \textit{Structure of materials: an introduction to crystallography, diffraction and symmetry}~\cite{SoM} and \textit{Introduction to Conventional Transmission Electron Microscopy}~\cite{MarcTEM03}.
 
 \subsection{Crystal structure}
 \label{Sec:crystalStruct}
@@ -53,7 +51,7 @@ Due to these small vibrations, the electron cloud will spread over a larger spac
 \label{eq:correctedScattter}
 f_T=f_0 e^{-B(T)s^2}, \quad \text{with}\quad s=\frac{\sin\theta_B}{\lambda}
 \end{equation}
-where $s$ is half of the inverse of interplanar distance $d_{hkl}$. We will see in next chapter that $f$ is commonly known as the scattering factor and how we can calculate its value. From dimensional analysis we can see that B is proportional to the mean square displacement of the atom in the direction normal to the Bragg plane. We can also read from this equation that the intensity of the diffracted beam is reduced by a factor $e^{-B(T)s^2}$ with respect to the intensity of the same beam interacting with the sample at~$\SI{0}{\kelvin}$.
+where $s$ is half of the inverse of interplanar distance $d_{hkl}$. We will see in the next chapter that $f$ is commonly known as the scattering factor and how we can calculate its value. From dimensional analysis we can see that B is proportional to the mean square displacement of the atom in the direction normal to the Bragg plane. We can also read from this equation that the intensity of the diffracted beam is reduced by a factor $e^{-B(T)s^2}$ with respect to the intensity of the same beam interacting with the sample at~$\SI{0}{\kelvin}$.
 
 A good approximation, and the one we will use here, is to assume that for close-packed structures the atomic vibration amplitude is isotropic, such that we only require one DW parameter for each element in the crystal structure. This is not a generally valid assumption, however, first principles phonon density calculations for wurtzite-type III-V semiconductors by Schowalter \etal~\cite{Schowalter09} showed that these materials have only small anisotropies of their Debye-Waller factors.
 
@@ -72,7 +70,7 @@ A good approximation, and the one we will use here, is to assume that for close-
 \end{tabular}
 \end{table}
 
-Gao and Peng~\cite{Gao99} used a fourth degree polynomial regression fit to determine the temperature dependent DW factor for elemental cubic crystal from experimental data. These fit parameters are shown in Table~\ref{Table:DWGao} for the metal elements Al, Ga and In together with their estimated maximum error (ME) values. The form of the polynomial fit function is shown below:
+Gao and Peng~\cite{Gao99} used a fourth degree polynomial regression fit to determine the temperature dependent DW factor for elemental cubic crystals from experimental data. These fit parameters are shown in Table~\ref{Table:DWGao} for the metal elements Al, Ga and In together with their estimated maximum error (ME) values. The form of the polynomial fit function is shown below:
 
 \begin{equation*}
 B(T) = a_0 + a_1T + a_2T^2 + a_3T^3 + a_4T^4
@@ -99,7 +97,7 @@ This being said, the literature on DW factors for nitrogen is limited and we mus
 \end{tabular}
 \end{table}
 
-The Debye-Waller factor of en element, $B(el.)$, is related to the electron static correlation function, $\langle u_{\alpha}(el.) \rangle$, which is the average displacement of an atom of $el.$ in the direction $\alpha$ by:
+The Debye-Waller factor of an element, $B(el.)$, is related to the electron static correlation function, $\langle u_{\alpha}(el.) \rangle$, which is the average displacement of an atom of $el.$ in the direction $\alpha$ by:
 \begin{equation*}
 B(el.) = \frac{8 \pi^2}{3}\left( 2\left\langle u^2_{11}(el.)\right\rangle + \left\langle u^2_{33}(el.)\right\rangle \right).
 \end{equation*}
@@ -143,7 +141,7 @@ If the lattice parameter values are chosen with no restriction, the resulting la
 
 For every lattice with unique symmetry to be decorated with atoms, we talk about a specific \textit{crystal system}. We've seen that the hexagonal 2D crystal system can be described in at least two ways. Similarly, we can construct a $2\pi/6$ rotation invariant lattice in 3D by selecting the following special values for the lattice parameters:  $|\vb{a}|=|\vb{b}|$, $\alpha = \beta = 90\si{\degree}$ and $\gamma=120\si{\degree}$ as shown in Fig.~\ref{Fig:hex3lattice} (a). Here all we did was to add a $\vb{c}$ axis normal to the 2D hexagonal lattice and set it as the rotation axis. This is easy to see when comparing the 2D and 3D hexagonal crystal system.
  
-We defined our unit cell as having the edges at lattice points but we did not yet specified which lattice points. It is convenient to opt for a unit cell that is simple and describes the point symmetry of the underlying lattice. It is also useful to work with a small volume and, in practice, the smallest cell that reflects the full symmetry of the system is used. When the unit cell is small enough such that it only contain one full lattice point, \ie primitive cell, it is denoted by $P$ as we have done in the choice of hexagonal unit cell shown in Fig.~\ref{Fig:hex3lattice} (b) where $h$ stands for hexagonal. Otherwise, the choice of unit cell is somewhat arbitrary, so much so that the Wigner-Seitz cell, which is centred on a lattice point and defined as the region of space closer to that lattice point than any other one, does not have edges aligned with lattice points. 
+We defined our unit cell as having the edges at lattice points but we did not yet specified which lattice points. It is convenient to opt for a unit cell that is simple and describes the point symmetry of the underlying lattice. It is also useful to work with a small volume and, in practice, the smallest cell that reflects the full symmetry of the system is used. When the unit cell is small enough such that it only contains one full lattice point, \ie primitive cell, it is denoted by $P$ as we have done in the choice of hexagonal unit cell shown in Fig.~\ref{Fig:hex3lattice} (b) where $h$ stands for hexagonal. Otherwise, the choice of unit cell is somewhat arbitrary, so much so that the Wigner-Seitz cell, which is centred on a lattice point and defined as the region of space closer to that lattice point than any other one, does not have edges aligned with lattice points. 
 
 
  
@@ -239,7 +237,7 @@ W=w,
 t=-(u+v).
 \end{equation*}
 
-Because the first three basis vectors are not linearly independent, writing out their Miller-Bravais indices is somewhat awkward as seen in Fig.~\ref{Fig:directions}. The three coplanar vectors ensure that any given directions will have at least two non-zero components, and the $\mathbf{A}_i$ basis vectors themselves have three non-zero components. While the Miller direction vectors corresponding to the basis vectors directions have the same lengths as the basis vectors themselves, this is not the case in the Miller-Bravais notation, see vector $\vb{t}_{\hkl[11-20]}$. Nevertheless, we can find families of directions through the usual permutations which would not be possible using the Miller notation as we can see from Table~\ref{Table:MB_directions}. 
+Because the first three basis vectors are not linearly independent, writing out their Miller-Bravais indices is somewhat awkward as seen in Fig.~\ref{Fig:directions}. The three co-planar vectors ensure that any given direction will have at least two non-zero components, and the $\mathbf{A}_i$ basis vectors themselves have three non-zero components. While the Miller direction vectors corresponding to the basis vectors directions have the same lengths as the basis vectors themselves, this is not the case in the Miller-Bravais notation, see vector $\vb{t}_{\hkl[11-20]}$. Nevertheless, we can find families of directions through the usual permutations which would not be possible using the Miller notation as we can see from Table~\ref{Table:MB_directions}. 
 
 %--------
 \begin{table}[htb]
@@ -336,10 +334,12 @@ Table~\ref{Table:MB_planes} shows a list of commonly used families of planes in 
 \label{Fig:planes}
 \end{figure}
 %---------
-We can also expand the \textit{zone axis} definition, which tells us what planes, \hkl(hkl), belongs to direction or zone, \hkl[uvw], given in Miller indices as $hu + kv + lw = 0$ to the Miller-Bravais notation:
+We can also expand the \textit{zone axis} definition, which tells us what \hkl(hkl) planes belong to direction or zone, \hkl[uvw], given in Miller indices as $hu + kv + lw = 0$ to the Miller-Bravais notation:
 \begin{equation}
 hu + kv + it+ lw = 0
 \end{equation}
+
+
 
 %---------
 \subsection{The reciprocal space}
@@ -367,7 +367,7 @@ where it must be true that:
 \end{equation}
 \end{minipage}
 
-\noindent with $\Omega$ being the volume of the unit cell, $\Omega=\vb{a}\cdot (\vb{b}\times \vb{c})$. Note, that both the dot and the cross products here must be generalised to non-Cartesian crystal frames forms and I show how to do that in next section, Section~\ref{chap:real+recAlg} on page~\pageref{chap:real+recAlg}. 
+\noindent with $\Omega$ being the volume of the unit cell, $\Omega=\vb{a}\cdot (\vb{b}\times \vb{c})$. Note, that both the dot and the cross products here must be generalised to non-Cartesian crystal frames and I show how to do that in next section, Section~\ref{chap:real+recAlg} on page~\pageref{chap:real+recAlg}. 
 
 
 A few observations can be made straight away at this point:
@@ -548,7 +548,7 @@ e^{2 \pi i  \mathbf{k} \cdot \mathbf{r}}
 \label{Sec:Bragg}
 
 \begin{minipage}{0.5\textwidth}
-Consider the drawing in Fig.~\ref{Fig:Bragg}. A plane wave of wavelength $\lambda$ and wave vector $\mathbf{k}$ is incident with incidence angle $\theta$ on a set of parallel plane with Miller indices \hkl(h k l). The planes are partially transparent and partially reflective, such that the reflected beams together with the incident ones and the normal to the planes are co-planar. We ask the question: ``\textit{What is the condition that two reflected plane waves (1) and (2) will be in phase?}''. 
+Consider the drawing in Fig.~\ref{Fig:Bragg}. A plane wave of wavelength $\lambda$ and wave vector $\mathbf{k}$ is incident with incidence angle $\theta$ on a set of parallel plane with Miller indices \hkl(h k l). The planes are partially transparent and partially reflective, such that the reflected beam together with the incident one and the normal vector to the planes are co-planar. We ask the question: ``\textit{What is the condition that two reflected plane waves (1) and (2) will be in phase?}''. 
 \end{minipage}
 %---------
 \begin{minipage}{0.5\textwidth}
@@ -572,7 +572,7 @@ In common practice we will only consider first order diffraction; instead of tal
 \end{equation}
 
 
-The angle $\theta$ for which constructive interference occurs is known as \textit{Bragg angle}, $\theta_B$. Table~\ref{table:Bragg} shows the Bragg angles for 20 kV electrons diffracting from common wurtzite crystal planes (shown in Fig.~\ref{Fig:planeWaves}). Recall that the formula for inter-planar spacing in hexagonal unit cells is given in Eq.~\ref{eq:d_hex}.
+The angle $\theta$ for which constructive interference occurs is known as \textit{Bragg angle}, $\theta_B$. Table~\ref{table:Bragg} shows the Bragg angles for 20 keV electrons diffracting from common wurtzite crystal planes (shown in Fig.~\ref{Fig:planeWaves}). Recall that the formula for inter-planar spacing in hexagonal unit cells is given in Eq.~\ref{eq:d_hex}.
 
 %---------
 
@@ -597,7 +597,7 @@ The angle $\theta$ for which constructive interference occurs is known as \texti
 
 \end{table}
 
-Note that while the Bragg equation describes the geometric condition for diffraction, as constructive interference, to occur it does not, however, provide any information on the intensity (if any) of the diffracted beam. The real space form of this equation is only useful in determining the Bragg angles for a given wavelength and crystal structure as we have done here. More useful is the study of the direction of the diffracted beam for a given crystal structure which require the expression of some reference frame. In order to tackle this problem, it is common to express the Bragg equation to the reciprocal reference frame and introduce the Ewald sphere as we will do in the next section.
+Note that while the Bragg equation describes the geometric condition for diffraction as constructive interference to occur, it does not, however, provide any information on the intensity (if any) of the diffracted beam. The real space form of this equation is only useful in determining the Bragg angles for a given wavelength and crystal structure as we have done here. More useful is the study of the direction of the diffracted beam for a given crystal structure which requires the expression of some reference frame. In order to tackle this problem, it is common to express the Bragg equation to the reciprocal reference frame and introduce the Ewald sphere, as we will do in the next section.
 
 
 
@@ -605,7 +605,7 @@ Note that while the Bragg equation describes the geometric condition for diffrac
 \label{sec:Fourier}
 We have introduced the notions of crystal lattice and talked about its translational invariance under a translation vector $\vb{t}=u\vb{e_1}+v\vb{e_2}+w\vb{e_3}$ where $u,\, v,\, w$ are constants. We have also introduced the reciprocal space and that of plane waves. What is left is to tie everything together through the introduction of Fourier transform which in turn will lead us to the mathematical formulation of diffraction.
 
-Considering the wave function description of a particle as a superposition of momentum eigenfunctions describe by vector $\vb{k}$, we now want to ask the question: \textit{``What is the relative contribution of a specific wave vector to the total function $\Psi(\vb{r})$?''}. This is a very similar question to\textit{ ``What is the contribution of the basis vector $\mathbf{e_1}$ to a given vector $\mathbf{t}=u\vb{e_1}+v\vb{e_2}+w\vb{e_3}$?''}. We know the answer to that to be $u$; easily derived from the dot product $\vb{t}\cdot \vb{e_1}$. Similarly, we can use the dot product for continuous functions of the plane wave form $\Phi = e^{2 \pi i \vb{k}\cdot \vb{r}}$ and $\Phi' = e^{2 \pi i \vb{k'}\cdot \vb{r}}$. In the bra-ket notation this is defined as:
+Considering the wave function description of a particle as a superposition of momentum eigenfunctions described by vector $\vb{k}$, we now want to ask the question: \textit{``What is the relative contribution of a specific wave vector to the total function $\Psi(\vb{r})$?''}. This is a very similar question to\textit{ ``What is the contribution of the basis vector $\mathbf{e_1}$ to a given vector $\mathbf{t}=u\vb{e_1}+v\vb{e_2}+w\vb{e_3}$?''}. We know the answer to that to be $u$; easily derived from the dot product $\vb{t}\cdot \vb{e_1}$. Similarly, we can use the dot product for continuous functions of the plane wave form $\Phi = e^{2 \pi i \vb{k}\cdot \vb{r}}$ and $\Phi' = e^{2 \pi i \vb{k'}\cdot \vb{r}}$. In the bra-ket notation this is defined as:
 
 \begin{equation*}
 \braket{e^{2 \pi i \vb{k}\cdot \vb{r}}}{e^{2 \pi i \vb{k'}\cdot \vb{r}}}=\iiint e^{2 \pi i \vb{(k'-k)}\cdot \vb{r}} \dd \vb{r}=\delta(\vb{k'-k})
@@ -862,7 +862,7 @@ and, inversely,
 \vb{a}_i=\mathsf{g_{ij}} \mathbf{a}^*_j.
 \end{equation}
 
-Notice the difference in position of the metric tensor in equations \ref{eq:directg} and \ref{eq:directga}. Another way to remember this is that the rows of the metric tensor are the components of the direct basis vector in terms of the reciprocal basis vectors, as explained in \textit{Introduction to CTEM} pg. 17 ~\cite{MarcTEM03}, and the columns of the metric tensor contain the reciprocal components of a vector in therms of the real space components. 
+Notice the difference in position of the metric tensor in equations \ref{eq:directg} and \ref{eq:directga}. Another way to remember this is that the rows of the metric tensor are the components of the direct basis vector in terms of the reciprocal basis vectors, as explained in \textit{Introduction to CTEM} pg. 17 ~\cite{MarcTEM03}, and the columns of the metric tensor contain the reciprocal components of a vector in terms of the real space components. 
 
 
 \subsubsection{The reciprocal lattice basis vectors}
@@ -899,7 +899,7 @@ For the hexagonal lattice basis set we just replace the reciprocal metric tensor
 \label{subchap:basicRot}
 It is common in crystallographic calculations to want to express a tensor parameter known in one reference in a different reference frame; assuming we can figure out the position of the new reference frame in the old reference frame. For instance, mapping the electron beam scan in the sample frame (a task made especially challenging by the high sample tilt used in electron diffraction techniques, which the SEM is not very well designed to account for ~\cite{Nolze07}), involves moving electron scan positions between the beam frame and the sample frame. Assuming the scanning directions $x$ and $y$ are truly perpendicular, that the $x$ scanning direction is indeed parallel to the tilt axis of the sample and that the magnification and spot size are not significantly affected by the tilt (\ie parallel beam at high magnification) then the relationship between the basis vectors of two frames is a simple rotation. A similar transformation must be done for translating the escaping electron beam positions from the sample frame to the detector frame~\cite{Britton16}. 
 
-Unfortunately, simply calling an action rotation, suffers from many ambiguities. In crystallography, when we talk about rotation we refer to a very well defined transformation. In a right handed system\footnote{ $(x, y, z)$ follow the thumb, index and middle fingers of the right hand} -- first source of ambiguity --, a rotation of the coordinate system (CS) around a given axis is the clockwise rotation in the plane normal to that axis as the viewer looks in the direction pointed by the axis. Another way of describing the clockwise rotation is the right hand rule, \ie holding the thumb in the direction of the chosen axis of rotation, the rest of the fingers point in the direction of rotation. 
+Unfortunately, simply calling an action ``rotation'' suffers from many ambiguities. In crystallography, when we talk about rotation we refer to a very well defined transformation. In a right handed system\footnote{ $(x, y, z)$ follow the thumb, index and middle fingers of the right hand} -- first source of ambiguity -- a rotation of the coordinate system (CS) around a given axis is the clockwise rotation in the plane normal to that axis as the viewer looks in the direction pointed by the axis. Another way of describing the clockwise rotation is the right hand rule, \ie holding the thumb in the direction of the chosen axis of rotation, the rest of the fingers point in the direction of rotation. 
 
 If you just looked at your right hand fingers going, in fact, anti-clockwise then you'll understand why I call rotations confusing. It matters where the rotations axis, or finger is pointing -- second source of confusion. You do need to align your viewing direction with the direction of the rotation axis, that is you need to awkwardly turn your right hand such that the thumb points to were you are looking. Voil\`{a}, clockwise rotation. Also, my activity for months during my PhD. 
 
@@ -912,7 +912,7 @@ It should be obvious that a passive rotation of an object by an angle $\theta$ a
 
 The mathematical form of these transformations in 3D can be written as $3\times 3$ matrices, $\mathcal{R}$. In the case in which the axis of rotation is one of the basis vectors we call the transformation a basic rotation. The tree basic rotation matrices for a right handed Cartesian frame are given in Appendix~\ref{Chap:rotations}. 
 
-Yet another source of ambiguity is the manner in which we apply the rotation matrix. Through this work we pre-multiply the rotation matrix with the position column vector: $\mathbf{v'}=\mathcal{R}(\theta)\mathbf{v}$. This leads us to the unambiguous definition of rotation we will use: \textit{The anticlockwise rotation of a position vector in column form, $\mathbf{v}$, given in a right handed CS, around the rotation axis $\mathbf{n}$ leads to a new position which can be calculated by pre-multiplying the rotation matrix $\mathcal{R_{\mathbf{n}}}$ by the position vector: $\mathcal{R_{\mathbf{n}}} \mathbf{v}$ }. For any property in this definition changed the rotation direction flips. For instance, post-multiplying the rotation matrix with row vector leads to a clockwise rotation. 
+Yet another source of ambiguity is the manner in which we apply the rotation matrix. Through this work we pre-multiply the rotation matrix with the position column vector: $\mathbf{v'}=\mathcal{R}(\theta)\mathbf{v}$. This leads us to the unambiguous definition of rotation we will use: \textit{The anticlockwise rotation of a position vector in column form, $\mathbf{v}$, given in a right handed CS, around the rotation axis $\mathbf{n}$ leads to a new position which can be calculated by pre-multiplying the rotation matrix $\mathcal{R_{\mathbf{n}}}$ by the position vector: $\mathcal{R_{\mathbf{n}}} \mathbf{v}$ }. For any property in this definition changed, the rotation direction flips. For instance, post-multiplying the rotation matrix with row vector leads to a clockwise rotation. 
 
 A useful property of the rotation matrix is that the inverse of a rotation can be calculated by simply transposing the matrix ($\mathcal{R} \mathcal{R}^\intercal  = \mathcal{I}$). Another property is that the product of rotation matrices is yet another rotation matrix. Even in the case in which the rotation axis is not just a basis vector, the rotation can be broken down in maximum tree basic rotations. 
 
@@ -932,7 +932,7 @@ Now that we covered how to do rotations in a Cartesian frame we will go over tra
 
 \subsection{Crystal to Cartesian frame and the structure matrix}
 
-While computations in the crystal frame conserves the symmetry of the crystal and keeps the equations somewhat intuitive, there are undeniable benefits to bringing the calculations into the Cartesian frame as well. If only because implementing non Cartesian vectorial manipulation requires extra work, but ultimately because we want to project the information on a square detector or screen. We are interested in writing out the path of transforming from both the real and reciprocal hexagonal space to the Cartesian system. 
+While computations in the crystal frame conserve the symmetry of the crystal and keep the equations somewhat intuitive, there are undeniable benefits to bringing the calculations into the Cartesian frame as well. If only because implementing non Cartesian vectorial manipulation requires extra work, but ultimately because we want to project the information on a square detector or screen. We are interested in writing out the path of transforming from both the real and reciprocal hexagonal space to the Cartesian system. 
 
 The easiest and most common way of defining a Cartesian frame with basis vectors $\mathbf{e}_i$ with respect to the crystal frame with basis vectors $\mathbf{a}_i$ and corresponding reciprocal space vectors  $\mathbf{a}^*_i$ is as follows:
 \begin{itemize}
@@ -989,7 +989,7 @@ We can now define the reciprocal structure matrix for a hexagonal lattice, $\mat
 
 %%%%%%
 \subsection{Metric tensor implementations}
-I took the time to write out a good number of equations in this section. While these are well established and, probably, well  understood vectorial manipulation in the world of X-ray diffraction, electron microscopists don't often incorporate basis transformations language in their work. I make this claim based on the observation that, while the implementation would be trivial, there is a lack of mature, accessible and easy to plug-and-play (ideally open) software out there to answer some of the crystallographic questions the material scientists might ask when using an SEM as a characterisation tool. 
+I took the time to write out a good number of equations in this section. While these are well established and, probably, well  understood vectorial manipulation in the world of X-ray diffraction, electron microscopists don't often incorporate basis transformation language in their work. I make this claim based on the observation that, while the implementation would be trivial, there is a lack of mature, accessible and easy to plug-and-play (ideally open) software out there to answer some of the crystallographic questions the material scientists might ask when using an SEM as a characterisation tool. 
 
 Until a \textit{Python} library is available and documented for crystallographic basis set computations, I leave the reader with a \href{http://ssd.phys.strath.ac.uk/resources/crystallography/crystallographic-direction-calculator/}{web tool}\footnote{ Link address is: \href{http://ssd.phys.strath.ac.uk/resources/crystallography/crystallographic-direction-calculator/}{http://ssd.phys.strath.ac.uk/resources/crystallography/crystallographic-direction-calculator/} .}, albeit limited in capabilities, written by Albes Koxhaj, an excellent summer project student in the SSD department who implemented a few of the equations here, and revised by me. The last two blocks of calculators in this tool were written to find the coordinates, in the crystal frame, of the normal direction on a given plane \hkl(hkl) or \hkl(hkil). For a hexagonal plane, we show that there are two special conditions in which the normal to a plane can be reduced to Miller indices \hkl[uvw]. The first case is when the $\mathbf{c}$-direction is parallel to the plane ($l=0$) such that the lattice parameters can be removed from the indices and we are left with integer numbers. The second case is when the $\mathbf{c}$-direction is normal to the plane ($h=l=0$ or $h=l=i=0$), when the normal is along $\mathbf{c}$ in both the real and reciprocal space. Any other case will keep coordinates dependent on the lattice parameters $a, c$ which would make them unlikely to be reduced to integers. 
 
@@ -1001,9 +1001,9 @@ I also wrote a few Python lines in the Jupyter notebook \texttt{grainNormal.ipyb
 
 \section{Wurtzite symmetry}
 \label{sec:Wsymmetry}
-I wrote a somewhat comprehensive introduction to symmetry in the wurtzite system in Appendix~\ref{Chap:Symmetry}. This is aimed at a complete novice to crystallography which I was at the beginning of this journey. I tried to keep it textbook level by following the Symmetry chapter in \textit{Structure of Material: An Introduction to Crystallography, Diffraction and Symmetry}~\cite{SoM} and focusing on the symmetry operations relevant for this crystal system. Though it can look daunting and dry, I was told, I would recommend the reader to adventure a look though it if they want want to understand were the symmetry information in this section comes from. I believe it makes for a decent read and I added a lot of helping figures and beautiful  \href{https://sourceforge.net/projects/rayshade/}{Rayshade}\footnote{ Link is \href{https://sourceforge.net/projects/rayshade/}{https://sourceforge.net/projects/rayshade/}.} 3D renderings. I wrote my own input files for these renderings based on the input  \href{http://som.web.cmu.edu/frames2.html}{\emph{*.ray} files}\footnote{ Link is \href{http://som.web.cmu.edu/frames2.html.}{http://som.web.cmu.edu/frames2.html}.} developed by Marc De Graef~\cite{DeGraef98} with the purpose of teaching the crystallography group symmetry~\cite{teachingPointGroup}. My scripts can be found at this \href{https://github.com/elena-pascal/SEM-diffraction/tree/master/Wurtzite_symmetry/}{GitHub repository}\footnote{ Link is \href{https://github.com/elena-pascal/SEM-diffraction/tree/master/Wurtzite_symmetry}{https://github.com/elena-pascal/SEM-diffraction/tree/master/Wurtzite\_symmetry}.}. 
+I wrote a somewhat comprehensive introduction to symmetry in the wurtzite system in Appendix~\ref{Chap:Symmetry}. This is aimed at a complete novice to crystallography which I was at the beginning of this journey. I tried to keep it at textbook level by following the Symmetry chapter in \textit{Structure of Material: An Introduction to Crystallography, Diffraction and Symmetry}~\cite{SoM} and focusing on the symmetry operations relevant for this crystal system. Though it can look daunting and dry, I was told, I would recommend the reader to venture a look though it if they want to understand were the symmetry information in this section comes from. I believe it makes for a decent read and I added a lot of supporting figures and beautiful  \href{https://sourceforge.net/projects/rayshade/}{Rayshade}\footnote{ Link is \href{https://sourceforge.net/projects/rayshade/}{https://sourceforge.net/projects/rayshade/}.} 3D renderings. I wrote my own input files for these renderings based on the input  \href{http://som.web.cmu.edu/frames2.html}{\emph{*.ray} files}\footnote{ Link is \href{http://som.web.cmu.edu/frames2.html.}{http://som.web.cmu.edu/frames2.html}.} developed by Marc De Graef~\cite{DeGraef98} with the purpose of teaching crystallography group symmetry~\cite{teachingPointGroup}. My scripts can be found at this \href{https://github.com/elena-pascal/SEM-diffraction/tree/master/Wurtzite_symmetry/}{GitHub repository}\footnote{ Link is \href{https://github.com/elena-pascal/SEM-diffraction/tree/master/Wurtzite_symmetry}{https://github.com/elena-pascal/SEM-diffraction/tree/master/Wurtzite\_symmetry}.}. 
 
-On page~\pageref{chap:int} of the same Appendix, I also went over how to decipher the symbols in the \textit{ International Tables for Crystallography, Volume A}~\cite{IntTableCrysA}, a skill indispensable to any crystallographer. Specifically, pages 584-858 of the \textit{Tables}, covering space group $\mathbf{P6_3mc}$, are explained in detail.
+On page~\pageref{chap:int} of the same Appendix, I also describe how to decipher the symbols in the \textit{ International Tables for Crystallography, Volume A}~\cite{IntTableCrysA}, a skill indispensable to any crystallographer. Specifically, pages 584-858 of the \textit{Tables}, covering space group $\mathbf{P6_3mc}$, are explained in detail.
 
 In the following section I will assume the reader has working knowledge of crystallographic language. You have been warned!
 
@@ -1013,7 +1013,7 @@ In the following section I will assume the reader has working knowledge of cryst
 \begin{figure}
     \centering
 \includegraphics[width=1.\linewidth]{Figures/6_3mc.png}
-\caption[Graphical 3D representation of the $\mathbf{6_3mc}$ symmetry.]{Graphical 3D representation of the $\mathbf{6_3mc}$ symmetry combination. Blue planes represent the mirror planes and the grey ones the glide planes. See Appendix~\ref{Chap:Symmetry} for discussion on squiggly objects. The 2D projection is shown in the bottom right corner. Filled circles indicate the object is in the plane of the drawing, open circles indicate the object is above the plane at the indicated height). Dotted lines represent a glide plane with translation normal to the drawing plane and solid lines are mirrors. }
+\caption[Graphical 3D representation of the $\mathbf{6_3mc}$ symmetry.]{Graphical 3D representation of the $\mathbf{6_3mc}$ symmetry combination. Blue planes represent the mirror planes and the grey ones the glide planes. See Appendix~\ref{Chap:Symmetry} for discussion on squiggly objects. The 2D projection is shown in the bottom right corner. Filled circles indicate the object is in the plane of the drawing, open circles indicate the object is above the plane at the indicated height. Dotted lines represent a glide plane with translation normal to the drawing plane and solid lines are mirrors. }
 \label{Fig:6_3mc}
 \end{figure}
 
@@ -1024,7 +1024,7 @@ We talked in Appendix~\ref{Chap:Symmetry} about how one can determine the full s
 As before, the generating files can be found in \texttt{6\_3mcPNG.ray} for the \textit{*.png} image and \texttt{6\_3mcGIF.ray} for the \textit{*.gif} animation. 
 
 
-Note that this combination does not make up a point group as it does not present unique symmetry. However, when adding the $\mathbf{6_3mc}$ symmetry at the lattice points on a hexagonal primitive Bravais lattice it generate the brand new space group $\mathbf{P6_3mc}$. This is illustrated in Fig.~\ref{Fig:P63mc}, where the last image is taken from the \textit{Tables} and shows the top view projection of the symmetry operators of this space group. 
+Note that this combination does not make up a point group as it does not present a unique symmetry. However, when adding the $\mathbf{6_3mc}$ symmetry at the lattice points on a hexagonal primitive Bravais lattice, it generates the brand new space group $\mathbf{P6_3mc}$. This is illustrated in Fig.~\ref{Fig:P63mc}, where the last image is taken from the \textit{Tables} and shows the top view projection of the symmetry operators of this space group. 
 
 \begin{figure}
     \centering
@@ -1046,11 +1046,11 @@ Note that this combination does not make up a point group as it does not present
 \end{tabular}
 \end{table}
 
-One can find the corresponding point group of a space group containing glide planes or screw axes (non-symmorphic) by simply replacing the glide planes by mirrors and the screw axes by regular rotations. We show in Table~\ref{Table:wurtziteSpace} the corresponding crystallographic point group together with the space group number as it is indexed in the \textit{ International Tables for Crystallography}. The important difference to keep in mind when comparing the space group $\mathbf{P6_3mc}$ with the corresponding point group $\mathbf{6mm}$ is that the space group symmetry includes translational vectors. And in this case, we are not only talking about the Bravais lattice translational vectors, but also about symmetry operators of second kind, like screw and glide, that include translation. In mathematical language, this means that the point symmetry matrices $\mathsf{D^{(x)}}$ are not sufficient for describing the symmetry of the the space group and we must turn to the $4\times 4$ matrices, $\mathcalboondox{W}$, which contain translation information as well. We showed on page~\pageref{eq:Wdef} (Eq.~\ref{eq:Wdef}) how to write these matrices using the Seitz symbols: $\mathcalboondox{W}=(\mathsf{D}|\boldsymbol{\tau})$.
+One can find the corresponding point group of a space group containing glide planes or screw axes (non-symmorphic) by simply replacing the glide planes by mirrors and the screw axes by regular rotations. We show in Table~\ref{Table:wurtziteSpace} the corresponding crystallographic point group together with the space group number as it is indexed in the \textit{ International Tables for Crystallography}. The important difference to keep in mind when comparing the space group $\mathbf{P6_3mc}$ with the corresponding point group $\mathbf{6mm}$ is that the space group symmetry includes translational vectors. And in this case, we are not only talking about the Bravais lattice translational vectors, but also about symmetry operators of the second kind, like screw and glide, that include translation. In mathematical language, this means that the point symmetry matrices $\mathsf{D^{(x)}}$ are not sufficient for describing the symmetry of the the space group and we must turn to the $4\times 4$ matrices, $\mathcalboondox{W}$, which contain translation information as well. We showed on page~\pageref{eq:Wdef} (Eq.~\ref{eq:Wdef}) how to write these matrices using the Seitz symbols: $\mathcalboondox{W}=(\mathsf{D}|\boldsymbol{\tau})$.
 The values of the relevant matrices $\mathsf{D^{x}}$ are given explicitly in Appendix~\ref{Chap:Symmetry}.
 
 
-In Appendix~\ref{Chap:Symmetry} we derived the 12 symmetry operations of this space group. We also mentioned that these can also be found as list in the \textit{Tables}. We will need these symmetry operations in order to determine the equivalent positions of an atom in the unit cell, \ie for a given atom position apply all symmetry operations of the space group to this position and note all unique new coordinates inside the unit cell.
+In Appendix~\ref{Chap:Symmetry} we derived the 12 symmetry operations of this space group. We also mentioned that these can also be found as a list in the \textit{Tables}. We will need these symmetry operations in order to determine the equivalent positions of an atom in the unit cell, \ie for a given atom position apply all symmetry operations of the space group to this position and note all unique new coordinates inside the unit cell.
 
 With the help of Appendix~\ref{Chap:Symmetry} we can read all the symmetry operations symbols in the right image of Fig.~\ref{Fig:P63mc}. Especially we can recognise the 4 group generators listed in the \textit{Tables} (shown on page~\pageref{Fig:ITC}). Table~\ref{Table:generators} describes these generators and points to the Appendix pages were they are discussed. The table also gives us the matrices we need to apply to a position $(x, y, z )$ when looking its symmetry equivalent places in the unit cell. 
 

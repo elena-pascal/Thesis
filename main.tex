@@ -38,6 +38,7 @@ chapterinoneline, % Uncomment to place the chapter title next to the number on o
 %consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
 ]{MastersDoctoralThesis} % The class file specifying the document structure
 
+\setcounter{tocdepth}{2} % set contents list depth to 2
 
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
@@ -183,7 +184,7 @@ complex-root-position = before-number
 %	THESIS INFORMATION
 %----------------------------------------------------------------------------------------
 
-\thesistitle{Dynamical models for novel diffraction techniques in the SEM} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\thesistitle{Dynamical models for novel diffraction techniques in SEM} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
 \supervisor{Dr. Ben \textsc{Hourahine}\\
             Dr. Carol \textsc{Trager-Cowan}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
 \examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
@@ -257,7 +258,7 @@ complex-root-position = before-number
 %----------------------------------------------------------------------------------------
 
 \begin{declaration}
-\addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+%\addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
 
 
 \noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
@@ -304,8 +305,13 @@ in, or derived from, this thesis.
 %----------------------------------------------------------------------------------------
 
 \begin{abstract}
-\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-The Thesis Abstract is written here (and usually kept to just this page). The page is kept centered vertically so can expand into the blank space above the title too\ldots
+%\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+
+The scanning electron microscope is a powerful nanocharacterisation tool for a variety of materials including semiconductors and metals. Less known for its diffraction abilities than its transmission counterpart, scanning electron microscopy (SEM)  can be used in  a number of diffraction modalities to provide information on crystal imperfections at the nanoscale level. This comes with the added benefit of SEM requiring minimal sample preparation. %intro
+Models for diffraction in the SEM are still being developed and improved, hence in this work I explore the physics and implementations of such models. %motivation
+I focus on the two main branches of SEM diffraction techniques: incident beam channelling, or \textit{diffraction in}, powerful when it comes to resolving individual dislocations close to the surface; and back(/forward)scattering diffraction, or \textit{diffraction out}, which provides a variety of information about grain distribution, orientation and strain. Both of these diffraction modalities involve the same physical processes, so it makes sense to use the same models, namely dynamical scattering in the column approximation. %methods
+I use the two beam Bloch waves approach for electron channelling contrast imaging (ECCI) of threading dislocations (TDs) normal to the surface in wurtzite group-III nitride materials. I also introduce and use the notion of ECC-strain to study crystal features and to predict the behaviour of  TDs contrast. 
+For the electron back(/forward)scatter modality, I show the first application of the new energy-weighted dynamical scattering capabilities of EMsoft to study the novel transmission mode (TKD) of the SEM. %results
 \end{abstract}
 
 %----------------------------------------------------------------------------------------
@@ -313,10 +319,18 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 %----------------------------------------------------------------------------------------
 
 \begin{acknowledgements}
-\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+%\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
 %The acknowledgements and the people to thank go here, don't forget to include your project advisor\ldots
 
-%More importantly, I would like to thank my mother, who, despite having been denied further education, values it so greatly that it took surprisingly little convincing work to let me leave ten years ago, with only a precarious survival plan, for a foreign land in the pursuit of it.   
+\vspace{2cm}
+I want to thank the entire SSD group for being welcoming and generous with their time and for all the science and non-science conversations. I am thankful for all my wonderful office mates, Nouf for kindly teaching me basics when I started, Paul for unlimited wisdom, James for welcomed distractions. I also have to mention Stefano for taking me under his wing in the first two years, and trying to pass his polymath knowledge onto me; I only wish I made more of your time here. I do hold fond memories of our electron diffraction (sometimes heated) discussions.
+
+I am incredibly indebted to my supervisors for guiding me at every step on this long and sometimes challenging journey. I have to thank Carol for taking me on the program and giving me a chance to do research, even though I did not come in with stellar grades. I am grateful to her for always being available to hear any concerns I might have. I think I struggled with a lot of impostor syndrome, and while I still do, I know that having Ben as a supervisor helped a lot. I am truly indebted for Ben's patience of framing the work I did in a way that made it sound meaningful even when we both knew that PhD work is so rarely impactful. My anxiety is also thankful for him always being available to discuss results even if it meant 10 pm on a Sunday and for all the very last minute revisions and feedback. 
+
+I am extremely grateful for the support of my partner, Gunnar, without whom I don't think this manuscript would exist. Thank you for believing I am strong all the times I did not. Thank you for not doubting for a second I will hand in a Thesis for all the times I did.  
+
+
+Most importantly, I would like to thank my mother, who, despite having been denied further education, values it so greatly that it took surprisingly little convincing work to let me leave ten years ago, with only a precarious survival plan, for a foreign land in the pursuit of it.   
 
 
 \end{acknowledgements}
@@ -325,10 +339,51 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTRIBUTIONS
 %----------------------------------------------------------------------------------------
-%\begin{contributions}
+\begin{contributions}
 %\addchaptertocentry{\contribname} % Add the contributions to the table of contents
-%The acknowledgements and the people to thank go here, don't forget to include your project advisor\ldots
-%\end{contributions}
+%papers
+
+\vspace{0.3cm}
+\noindent{\Large Papers:}
+\begin{itemize}
+    \item \textbf{E Pascal}, S Singh, P  G Callahan, B Hourahine, C Trager-Cowan, M De Graef, \href{https://doi.org/10.1016/j.ultramic.2018.01.003}{\textit{Energy-weighted dynamical scattering simulations of electron diffraction modalities in the scanning electron microscope}} , Microscopy and Microanalysis,  \textbf{187}, 2018, 98-106.
+
+    
+    \item \textbf{E Pascal}, B Hourahine, G Naresh-Kumar, K Mingard, C Trager-Cowan, \href{https://doi.org/10.1016/j.matpr.2018.03.057}{\textit{Dislocation contrast in electron channelling contrast images as projections of strain-like components}}, Materials Today: Proceedings, \textbf{5}, 2018.
+    
+    \item \textbf{E Pascal}, S Singh, B Hourahine, C Trager-Cowan, M De Graef \href{https://www.cambridge.org/core/journals/microscopy-and-microanalysis/article/dynamical-simulations-of-transmission-kikuchi-diffraction-tkd-patterns/1863E684CEDF207910A5BFE58D7DE902/share/e286c71a1d759f81d3417ebf6cb4e78b8d81fcd2}{\textit{Dynamical Simulations of Transmission Kikuchi Diffraction (TKD) Patterns}}, Microscopy and Microanalysis, \textbf{23} (S1), 2017, 540-541.
+\end{itemize}
+
+\vspace{0.3cm}
+
+\noindent{\Large Invited Talk:}
+\begin{itemize}
+    \item \begin{flushleft}\textit{When do electrons channel in the SEM?}  \hfill{} 2018  \end{flushleft}
+    Heimbach International workshop on physics of III-nitrides, Mansfeld, Germany.
+\end{itemize}
+
+\vspace{0.3cm}
+\noindent{\Large Prizes and Awards:}
+\begin{itemize}
+\item \begin{flushleft}\textbf{ Corbett prize } \hfill{} 2017  \end{flushleft}
+for \textit{Modelling of ECCI strain-like profiles as a method of TD identification.}\\
+    Awarded every four years for an outstanding contribution at the International Conference of Defects in Semiconductors, Matsue, Japan.
+
+\item \begin{flushleft}\textbf{ Poster prize } \hfill{} 2017  \end{flushleft}
+for \textit{Dynamical modelling of channelling contrast in ECCI.}\\
+    Best poster contribution at the EBSD conference, Oxford, UK.
+    
+\item \begin{flushleft}\textbf{ Poster prize } \hfill{} 2016  \end{flushleft}
+for \textit{Modelling of defect characterisation in the SEM.}\\
+    Best poster contribution at the National Physics Lab PhD conference, UK.
+
+\item \begin{flushleft}\textbf{ Young researcher SUPA exchange travel funding } \hfill{} 2016  \end{flushleft}
+for \textit{International collaboration on energy filtering dynamical electron diffraction model. }\\
+    
+    
+\end{itemize}
+\end{contributions}
+
 
 
 %----------------------------------------------------------------------------------------
@@ -360,7 +415,7 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 \textbf{SP} & \textbf{S}tereographic \textbf{P}rojection \\
 \textbf{TEM} & \textbf{T}ransmission  \textbf{E}lectron \textbf{M}icroscopy\\
 \textbf{TKD} & \textbf{T}ransmission  \textbf{K}ikuchi \textbf{D}iffraction\\
-\textbf{t-EBSB} & \textbf{t}ansmission \textbf{E}lectron  \textbf{B}ack\textbf{s}cattered \textbf{D}iffraction\\
+\textbf{t-EBSB} & \textbf{t}ransmission \textbf{E}lectron  \textbf{B}ack\textbf{s}cattered \textbf{D}iffraction\\
 \textbf{TD} & \textbf{T}hreading \textbf{D}islocation\\
 \end{abbreviations}
 
@@ -378,8 +433,8 @@ Electron volt               & \si{\electronvolt}     & \SI{1.60217662e-19}{\joul
 Elementary charge          & \si{\elementarycharge} & \SI{1.60217662e-19}{\coulomb} \\
 Permittivity of vacuum     & $\epsilon_0$           & \SI{8.85418782e-12}{\farad\per\meter} \\
 Permeability of vacuum     & $\mu_0$                & \SI{1.25663706e-6}{\volt \second \per\ampere \per\meter} \\
-Plank constant             & $h$                    & \SI{6.626075e-34}{\joule \second} \\
-Speed of light             & \si{\clight}           & \SI{299 792 458}{\meter / \second}\\
+Planck constant             & $h$                    & \SI{6.626075e-34}{\joule \second} \\
+Speed of light in vacuum            & \si{\clight}           & \SI{299 792 458}{\meter / \second}\\
 
 %Constant Name & $Symbol$ & $Constant Value$ with units\\
 

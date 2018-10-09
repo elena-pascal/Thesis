@@ -441,18 +441,22 @@ KOMA-script documentation for details.}]{fancyhdr}
 %	CONTRIBUTIONS PAGE DESIGN
 %----------------------------------------------------------------------------------------
 
-\newcommand{\contribname}{Contributions}
-%\providecaptionname{english,british,american}{\abbrevname}{Contributions}
-\NewDocumentEnvironment{contributions}{ m }{%
-	\ifbool{nolistspace}{\begingroup\singlespacing}{}
-	\ifbool{listtoc}{\addchap{\contribname}}{\addchap*{\contribname}}
-		{\chapteralign\normalsize\abstractauthorfont \authorname \par}% Author name
-		\vspace{\baselineskip}
-		\bigskip\noindent\ignorespaces
+\newcommand{\contribname}{Contributions and Awards}
+\providecaptionname{english,british,american}{\contribname}{Contributions and Awards}
 
-	\ifbool{nolistspace}{\endgroup}{}
+\ifbool{consistentlayout}{
+	\DeclareDocumentEnvironment{contributions}{}{
+		\addchap*{\contribname}
+		}{}%
+}{
+	\DeclareDocumentEnvironment{contributions}{}{
+		\checktoopen
+		\tttypeout{\contribname}
+		\thispagestyle{plain}
+		\null\vfil
+		{\noindent\huge\bfseries\contribname\par\vspace{10pt}}
+	}{}
 }
-
 
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE DESIGN

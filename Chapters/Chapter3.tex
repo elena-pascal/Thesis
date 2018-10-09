@@ -7,7 +7,7 @@
 In the previous chapter we have dusted off the tool-kit required to tackle diffraction. The current chapter deals with the theoretical formalism of electron diffraction and shows the explicit path of applying this formalism to group-III nitride compounds. 
 
 
-Since I believe some insight into the theory comes from the chronological development of the current accepted models, I'll treat my reader to historical background of diffraction on page~\pageref{sec:history}. Historically, diffraction is associated with X-rays, and we will end up using parts of the theories developed for X-ray diffraction when talking about electron diffraction. 
+Since I believe some insight into the theory comes from the chronological development of the current accepted models, I'll treat my reader to the historical background of diffraction on page~\pageref{sec:history}. Historically, diffraction is associated with X-rays, and we will end up using parts of the theories developed for X-ray diffraction when talking about electron diffraction. 
 
 While the phenomenon is described by the same physics regardless of the type of particles used, the way individual diffracting particles interact with matter can differ. While X-rays diffract from the electron density in the crystal, electrons are scattered elastically by the Coulomb potential. The latter is related to the electron density via the Poisson equation and, additionally, it also includes the nuclear contributions. Similarly, neutrons interact mainly with the nuclear potentials in the crystal sample. Table~\ref{table:diffractingParticles} shows the properties of the most common types of particles used in diffraction experiments together with their scattering sources.
 
@@ -26,9 +26,9 @@ While the phenomenon is described by the same physics regardless of the type of 
 \end{tabular}
 \end{table}
 
-Compared to X-rays, electrons have significantly shorter wavelengths and are scattered much more strongly by matter. This means that electrons convey information about much smaller crystal volumes than conventional X-ray microscopy, in other words, they promise better spatial resolution. It also means that effects which are negligible when it comes to the  interaction of X-rays with matter, cannot be swept under the carpet and ignored when it comes to electrons. While we can  use the geometrical, \ie kinematical, model for predicting X-ray diffraction intensities,  we need to take into account the fact that electrons   will lose energy and coherence on their paths through the sample and that electron waves are more strongly coupled to each other. To do this we must turn to the dynamical theory for the prediction of scattered electron intensities. More on that in on page~\pageref{sec:kinvsDyn}.
+Compared to X-rays, electrons have significantly shorter wavelengths and are scattered much more strongly by matter. This means that electrons convey information about much smaller crystal volumes than conventional X-ray microscopy, in other words, they promise better spatial resolution. It also means that effects which are negligible when it comes to the  interaction of X-rays with matter, cannot be swept under the carpet and ignored when it comes to electrons. While we can  use the geometrical, \ie kinematical, model for predicting X-ray diffraction intensities,  we need to take into account the fact that electrons   will lose energy and coherence on their paths through the sample and that electron waves are more strongly coupled to each other. To do this we must turn to the dynamical theory for the prediction of scattered electrons intensities. More on that on page~\pageref{sec:kinvsDyn}.
 
-We have already made the note that diffraction is chiefly related to the wave behaviour of small particles like photons, electrons or neutrons. This behaviour is mathematically written in the form of a Bloch wave $\psi(\mathbf{r})$ whose squared amplitude, $|\psi(\mathbf{r})|^2$, describes the probability density of finding the particle at position $\mathbf{r}$. We will see on page~\pageref{sec:DHW} that these wavefunctions satisfy the Schr{\"o}dinger's equation inside a crystal described by a periodic potential $V_C(\mathbf{r})$. Finding this crystal potential is the journey we will explore in the first part of this section.
+I have already made the note that diffraction is chiefly related to the wave behaviour of small particles like photons, electrons or neutrons. This behaviour is mathematically written in the form of a Bloch wave $\psi(\mathbf{r})$ whose squared amplitude, $|\psi(\mathbf{r})|^2$, describes the probability density of finding the particle at position $\mathbf{r}$. We will see on page~\pageref{sec:DHW} that these wavefunctions satisfy the Schr{\"o}dinger's equation inside a crystal described by a periodic potential $V_C(\mathbf{r})$. Finding this crystal potential is the journey we will explore in the first part of this section.
 
 In layman terms, diffraction is the phenomena of directional scattering arising as constructive interference along certain directions and destructive interference along others. From the intensity of the interfering waves one can derive information on the spatial distribution of the scattering centres and we will see how that relates to directional elastic scattering. We will talk chiefly about the crystal planes which dictate the Bragg scattering direction.
 I will also talk about the interaction of the electrons with the unit cell, which affects the intensity of the diffracting beam along chosen direction through the parameter known as the \textit{scattering factor}. There are always these two conditions to take into account when figuring out the diffraction intensity along a certain direction. And both of these parameters (scattering angle from lattice plane and scattering factor) can have values for which the diffraction beam intensity vanishes. Which is why we divide the following sections into \textit{Diffraction geometry} on page~\pageref{sec:geometry} and  \textit{Diffraction intensity} on page~\pageref{sec:intensity}.
@@ -37,7 +37,7 @@ I will also talk about the interaction of the electrons with the unit cell, whic
 
 
 
-We will be covering some of the theoretical aspects of diffraction in this section. For a thorough and in-depth description of diffraction and it's application in crystallography we suggest the reader to find a copy of the \emph{International Tables of Crystallography Volume B: Reciprocal space}~\cite{IntTableCrysBX, IntTableCrysBe}. 
+We will be covering some of the theoretical aspects of diffraction in this section. For a thorough and in-depth description of diffraction and it's application in crystallography we suggest the reader find a copy of the \emph{International Tables of Crystallography Volume B: Reciprocal space}~\cite{IntTableCrysBX, IntTableCrysBe}. 
 
 
 %%%%%%%%%%%%%%%%
@@ -45,9 +45,9 @@ We will be covering some of the theoretical aspects of diffraction in this secti
 \label{sec:history}
 Soon after systematically experimenting with generating what will end up being known in the English languages as \textit{X-rays}, the German physicist Wilhelm R{\"o}ntgen used this new form of high energy radiation to ``take a picture'' of his wife’s hand. To everyone’s amazement the picture taken in 1895 showed the bones of her hand wearing her wedding ring. While the medical applications of X-rays are impressive in their own right, a material scientist will claim that the best application of X-rays was yet to come.
 
-Not even twenty year later, another German physicist, Max von Laue, decided to use this new radiation, which he'd probably called R{\"o}ntgen rays,  to ``take a picture'' of a crystal. He actually had a good reason to try that. Von Laue expected the wavelength of these radiations to be of the same order of magnitude as the distance between atoms in matter. If this criterion is met then the wave behaviour of the radiation will suffer constructive interference along directions dictated by the crystal lattice planes. What he observed in his image was a series of ordered spots which would end up telling a story about the particular ordered arrangement of the crystal atoms. From here on things move rather quickly. Table~\ref{table:historyDiff} shows a quick overview over about a hundred years of historical events building to the development of electron diffraction techniques.
+Not even twenty years later, another German physicist, Max von Laue, decided to use this new radiation, which he'd probably called R{\"o}ntgen rays,  to ``take a picture'' of a crystal. He actually had a good reason to try that. Von Laue expected the wavelength of these radiations to be of the same order of magnitude as the distance between atoms in matter. If this criterion is met then the wave behaviour of the radiation will suffer constructive interference along directions dictated by the crystal lattice planes. What he observed in his image was a series of ordered spots which would end up telling a story about the particular ordered arrangement of the crystal atoms. From here on things move rather quickly. Table~\ref{table:historyDiff} shows a quick overview over about a hundred years of historical events building to the development of electron diffraction techniques.
 
-It is interesting to notice the interplay between experimental observations and theoretical predictions in the development of diffraction as a field. The observation of X-ray diffraction supported, first of all, the controversial wave-like behaviour of particles narrative, and, second of all, the description of crystalline materials as periodic lattice structures. It also lead to the development of Bragg's law. Moreover, since the theory of space group symmetry had already been developed by the Russian crystallographer E. S. Fedorov, X-ray diffraction quickly became the structure analysis tool of choice of crystallography.
+It is interesting to notice the interplay between experimental observations and theoretical predictions in the development of diffraction as a field. The observation of X-ray diffraction supported, first of all, the controversial wave-like behaviour of particles narrative, and, second of all, the description of crystalline materials as periodic lattice structures. It also led to the development of Bragg's law. Moreover, since the theory of space group symmetry had already been developed by the Russian crystallographer E. S. Fedorov, X-ray diffraction quickly became the structure analysis tool of choice of crystallography.
 
 
 
@@ -69,7 +69,7 @@ It is interesting to notice the interplay between experimental observations and 
 \tabhead{Year} & \tabhead{Event} \\
 \midrule
 
-  {\small 1912} & {\small First X-ray diffraction experiments by W. Friedrich, P. Knipping and M.~von Laue~\cite{Friedrich12}.}  \\
+  {\small 1912} & {\small First X-ray diffraction experiments by W. Friedrich, P. Knipping and M.~von Laue( i.}  \\
   
   {\small 1913} & {\small Bragg family derives their name bearing law~\cite{Bragg13} to describe the geometry of diffraction spots.}\\
   
@@ -81,9 +81,9 @@ It is interesting to notice the interplay between experimental observations and 
      
   {\small 1928} & {\small H. Bethe~\cite{Bethe28} uses eigenvalue equations to explain and predict intensities in electron diffraction images.}\\
       
-  {\small 1928} & {\small First electron diffraction patterns is recorded by S. Nishikawa and S.~Kikuchi~\cite{Nishikawa28} from grazing incidence geometry and is described as ``black and white lines in pairs due to multiple scattering and selective reflection''.}\\
+  {\small 1928} & {\small First electron diffraction patterns are recorded by S. Nishikawa and S.~Kikuchi~\cite{Nishikawa28} from grazing incidence geometry and are described as ``black and white lines in pairs due to multiple scattering and selective reflection''.}\\
 
-  {\small 1931-4} & {\small E. Ruska and M. Knoll~\cite{Knoll32} build the first electron microscope (EM), later known as a direct or transmission EM (TEM). }\\
+  {\small 1931-4} & {\small E. Ruska and M. Knoll build the first electron microscope (EM), later known as a direct or transmission EM (TEM). }\\
   
   {\small 1935-8} & {\small M. Knoll suggests the idea of a scanning EM (SEM). M. von Ardenne~\cite{Ardenne38} constructs the first one.}\\
   
@@ -103,24 +103,32 @@ It is interesting to notice the interplay between experimental observations and 
 \end{table}
 \renewcommand{\arraystretch}{1.}
 
-While Bragg's law was good enough to explain the geometry of the diffraction spots, it proved inconsistent in predicting experimental X-ray diffraction intensities. This lead C. G. Darwin to develop a first form of dynamical diffraction theory. He took into account the interaction of X-rays with matter as partially transmitted and partially reflected amplitudes at each lattice plane. His theory predicted correct values for the reflected intensities. Later, in 1917, P. P. Ewald~\cite{Ewald17} introduced a new form of dynamical theory in which he considered the crystal to be a periodic distribution of dipoles excited by the incident wave. The new theory predicted both transmitted and reflected intensities. 
+While Bragg's law was good enough to explain the geometry of the diffraction spots, it proved inconsistent in predicting experimental X-ray diffraction intensities. This lead C. G. Darwin to develop a first form of dynamical diffraction theory. He took into account the interaction of X-rays with matter as partially transmitted and partially reflected amplitudes at each lattice plane. His theory predicted correct values for the reflected intensities. Later, in 1917, P. P. Ewald introduced a new form of dynamical theory in which he considered the crystal to be a periodic distribution of dipoles excited by the incident wave. The new theory predicted both transmitted and reflected intensities. 
 
-There were still limitations in the dynamical theories. In 1930, J. A. Prins~\cite{Prins30} modified Darwin's theory to take into account the fact that the crystal is an absorbing medium. Just a year later, in 1931, von Laue~\cite{Laue31} showed that the interaction in Ewald's theory can be described by solving Maxwell's equations in a continuous medium with dielectric susceptibility distributed periodically in three dimensions. It is in this form that the dynamical diffraction theory is most used today and also the one we will use in this work.
+There were still limitations in the dynamical theories. In 1930, J. A. Prins~\cite{Prins30} modified Darwin's theory to take into account the fact that the crystal is an absorbing medium. Just a year later, in 1931, von Laue showed that the interaction in Ewald's theory can be described by solving Maxwell's equations in a continuous medium with dielectric susceptibility distributed periodically in three dimensions. It is in this form that the dynamical diffraction theory is most used today and also the one we will use in this work.
   
 The inverse effect was triggered by de Broglie's doctoral thesis in which he speculates that all particles ought to also behave as waves. The discovery of the remarkable phenomena that is electron diffraction provided the experimental means for the development of quantum mechanics. It soon became apparent that the diffraction theory must again be expanded to account for the more complex electron interaction with matter. Indeed, a number of dynamical theories for electrons have been developed over the years all carrying the legacy of X-ray diffraction theoretical interpretations.   
 
-Electrons diffracting through crystals gives access to a plethora of information. When, in 1928, Shoji Nishikawa and Seishi Kikuchi directed a beam of \SI{50}{\kilo \electronvolt} electrons on a calcite sample at a grazing incidence of \SI{6}{\degree} diffraction was a phenomena associated with spots. But the have seen ``... black and white lines in pairs due to multiple scattering and selective reflection'' which we now recognise as diffraction patterns. 
-
-While a beautiful physics experiment, electron diffraction would have lacked practical application until the development of the electron microscope; first the direct mode in each the electron penetrated through a sample and the image was collected on the other side (TEM) and, later, the scanning mode, in which the incident electron beam scans over the sample in a raster manner and the image is recorded one ``pixel'' at a time (SEM). 
-
-The timely development of models and computer-aided indexing solutions for patterns from all seven crystal systems meant that fully automated EBSD could replace X-ray pole figure measurements for texture analysis avoiding the limitation that come with X-ray analysis where the sample is tilted through large angles. 
-
-The diffraction spots observed in the TEM or when at a grazing incidence angle in the SEM (both conditions in which the crystal volume with which the electron beam interacts is small enough to approximate the behaviour to kinematical diffraction) were identified to be related to the crystal structure. The electron channelling patterns (ECP) observed now the SEM could tell about the bulk crystal orientation. If the detector is placed in the SEM such that mostly forward scattered electrons are collected, then one can obtained Kikuchi lines (EBSD) from a very small crystal volume or, in the language of microscopy, high spatial resolution. We will talk more in Chapter~\ref{chap:TKD} about the novel Kikuchi diffraction technique, known as TKD, that can increase the spatial resolution even further.
+Electrons diffracting through crystals gives access to a plethora of information. When, in 1928, Shoji Nishikawa and Seishi Kikuchi directed a beam of \SI{50}{\kilo \electronvolt} electrons on a calcite sample at a grazing incidence of \SI{6}{\degree} diffraction was a phenomena associated with spots. But they have seen ``... black and white lines in pairs due to multiple scattering and selective reflection'' which we now recognise as diffraction patterns. A number of studies quickly followed the investigation of this new band features in electron diffraction. Notable here is that in 1937 Boersch~\cite{Boersch37}(paper in German) already proposed that these observations could be explain using von Laue's dynamical theory of electron diffraction.
 
 
-If the geometry was such that the incident beam was close to a Bragg condition, high contrast around small crystallographic defects could be observed in the recorded images, a technique which will be known as electron channelling contrast imaging (ECCI). The theories developed by this point could be extended to even take into account such small phase perturbations and predict correct contrast profiles for dislocations observed in ECCI. More about this in the Chapter~\ref{chap:ECCI}. 
+In 1948, a number of models have already been proposed to explain the full range of features in the Kikuchi patterns. Artmann~\cite{Artmann48} (paper in German) used the reciprocity law and solved the Schr{\"o}dinger equation for bound electrons in the three dimensional crystal potential to predict with good accuracy the intensity profile and geometry of Kikuchi bands. 
 
-Even for far from perfect crystals electron diffraction could provide great insight. By scanning over a micro-granular crystal in the SEM and recording the EBSD image for each pixel, one could pick up the orientation of individual grains using orientation indexing techniques. In the world of material science this was extremely powerful as tool of mapping the quality of a new material. A number of companies focused on developing modern SEMs packaged with indexing software appeared and experienced reasonable success catering to the industry's requirements. Unfortunately, it also marked the steady decline of academic interest in open electron diffraction software.
+While a beautiful physics experiment, electron diffraction would have lacked practical application before the development of the electron microscope; first the direct mode in 1934, where electrons penetrated through a sample and the image was collected on the other side (TEM) and, a few years later, the scanning mode, in which the incident electron beam scans over the sample in a raster manner and the backscattered electrons are recorded one ``pixel'' at a time to form an image (SEM). 
+
+More insights could be derived from the electron signal. The diffraction spots observed in the TEM or when at a grazing incidence angle in the SEM (both conditions in which the crystal volume with which the electron beam interacts is small enough to approximate the behaviour to kinematical diffraction) were identified to be related to the crystal structure. The electron channelling patterns (ECP) observed now in the SEM can provide  information on the bulk crystal structure and orientation. If the detector is placed in the SEM such that mostly forward scattered electrons are collected, then one can obtained Kikuchi lines (EBSD) from a very small crystal volume or, in the language of microscopy, high spatial resolution.
+
+
+The timely development of models and computer-aided indexing solutions for patterns from all seven crystal systems meant that fully automated EBSD could replace X-ray pole figure measurements for texture analysis avoiding the limitation that come with X-ray analysis where the sample is tilted through large angles. The model developed by Howie and Whelan for electron diffraction intensity predictions in the TEM could be easily be modified and implemented on a computer, as Hirsch had shown, to account for dislocations displacement fields and therefore predict dislocation contrast in transmission mode open the world of defect characterisation. 
+
+
+Even for far from perfect crystals, electron diffraction can provide great insight. By scanning over a micro-granular crystal in the SEM and recording the EBSD image for each pixel, one can pick up the orientation of individual grains using orientation indexing techniques. In the world of material science this is extremely powerful as a tool for mapping the quality of a new material in terms of its grains.  We will talk more in Chapter~\ref{chap:TKD} about the novel Kikuchi diffraction technique, known as TKD, that can increase the spatial resolution even further allowing the study of truly nano-structural materials.
+
+By the late 80s and early 90s, with the development of computers,  we start talking about  pattern indexing software systems. A number of companies have focused on developing modern EBSD systems packaged with indexing software appeared and experienced reasonable success catering to the industry's requirements. Unfortunately, it also marked the steady decline of academic interest in open electron diffraction software. In chapter~\ref{chap:TKD} I describe one such unicorn, and how the TKD modality was implemented and what the models are predicting. 
+
+
+In about the same time when EBSD was becoming popular in the world of material science, a new SEM diffraction technique was also gaining traction. If the geometry was such that the incident beam was close to a Bragg condition, high contrast around small crystallographic defects could be observed in the recorded images, similar to the case in TEM. This technique which will be known as electron channelling contrast imaging (ECCI). Since Booker already hinted at theoretical interpretation of these effects in relationship with the available Darwin-Howie-Whelan model, the next obvious step is  to extend and implement the dynamical model such that it takes into account such small phase perturbations and can predict contrast profiles for dislocations observed in SEM. This is exactly what I endeavour to do in  Chapter~\ref{chap:ECCI}. 
+
 
 
 
@@ -129,7 +137,7 @@ Even for far from perfect crystals electron diffraction could provide great insi
 \label{sec:kinvsDyn}
 The geometrical or kinematical diffraction theory, developed for X-rays, assumes that each incident wave is scattered only once in the sample and all other interactions can be ignored. This, in turn, implies that  1) the amplitude incident on each of the diffraction centres is the same and 2) the sum of the diffracted amplitude is the sum of individual amplitudes diffracted by each diffraction centre. Therefore, the geometrical phase difference between diffracted beams is the main contributor to the diffraction pattern and the distribution of diffracted amplitudes in reciprocal space is the Fourier Transform of diffraction centres in real space.  
 
-The integrated elastically scattered intensities predicted by the kinematical theory are proportional to the square of the structure factor and also with the crystal volume with which the incident wave interacts. Because no loss of amplitude is taken into account, the kinematical theory predicts that as the interaction crystal volume increases to infinity so would the intensity of the diffracted beam. This is obviously nonsensical for anything but very small crystals. We can conclude that kinematical approach holds well only for relatively weak interactions (X-ray interaction with matter) and/or small crystals. Darwin~\cite{Darwin22} extended this theory and showed it can also be applied to large but defected crystals. Additionally, there is no phase information tracked in the kinematical theory and this becomes important for multiple reflections. 
+The integrated elastically scattered intensities predicted by the kinematical theory are proportional to the square of the structure factor and also with the crystal volume with which the incident wave interacts. Because no loss of amplitude is taken into account, the kinematical theory predicts that as the interaction crystal volume increases to infinity so would the intensity of the diffracted beam. This is obviously nonsensical for anything but very small crystals. We can conclude that the kinematical approach holds well only for relatively weak interactions (X-ray interaction with matter) and/or small crystals. Darwin~\cite{Darwin22} extended this theory and showed it can also be applied to large but defected crystals. Additionally, there is no phase information tracked in the kinematical theory and this becomes important for multiple reflections. 
  
 \renewcommand{\arraystretch}{1.1}
 \begin{table}[!htbp]
@@ -151,14 +159,14 @@ intensity $\propto |F_{hkl}|^2$            & intensity $\propto |\psi_g|^2$\\
 \end{table}
 \renewcommand{\arraystretch}{1.}
 
-Electrons manifest wave properties similar to those of X-rays and their diffraction behaviour in crystals is in many ways analogous to that of X-rays. Nevertheless, it should be obvious by now to the careful reader that the single scattering approximation of the kinematical theory will not be suitable for the strong interactions of electrons in crystals composed of more than a few layers.  For this reasons the dynamical diffraction theory for fast electrons has been developed and applied to quantitatively interpret electron diffraction patterns. 
+Electrons manifest wave properties similar to those of X-rays and their diffraction behaviour in crystals is in many ways analogous to that of X-rays. Nevertheless, it should be obvious by now to the careful reader that the single scattering approximation of the kinematical theory will not be suitable for the strong interactions of electrons in crystals composed of more than a few layers.  For these reasons the dynamical diffraction theory for fast electrons has been developed and applied to quantitatively interpret electron diffraction patterns. 
 
 
 
 
 \section{Diffraction geometry}
 \label{sec:geometry}
-Having set the context of diffraction as a means of identifying the crystal structures of elements and compounds, we will now explore further the governing rule of the phenomena, that of the Bragg's law. On page~\pageref{Sec:Bragg} I reminded the reader the geometrical conditions for constructive interference to occur. The condition was given in terms of real space parameters which is why this form is also known as the real space Bragg's condition.
+Having set the context of diffraction as a means of identifying the crystal structures of elements and compounds, we will now explore further the governing rule of the phenomena, that of the Bragg's law. On page~\pageref{Sec:Bragg} I reminded the reader of the geometrical conditions for constructive interference to occur. The condition was given in terms of real space parameters which is why this form is also known as the real space Bragg's condition.
 
 But we can translate the diffracted beam in  Fig.~\ref{Fig:Bragg} such that it has the same origin as the incident beam as shown in Fig.~\ref{Fig:Ewald}. Here we label the incident beam wave vector by $\mathbf{k_0}$ and the diffracted beam wave vector by $\mathbf{k_g}$. Their origin is denoted by $C$. From the definition of elastic scattering processes, we know that the length of wave vectors $\mathbf{k_0}$ and $\mathbf{k_g}$ must be the same: $|\mathbf{k_0}|=|\mathbf{k_g}| = 1/\lambda$. It is interesting to write out the distance $OG$ between the endpoints of these vectors:
 
@@ -173,7 +181,7 @@ where we made use of Bragg's law in the penultimate equality.
 %%%%
 \subsection{Bragg's law in reciprocal space -- Ewald sphere}
 \label{sec:Ewald}
-Now that we have seen all the relevant distances physical names we can rewrite the Bragg's law in terms of parameters defined in the reciprocal space:
+Now that we have reviewed  all the relevant physical names we can rewrite the Bragg's law in terms of parameters defined in the reciprocal space:
 \begin{equation}
 \label{eq:Bragg1}
     \mathbf{k_g}=\mathbf{k_0}+\mathbf{g}.
@@ -236,18 +244,17 @@ Depending on the general direction of the diffraction planes with respect to the
     \begin{equation*}
         \theta_0 =   \theta_\mathbf{g} =\pi/2 -\theta_B.
     \end{equation*}
-     \item \emph{symmetric Laue case} (Fig.~\ref{Fig:BraggvsLaue}~b)) : when the diffracted beam escapes from the the bottom of the sample. This geometry is defined by the film normal being parallel to the  diffracting planes \hkl{hkl}.  The relationship between the angles is:
+     \item \emph{symmetric Laue case} (Fig.~\ref{Fig:BraggvsLaue}~b)) : when the diffracted beam escapes from the  bottom of the sample. This geometry is defined by the film normal being parallel to the  diffracting planes \hkl{hkl}.  The relationship between the angles is:
       \[ \theta_0 =   \theta_\mathbf{g} = \theta_B.\]
     \item  \emph{non-symmetric Laue case} (Fig.~\ref{Fig:BraggvsLaue}~c)) : is a generalised form of the one above. There is now  a nontrivial angle between the diffracting planes and the surface normal. The only relationship we can write between the three angles is:
     \[ \theta_0 +  \theta_\mathbf{g} = 2 \theta_B.\]
 \end{itemize}
 \vspace{-0.5cm}
 
- The form of dynamical theory commonly used in TEM diffraction contrast description is based on the symmetric Laue case~\cite{Howie61}. This geometry is assumed valid for a large range of diffraction conditions that deviate from the perfect symmetric case.  Whelan and Hirsch~\cite{Whelan57} showed that the angle of a staking fault\footnote{A stacking fault is a planar defect telling us that for a given set of planes of atoms there is an error in their stacking structure. } introduced in a perfect crystal does not affect two beam dynamical calculations of diffraction intensities. Furthermore, Saldin \etal~\cite{Saldin78} showed that the Darwin equations predict very small errors for a wide range of incident angles when the non-symmetric Laue case is approximated to a symmetric one. A good summary of this discussion was published by Sheinin and Jap~\cite{Sheinin79} who also took the conversation further. They used a Bloch wave formalism to test the limits of this approximation and concluded that for strong beams\footnote{ Strong beams as opposed to weak beam conditions where the deviation from the exact Bragg condition is quite large. More about this on page~\pageref{sec:sg}.} there is no significant difference between the predictions in the symmetric and non-symmetric Laue cases.
+ The form of dynamical theory commonly used in TEM diffraction contrast description is based on the symmetric Laue case~\cite{Howie61}. This geometry is assumed valid for a large range of diffraction conditions that deviate from the perfect symmetric case.  Whelan and Hirsch~\cite{Whelan57} showed that the angle of a stacking fault\footnote{A stacking fault is a planar defect telling us that for a given set of planes of atoms there is an error in their stacking structure. } introduced in a perfect crystal does not affect two beam dynamical calculations of diffraction intensities. Furthermore, Saldin \etal~\cite{Saldin78} showed that the Darwin equations predict very small errors for a wide range of incident angles when the non-symmetric Laue case is approximated to a symmetric one. A good summary of this discussion was published by Sheinin and Jap~\cite{Sheinin79} who also took the conversation further. They used a Bloch wave formalism to test the limits of this approximation and concluded that for strong beams\footnote{ Strong beams as opposed to weak beam conditions where the deviation from the exact Bragg condition is quite large. More about this on page~\pageref{sec:sg}.} there is no significant difference between the predictions in the symmetric and non-symmetric Laue cases.
 
 
 
-\pagebreak
 
 %%%%%%%%%%%%%%%%%%%%
 \section{Diffraction intensity}
@@ -256,7 +263,7 @@ Depending on the general direction of the diffraction planes with respect to the
 
 We have explored so far the geometrical conditions for constructive interference, \ie diffraction, to occur in a crystal.  But, as we will see on page~\pageref{sec:strucFact}, while a necessary condition, Bragg's law being satisfied is not sufficient for non zero intensity along a given direction. This is because Bragg's law gives us information only about the lattice orientation with respect to the incoming beam direction. However, we are free to decorate this lattice in more than one way, and the motif can end up scattering out of phase with the planes.  
 
-It therefore becomes important to understand the probability of scattering first from a single atom. Bragg's law remains the same for photons, electrons or neutrons even though the Bragg angles can vary greatly, depending, as they are, on the energy of the incoming beam. But the scattering physics and resulting intensity is dependent on the type of incident particle. We have seen in Table~\ref{table:diffractingParticles} on page~\pageref{table:diffractingParticles} that while X-rays interact only with the electron cloud, electrons are scattered by both the cloud and the atom nuclei. In the next pages we will see how to calculate scattering probabilities, \ie \textit{scatter factors},  for a number of common directions in binary group-III nitride systems. 
+It therefore becomes important to understand the probability of scattering first from a single atom. Bragg's law remains the same for photons, electrons or neutrons even though the Bragg angles can vary greatly, depending, as they are, on the energy of the incoming beam. But the scattering physics and resulting intensity is dependent on the type of incident particle. We have seen in Table~\ref{table:diffractingParticles} on page~\pageref{table:diffractingParticles} that while X-rays interact only with the electron cloud, electrons are scattered by both the cloud and the atom nuclei. In the next pages we will see how to calculate scattering probabilities, \ie \textit{scattering factors},  for a number of common directions in binary group-III nitride systems. 
 
 Next, on page~\pageref{sec:strucFact} we put all atoms on a unit cell and calculate the total scatter probability  as a sum of all their contributions for a given direction. In the process we will introduce the useful mathematical concept of \textit{structure factor} which describes how the positions of the atoms in the unit cell affect the intensity of the diffracted beam. 
 
@@ -271,7 +278,7 @@ Next, on page~\pageref{sec:strucFact} we put all atoms on a unit cell and calcul
 %%%
 \subsection{X-ray scattering by electron charge density and the X-ray scattering factor}
 
-When a linearly polarised, monochromatic plane-wave X-ray beam is incident upon a stationary atom of atomic number Z, each of its Z electrons will scatter the X-ray waves. The oscillating electric field of the incident X-ray excites the individual electrons of mass $m$ and charge $e$ causing them to oscillate at the same frequency as the incident radiation. In turn, the individual electrons, now in the form of accelerated charge, will become a source of spherically radiated X-rays of frequency equal to the incident one. Multiple scattering processes can occur including incoherent scattering or Compton processes but for now we will only consider coherent scattering.
+When a linearly polarised, monochromatic plane-wave X-ray beam is incident upon a stationary atom of atomic number Z, each of its Z electrons will scatter the X-ray waves. The oscillating electric field of the incident X-ray beam excites the individual electrons of mass $m$ and charge $e$ causing them to oscillate at the same frequency as the incident radiation. In turn, the individual electrons, now in the form of accelerated charge, will become a source of spherically radiated X-rays of frequency equal to the incident one. Multiple scattering processes can occur including incoherent scattering or Compton processes but for now we will only consider coherent scattering.
 
 
 The intensity of a scattered radiation at a distance $r$ from the scattering site of the individual electrons in terms of the incident radiation intensity $I_0$ and the scattering angle $\theta$ is well described by Thomson's equation:
@@ -331,7 +338,7 @@ The code used for these plots and the interactive images can be found in the Jup
 
 We can observe that the light N atom will scatter fewer X-rays compared to the heavier elements, but at a rate that is consistently comparable to that from Al atoms. We can already conclude that the two species of atoms in AlN will scatter X-rays at comparable rates ($f^X_Al / f^X_N = 1-2 $) and that this ratio depends only lightly on the crystal direction as the two curves are almost parallel. In the \texttt{scatterFactor.ipynb} I also plotted the scattering factors relative to $f^X_{N}$ to make these ratios more readable.  
 
-In contrast, with the increase in mass of the group III element ($M_{Al}<M_{Ga}<M_{In}$), the rate of scattering becomes significantly different, with Ga scattering X-rays 4-5 times more efficiently than N, such that we can expect most of the signal to have scattered from the heavy element. Not only this, but for these heavier group III elements compounds, the more closely packed the planes are (larger $s$) the more the scattering from the heavier element dominates when compared to scattering from N.
+In contrast, with the increase in mass of the group-III element ($M_{Al}<M_{Ga}<M_{In}$), the rate of scattering becomes significantly different, with Ga scattering X-rays 4-5 times more efficiently than Al, such that we can expect most of the signal to have scattered from the heavy element. Not only this, but for these heavier group-III elements compounds, the more closely packed the planes are (larger $s$) the more the scattering from the heavier element dominates when compared to scattering from N.
 
 
 %---------
@@ -403,12 +410,6 @@ where $B_{el.}$ is the Debie-Whelar factor for the given element which we calcul
 Figure~\ref{Fig:scatterFactor_e} plots electron scattering factors (Eq.~\ref{eq:scatterFact}) for Al, Ga, In and N in continuous lines together with the DW corrected versions (Eq.~\ref{eq:scatterFactDW}) at \SI{300}{K} in dashed lines. We can see the overall behaviour is not completely dissimilar from that of X-ray scattering in Fig.~\ref{Fig:scatterFactorX}. See the description for that figure on how to read the vertical lines. The code used for this plot can be found, as well, in the Jupyter notebook {\tt scatterFactor.ipynb}. 
 
 
-As discussed on page~\pageref{table:diffractingParticles} and showcased in Table~\ref{table:diffractingParticles}, electron beams scatter significantly more in matter compared to X-rays which also transpires when comparing the values on the y-axes. This is due both due to their smaller wavelengths and the fact that they interact with the entire atom not just the electric field. The added delta function-like nucleus potential makes the electron scattering factor much more sensitive to the direction of scattering and we can see the curve decays more rapidly than in the X-rays case. 
-
-
-The DW corrections become significant the more the interplanar distances are reduced. That is to be expected since the more comparable the interplanar distance becomes to the spatial range of the atom potential the more the point average position approximation breaks apart. The correction continues to become more significant as we go to higher values of reciprocal interplanar distances ($s_{hkl}$), \eg for higher order reflections. The other factor that affects the correction factor is the size of the atom in the first place, which heavier atoms requiring larger correction factors. We can see that for the chosen range of $s$-values, the correction factor for N is about 1\% and therefore almost indistinguishable in  these figures. For In, however, it becomes close to 10\% especially on the right side of the x-axis. 
-
-
 %---------
 \begin{figure}
     \centering
@@ -416,7 +417,15 @@ The DW corrections become significant the more the interplanar distances are red
 \caption[Atomic electron scattering factors.]{Atomic electron scattering factors for In, Ga, Al, N with superimposed coloured lines indicating the most common planes for nitrides (see Fig.~\ref{Fig:planes}). }
 \label{Fig:scatterFactor_e}
 \end{figure}
-%---------
+%--------- 
+
+
+As discussed on page~\pageref{table:diffractingParticles} and showcased in Table~\ref{table:diffractingParticles}, electron beams scatter significantly more in matter compared to X-rays which also transpires when comparing the values on the y-axes. This is due both to their smaller wavelengths and the fact that they interact with the entire atom not just the electric field. The added delta function-like nucleus potential makes the electron scattering factor much more sensitive to the direction of scattering and we can see the curve decays more rapidly than in the X-rays case. 
+
+
+The DW corrections become significant the more the interplanar distances are reduced. That is to be expected since the more comparable the interplanar distance becomes to the spatial range of the atom potential the more the point average position approximation breaks apart. The correction continues to become more significant as we go to higher values of reciprocal interplanar distances ($s_{hkl}$), \eg for higher order reflections. The other factor that affects the correction factor is the size of the atom in the first place, with heavier atoms requiring larger correction factors. We can see that for the chosen range of $s$-values, the correction factor for N is about 1\% and therefore almost indistinguishable in  these figures. For In, however, it becomes close to 10\% especially on the right side of the x-axis. 
+
+
 
 %---------
 \begin{figure}
@@ -427,7 +436,7 @@ The DW corrections become significant the more the interplanar distances are red
 \end{figure}
 %---------
 
-In Fig.~\ref{Fig:scatterFactor_eRel} I show the same electron scattering factors from Al, In and Ga but this time relative to the scattering factor for N atoms in order to highlight how the rate of scattering changes for different planes in binary compounds. For AlN the electrons scatter 1-3 times more frequently from the Al atoms than from the N atoms. This rate is highly sensitive to the direction of scattering such that for larger interplanar distances (c-plane) the scattering intensity is made up two parts from the group III element scattering and one part from N. At smaller interplanar distances the scattering from N and Al is almost equal. 
+In Fig.~\ref{Fig:scatterFactor_eRel} I show the same electron scattering factors from Al, In and Ga but this time relative to the scattering factor for N atoms in order to highlight how the rate of scattering changes for different planes in binary compounds. For AlN the electrons scatter 1-3 times more frequently from the Al atoms than from the N atoms. This rate is highly sensitive to the direction of scattering such that for larger interplanar distances (\textit{c}-plane) the scattering intensity is made of up two parts from the group-III element scattering and one part from N. At smaller interplanar distances the scattering from N and Al is almost equal. 
 
 
 Because the electron scattering factor for N decays faster with $s$ than that for Ga and In, the relative scattering for these heavier group III elements goes up after about $s=$ \SI{0.2}{\angstrom}. Such that at small interplanar distances, \eg higher order reflections, scattering from the heavier element in the compound dominates 3-7 times that from N atoms. 
@@ -438,7 +447,7 @@ Because the electron scattering factor for N decays faster with $s$ than that fo
 \subsection{Scattering by the unit cell and the electron structure factor}
 \label{sec:strucFact}
 
-Now that we know how charged particles scatter from a single atoms and from lattice planes, we can tackle a full unit cell by tacking into account the relative positions of all the atoms in it. More practically we need to address how can we account for the relative phase of scattering from two atoms not belonging to the same family of planes. I'll show here the derivation from \textit{Structure of Materials [...]}~\cite{SoM} pg.~298 which uses as a working example an atom places in between two planes. 
+Now that we know how charged particles scatter from a single atoms and from lattice planes, we can tackle a full unit cell by taking into account the relative positions of all the atoms in it. More practically, we need to address how  we account for the relative phase of scattering from two atoms not belonging to the same family of planes. I'll show here the derivation from \textit{Structure of Materials ...}~\cite{SoM} pg.~298 which uses, as a working example, an atom places in between two planes. 
 
 
 \noindent \begin{minipage}{0.43\textwidth}
@@ -453,11 +462,11 @@ Let us revisit Fig.~\ref{Fig:Bragg}, which I update here in Fig.~\ref{Fig:BraggS
 
 \vspace{0.3cm}
 
-To answer this section~\ref{Sec:Bragg} already prepared us to think about the difference in phase between beams 1) or 3) and beam 2). The path difference between the coherent scattered beams 1) and 2) is a full wavelength $\lambda$. It turns our that the difference in phase between beam 1) and 3) is independent on where on plane \hkl(200) the atoms sits, all that matters is the distance to the planes \hkl(100). For plane \hkl(200) the extra atom sits at a distance $d_{hkl}/2$ from planes \hkl(100). This distance can be written as the projection of vector $\mathbf{r}$ onto $\mathbf{g}_{100}$, \ie $\mathbf{g}_{100} \cdot \mathbf{r}$. We can then transform this distance to a phase by multiplying by $2\pi$:
+To answer this, section~\ref{Sec:Bragg} on page~\pageref{Sec:Bragg} already prepared us to think about the difference in phase between beams 1) or 3) and beam 2). The path difference between the coherent scattered beams 1) and 2) is a full wavelength $\lambda$. It turns our that the difference in phase between beam 1) and 3) is independent on where on plane \hkl(200) the atoms sits, all that matters is the distance to the planes \hkl(100). For plane \hkl(200) the extra atom sits at a distance $d_{hkl}/2$ from planes \hkl(100). This distance can be written as the projection of vector $\mathbf{r}$ onto $\mathbf{g}_{100}$, \ie $\mathbf{g}_{100} \cdot \mathbf{r}$. We can then transform this distance to a phase by multiplying by $2\pi$:
 \begin{equation*}
 \phi_{1 \rightarrow 3} = 2\pi \mathbf{r} \cdot \mathbf{g}_{100} = \pi
 \end{equation*}
-This means the scattered beam 3) will be out of phase with 1) and 2), resulting in destructive interference. And this despite the fact that the Bragg condition is geometrically satisfied for planes \hkl(100)! 
+This means the scattered beam 3) will be out of phase with 1) and 2), resulting in destructive interference. And this despite the fact that the Bragg condition is geometrically satisfied for \hkl(100) planes! 
 
 The phase equation above can be generalised to scattering from any atom at position $\mathbf{r}=(x, y, z)$ living outside a set of planes \hkl(hkl):
 \begin{equation*}
@@ -499,9 +508,19 @@ It is finally time to fill in Eq.~\ref{eq:scatFactEq} or Eq.~\ref{eq:scatFactEqS
 where $f^e_{III_{el}}$ is the scattering factor of the group-III element and we made use of the identity  $e^{-i \pi n}=(-1)^n$ in the second step.
 
 
+Table~\ref{table:Fhkl} shows computed values of $F_{hkl}$ for the three nitride systems discussed so far in a number of orientations. These values are in general complex and I show them here in the Euler notation form $F_{hkl}=|F_{hkl}| e^{i\phi}$ where $|F_{hkl}|$ is the absolute value and $\phi$ the phase.  If the reader is interested in calculating the structure factors for different directions, my script can be found in \texttt{structureFactor.ipynb} and it is just a matter of changing the $h, k, l$ values. In the kinematical diffraction theory, often used in X-ray diffraction predictions, the diffracted intensity is simply:
+\begin{equation}
+\label{eq:KinInt}
+ I_\mathbf{g} = F_\mathbf{g} F^*_\mathbf{g} =|F_\mathbf{g}|^2   
+\end{equation}
+
+
+It is important to acknowledge the limitations of these values since many assumptions were made to obtain them, not the least that the crystals in questions are perfect. If this were the case, perfect semiconductor crystals being a common phenomenon, this entire project would be less worthwhile. The numbers in this tables are to be read as general behaviour, remembering that a different parametrisation would yield slightly different numbers (see chapter 7 in ref.~\cite{TheoryandPractice} for longer discussion).
+
+
 
 %
-\begin{table}
+\begin{table}[ht]
 \caption[Structure factors for wurtzite nitrides.]{Structure factors, $F_{hkl}=|F_{hkl}| e^{i\phi}$, for a few different planes in wurtzite nitride systems. }
 \label{table:Fhkl}
 \centering
@@ -532,14 +551,7 @@ where $f^e_{III_{el}}$ is the scattering factor of the group-III element and we 
 \end{tabular}
 \end{table}
 %
-Table~\ref{table:Fhkl} shows computed values of $F_{hkl}$ for the three nitride systems discussed so far in a number of orientations. These values are in general complex and I show them here in the Euler notation form $F_{hkl}=|F_{hkl}| e^{i\phi}$ where $|F_{hkl}|$ is the absolute value and $\phi$ the phase.  If the reader is interested in calculating the structure factors for different direction, my script can be found in \texttt{structureFactor.ipynb} and it is just a matter of changing the $h, k, l$ values. In the kinematical diffraction theory, often used in X-rays diffraction predictions, the diffracted intensity is simply:
-\begin{equation}
-\label{eq:KinInt}
- I_\mathbf{g} = F_\mathbf{g} F^*_\mathbf{g} =|F_\mathbf{g}|^2   
-\end{equation}
 
-
-It is important to acknowledge the limitations of these values since many assumptions were made to obtain them, not the least that the crystals in questions are perfect. If this were the case, perfect semiconductor crystals being a common phenomenon, this entire project would be less worthwhile. The numbers in this tables are to be read as general behaviour, remembering that a different parametrisation would yield slightly different numbers (see chapter 7 in ref.~\cite{TheoryandPractice} for longer discussion).
 
 
 
@@ -548,10 +560,10 @@ Another observation is that the phase remains the same for a family of planes of
 A first observation is that with the increase in the atomic mass of the group-III element, for the same set of planes, the structure factor increases, as we would expect from the scattering factor behaviour. 
 
 % 1) planes in the same family can have different phase
-Another observation would be that the scattering factor for planes belonging to the same family is not required to be the same. We can see that for planes \hkl(20.1) and \hkl(-20.-1) which have the same absolute scattering factor value but do display different phases. This makes sense because for different planes, even those belonging to the same lattice symmetry, the atoms can be arranged at different positions. 
+Another observation would be that the scattering factor for planes belonging to the same family is not required to be the same. We can see that for \hkl(20.1) and \hkl(-20.-1) planes  which have the same absolute scattering factor value but do display different phases. This makes sense because for different planes, even those belonging to the same lattice symmetry, the atoms can be arranged at different positions. 
 
 
-A more subtle observation is that the interplanar distances is no longer a good indicator of the behaviour of the diffraction intensity behaviour (see Eq.~\ref{eq:KinInt}). In this case, the \textit{a-plane} \hkl(11.0) yields a higher scattering factor then \textit{r-plane} \hkl(1-1.2) with lower interplanar distance. This is because some of the scattering on the \textit{r-planes} leads to destructive interference as discussed in the previous section. 
+A more subtle observation is that the interplanar distances are no longer a good indicator of the behaviour of the diffraction intensity behaviour (see Eq.~\ref{eq:KinInt}). In this case, the \textit{a-plane} \hkl(11.0) yields a higher scattering factor then \textit{r-plane} \hkl(1-1.2) with lower interplanar distance. This is because some of the scattering on the \textit{r-planes} leads to destructive interference as discussed in the previous section. 
 
 
 An important note we will address here is the symmetry of the structure factor. For this we will invoke \textit{Friedel's law} and its application to non-centrosymmetric systems~\cite{Serneels73}. It is straightforward that $F_\mathbf{g}=F^*_{-\mathbf{g}}$ which can be rewritten as $F_\mathbf{g} F^*_\mathbf{g}=F^*_{-\mathbf{g}}F_{-\mathbf{g}}$ or $I_\mathbf{g}=I_\mathbf{-g}$. This is Friedel's law and it tells us that the intensity calculated as proportional to the structure factors absolute value will always show inversion symmetry. This is the behaviour seen for planes \hkl(-20.-1) and \hkl(20.1). Nevertheless, for non-centrosymmetric systems, like the ones discussed here, this is not what we expect. More generally, this kinematical description of the diffracted intensity, while suitable for predicting the scattering behaviour from a centrosymmetric system, fails to predict the break in symmetry of the non-centrosymmetric ones.  This is yet another reason why we have to talk in the following sections about dynamical models for the wurtzite systems. 
@@ -563,7 +575,7 @@ The last observation we will discuss here is that the structure factor is exactl
 %%%
 \subsubsection{Systematic absences }
 
- Looking at the last form of the equation and keeping in mind that $h,k,l \in  \mathbb{Z}$ we can find the rules for vanishing scattering factors, \ie \emph{extinction criterion}. The square bracket tells us that there is exactly one condition for the values $h,k,l$ for which the value of the structure factor is zero, namely:
+ Looking at the last form of the equation and keeping in mind that $h,k,l \in  \mathbb{Z}$ we can find the rules for vanishing scattering factors, \ie \emph{extinction criterion}. The square bracket in Eq.~\ref{eq:scatFactWurzite} tells us that there is exactly one condition for the values $h,k,l$ for which the value of the structure factor is zero, namely:
  
  \begin{equation*}
      \frac{2(h-k)}{3} + l  = 2n+1 \, ( = \text{uneven})
@@ -603,7 +615,7 @@ where $\mathbf{t}_{uvw} =  u\mathbf{a} + v\mathbf{b} + w\mathbf{c}$ is the trans
 V_{\text{unit cell}}(\mathbf{r}) = \sum_{i=1}^{N} V_{\text{atom}_i}(\mathbf{r}- \mathbf{r}_i)
 \end{equation}
 
-The full lattice potential of an infinite crystal is an instance of the unit cell potential at each lattice point. This can be written as the convolution\footnote{ Convolution with a delta function means ``copying" the unit cell potential at the position of the delta function which, here, is every lattice site.} of the single unit cell potential with the arra of delta functions potential of the crystal lattice:
+The full lattice potential of an infinite crystal is an instance of the unit cell potential at each lattice point. This can be written as the convolution\footnote{ Convolution with a delta function means ``copying" the unit cell potential at the position of the delta function which, here, is every lattice site.} of the single unit cell potential with the area of delta functions potential of the crystal lattice:
 
 \begin{equation}
 V_{\text{IC}}(\mathbf{r} ) = V_{\text{unit cell}}(\mathbf{r})  \circledast  \mathcal{L}(\mathbf{r})
@@ -630,7 +642,7 @@ It is reasonable to choose $V_\mathbf{g}$ to be proportional to $F_\mathbf{g}$ s
 %%%%
 \subsection{Scattering by finite crystal}
 
-In practice crystals are not infinite, in fact they usually come in rather small sizes. This affects the form of the crystal potential. Mathematically this can be written as multiplication by a shape function which has non-zero value only inside the crystal. The reciprocal lattice points can no longer be represented by delta functions centred at the points but rather should be approximated to be three dimensional objects.  It also means that the diffraction conditions becomes more relaxed as we can observe diffraction behaviour even when slightly off the Bragg angle.
+In practice crystals are not infinite, in fact they usually come in rather small sizes. This affects the form of the crystal potential. Mathematically this can be written as multiplication by a shape function which has non-zero value only inside the crystal. The reciprocal lattice points can no longer be represented by delta functions centred at the points but rather should be approximated to be three dimensional objects.  It also means that the diffraction conditions become more relaxed as we can observe diffraction behaviour even when slightly off the Bragg angle.
 
 
 \subsubsection{The deviation parameters \texorpdfstring{$\mathbf{s}_g$}{sg}}
@@ -639,7 +651,7 @@ In practice crystals are not infinite, in fact they usually come in rather small
 \begin{figure}[ht]
     \centering
 \includegraphics[width=0.52\linewidth]{Figures/EwaldSpheresg.png}
-\caption[Ewald sphere construction in the for a positive deviation parameter $s_g$.]{Ewald sphere construction in the for a positive deviation parameter $s_g$. $\mathbf{n}$ is the normal to the foil. }
+\caption[Ewald sphere construction for a positive deviation parameter $s_g$.]{Ewald sphere construction for a positive deviation parameter $s_g$. $\mathbf{n}$ is the normal to the foil. }
 \label{Fig:Ewaldsg}
 \end{figure}
 %---------
@@ -682,8 +694,6 @@ V_c(\mathbf{r}) = V + i W = \sum_{\mathbf{g}} V_{\mathbf{g}} \, \mathrm{e}^{\, 2
 where the \textit{absorption Fourier coefficient}, $W_\mathbf{g}$, can be shown to have a form similar to that of $V_\mathbf{g}$ in Eq.~\ref{eq:Vg} where the scatter factor $f^e(s)$ is replaced by an absorptive factor $f'(s)$. The absorptive factor can also be parametrised,  this time using the Weickenmeier and Kohl's parametrisation~\cite{Weickenmeier91}. This formula I did not implement, but it can be found as part of \textit{EMsoft}~\cite{EMsoft} in \texttt{CalcUcg.f90}. 
 
 
-
-\pagebreak
 
 
 
@@ -729,7 +739,7 @@ Outside the crystal, where the potential term can be taken to be zero, the solut
 where $\psi_\mathbf{g}$ is the complex amplitude of the Bragg plane wave $\mathbf{g}$ and is the unknown to be determined.
 
 
-The crystal potential $V(\mathbf{r})$ can be taken to have the form in Eq.~\ref{eq:Vc}. It is useful at this point to separate the zero-frequency real component $V_0$ out of the Fourier series as it represents the crystal's mean inner potential and a constant independent on the diffracting planes. This positive potential accelerates the electrons as they enter the crystal in a phenomenon known as \textit{refraction}\footnote{ This is equivalent to the decrease in the speed of light as it enters a medium with a refractive index larger than that of vacuum.}.
+The crystal potential $V(\mathbf{r})$ can be taken to have the form in Eq.~\ref{eq:Vc}. It is useful at this point to separate the zero-frequency real component $V_0$ out of the Fourier series as it represents the crystal's mean inner potential and a constant independent of the diffracting planes. This positive potential accelerates the electrons as they enter the crystal in a phenomenon known as \textit{refraction}\footnote{ This is equivalent to the decrease in the speed of light as it enters a medium with a refractive index larger than that of vacuum.}.
 \begin{equation}
 \label{eq:V0}
 V(\mathbf{r}) + i W(\mathbf{r}) = V_0 + \sum_{\mathbf{q}\neq 0} V_{\mathbf{q}} e^{2 \pi i \mathbf{q} \cdot \mathbf{r}} + i \sum_\mathbf{q} W_{\mathbf{q}} e^{2 \pi i \mathbf{q} \cdot \mathbf{r}}.
@@ -757,7 +767,7 @@ Substituting \ref{eq:psiBragg} and \ref{eq:V0} in the master equation \ref{eq:SE
 -\pi \sum_\mathbf{q}\sum_\mathbf{g} [U_\mathbf{q} + iU'_\mathbf{q}]\psi_\mathbf{g} e^{2\pi i(\mathbf{q}+\mathbf{k}_g)\cdot \mathbf{r}} 
 \end{equation*}
 
-Van Dyck~\cite{VanDyck76} has shown that the second order derivative of the complex amplitude $\psi_{\vb{g}}$ is negligible for high energy electrons and we have dropped it here. This is known as the \textit{high-energy approximation} and Van Dyck showed that it holds for penetration depths up to a few hundred nanometres, depending on the average atomic number of the crystal. For TEM high energy electrons, Howie~\cite{Howie61} ignores the first derivative, $\nabla \psi_{\vb{g}}$ as well, but we will keep it.
+Van Dyck~\cite{VanDyck76} has shown that the second order derivative of the complex amplitude $\psi_{\vb{g}}$ is negligible for high energy electrons and we have dropped it here. This is known as the \textit{high-energy approximation} and Van Dyck showed that it holds for penetration depths up to a few hundred nanometres, depending on the average atomic number of the atoms in the crystal. For TEM high energy electrons, Howie~\cite{Howie61} ignores the first derivative, $\nabla \psi_{\vb{g}}$ as well, but we will keep it.
 
 Let us have a closer look at the $\vb{k}_g \cdot  \nabla \psi_\mathbf{g} $ term in the Eq.~\ref{eq:almost} above. This term can be read as the directional derivative of the Bloch wave $g$ in the direction $\vb{k}_g$ when in perfect Bragg condition. This means we can reduce the grad operator to only one derivative with no loss of information.  We will assign $z_{beam}$ to be the electron beam propagation direction and can be write the dot product as:
 \begin{equation*}
@@ -787,7 +797,7 @@ The second term on the left hand side in the equation above reminds us of the fo
      2 \pi  i \frac{k_0^2 - k^2_g }{ 2|\vb{k}_g| \cos{\theta_B} } \psi_{\vb{g}} = 2 \pi i \vb{s}_g   \psi_{\vb{g}}
 \end{equation*}
 
-Tilting or rotating the sample moves the Ewald sphere and with it the distance between the reciprocal lattice point and the sphere in the direction normal to the sample, \ie $\vb{s}_g$. For a set of diffracted waves only two non-collinear deviation parameters are independent of each other. But these independent parameters, which affect directly the diffraction behaviour, are experimental variables set by the microscope operator and while easy to determine in a TEM are, unfortunately, complete unknowns to the SEM operator. 
+Tilting or rotating the sample moves the Ewald sphere and with it the distance between the reciprocal lattice point and the sphere in the direction normal to the sample, \ie $\vb{s}_g$. For a set of diffracted waves only two non-collinear deviation parameters are independent of each other. But these independent parameters, which affect directly the diffraction behaviour, are experimental variables set by the microscope operator and while easy to determine in a TEM, are, unfortunately, complete unknowns to the SEM operator. 
 
 \paragraph{Extinction distance and absorption length}\mbox{}\\
 
@@ -839,7 +849,7 @@ The round brackets can be simplified by introducing yet anther parameter:
 \end{equation*}
 This has the benefit of simplifying the form of these equations and can be interpreted physically as the probability of scattering from one beam to the other. 
 
-It is common at this point to use the ansatz that the solutions to these equations must be of plane wave form, for instance:
+It is common at this point to use the Ansatz that the solutions to these equations must be of plane wave form, for instance:
 \begin{equation}
 \begin{split}
      \psi_{\mathbf{0}} &= S_0(z_{beam}) \, e^{-\pi z_{beam}/\xi'_{\mathbf{0}} }\\
@@ -891,7 +901,7 @@ where $\textbf{S}$ is the column vector $\mathbf{S} = \begin{pmatrix}S_0\\ S_g\e
 \end{pmatrix}
 \end{align}
 
-Computers are very good at dealing with matrices. Especially, if we were to consider many beams, the calculations time will scale up in a sensible manner, as apposed to the next approach we will be considering. But more important, the simple form of Eq.~\ref{eq:Smatrix} is easy to solve. The  amplitude of the scattering beam at distance $z_beam$ inside the sample along the incident beam is the solution to this matrix equation:
+Computers are very good at dealing with matrices. Especially, if we were to consider many beams, the calculations time will scale up in a sensible manner, as apposed to the next approach we will be considering. But more important, the simple form of Eq.~\ref{eq:Smatrix} is easy to solve. The  amplitude of the scattering beam at distance $z_{beam}$ inside the sample along the incident beam is the solution to this matrix equation:
 
 \begin{align}
 \mathbf{S}(z_{beam})=e^{i \mathcal{A} z_{beam}}\mathbf{S}(z_{beam}=0)\equiv \mathcal{S}(z_{beam})\mathbf{S}(0)
@@ -978,7 +988,7 @@ with the boundary conditions:
 \phi_g(0) =\sum_{i=1,2}\phi^{(i)}C_g^{(i)}=0
 \end{align}
 
- The first Bloch wave ($\psi_0$) is defined such that its maxima are at interstices, while the second Bloch wave's ($\psi_g$) maxima occur on atom columns. We can also offer a more intuitive picture of the anomalous absorption in this frame since it is to be expected that the electrons from the second Bloch waves, that spend more time near the atomic nuclei will be more readily scattered than the ones contained in the first Bloch wave. And the best thing is that this description is equivalent to the one in Eq.~\ref{eq:ODEs} \cite{electronMicroscopy}.
+ The first Bloch wave ($\psi_0$) is defined such that its maxima are at interstices, while the second Bloch wave's ($\psi_g$) maxima occur on atom columns. We can also offer a more intuitive picture of the anomalous absorption in this frame since it is to be expected that the electrons from the second Bloch wave, that spend more time near the atomic nuclei will be more readily scattered than the ones contained in the first Bloch wave. And the best thing is that this description is equivalent to the one in Eq.~\ref{eq:ODEs} \cite{electronMicroscopy}.
 
 
 
@@ -989,7 +999,7 @@ Let us review what we have achieved so far. The dynamical theory solves the Schr
 
 \begin{figure}[ht]
     \centering
-\includegraphics[width=0.82\linewidth]{Figures/fringes.png}
+\includegraphics[width=0.84\linewidth]{Figures/fringes.png}
 \caption[Thickness fringes.]{Penetration depth fringes for the direct and diffracted beams for a perfect centrosymmetric crystal.}
 \label{Fig:fringes}
 
@@ -1004,7 +1014,7 @@ A similarly oscillatory behaviour can be observed if we were to plot the intensi
 
 \begin{figure}[ht]
     \centering
-\includegraphics[width=0.82\linewidth]{Figures/rocking.png}
+\includegraphics[width=0.84\linewidth]{Figures/rocking.png}
 \caption[Rocking curves.]{Rocking curves for the direct and diffracted beams for a perfect centrosymmetric crystal. }
 \label{Fig:rocking}
 
