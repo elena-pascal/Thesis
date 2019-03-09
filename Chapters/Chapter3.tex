@@ -41,11 +41,11 @@ We will be covering some of the theoretical aspects of diffraction in this secti
 
 
 %%%%%%%%%%%%%%%%
-\section{Short historical overview}
+\section{Historical background}
 \label{sec:history}
 Soon after systematically experimenting with generating what will end up being known in the English languages as \textit{X-rays}, the German physicist Wilhelm R{\"o}ntgen used this new form of high energy radiation to ``take a picture'' of his wife’s hand. To everyone’s amazement the picture taken in 1895 showed the bones of her hand wearing her wedding ring. While the medical applications of X-rays are impressive in their own right, a material scientist will claim that the best application of X-rays was yet to come.
 
-Not even twenty years later, another German physicist, Max von Laue, decided to use this new radiation, which he'd probably called R{\"o}ntgen rays,  to ``take a picture'' of a crystal. He actually had a good reason to try that. Von Laue expected the wavelength of these radiations to be of the same order of magnitude as the distance between atoms in matter. If this criterion is met then the wave behaviour of the radiation will suffer constructive interference along directions dictated by the crystal lattice planes. What he observed in his image was a series of ordered spots which would end up telling a story about the particular ordered arrangement of the crystal atoms. From here on things move rather quickly. Table~\ref{table:historyDiff} shows a quick overview over about a hundred years of historical events building to the development of electron diffraction techniques.
+Not even twenty years later, another German physicist, Max von Laue, decided to use this new radiation, which he'd probably called R{\"o}ntgen rays,  to ``take a picture'' of a crystal. He actually had a good reason to try that. Von Laue expected the wavelength of these radiations to be of the same order of magnitude as the distance between atoms in matter. If this criterion is met then the wave behaviour of the radiation will suffer constructive interference along directions dictated by the crystal lattice planes and we would call it diffraction. What he observed in his image was a series of ordered spots which would end up telling a story about the particular ordered arrangement of the crystal atoms. From here on things move rather quickly. Table~\ref{table:historyDiff} shows a quick overview over about a hundred years of historical events building to the development of electron diffraction techniques.
 
 It is interesting to notice the interplay between experimental observations and theoretical predictions in the development of diffraction as a field. The observation of X-ray diffraction supported, first of all, the controversial wave-like behaviour of particles narrative, and, second of all, the description of crystalline materials as periodic lattice structures. It also led to the development of Bragg's law. Moreover, since the theory of space group symmetry had already been developed by the Russian crystallographer E. S. Fedorov, X-ray diffraction quickly became the structure analysis tool of choice of crystallography.
 
@@ -69,7 +69,7 @@ It is interesting to notice the interplay between experimental observations and 
 \tabhead{Year} & \tabhead{Event} \\
 \midrule
 
-  {\small 1912} & {\small First X-ray diffraction experiments by W. Friedrich, P. Knipping and M.~von Laue( i.}  \\
+  {\small 1912} & {\small First X-ray diffraction experiments by W. Friedrich, P. Knipping and M.~von Laue}  \\
   
   {\small 1913} & {\small Bragg family derives their name bearing law~\cite{Bragg13} to describe the geometry of diffraction spots.}\\
   
@@ -91,40 +91,51 @@ It is interesting to notice the interplay between experimental observations and 
   
   {\small 1960-5} & {\small P. B. Hirsch and co-workers at Cambridge~\cite{Hirsch60, electronMicroscopy} develop the theory of electron diffraction contrast which can be used to identify line and planar defects in thin films in TEM images.}\\
  
-  {\small 1967} & {\small D. G. Coates~\cite{Coates67} observes electron diffraction patterns in the SEM later labelled electron channelling patterns (\textbf{ECPs}). }\\
+  {\small 1967} & {\small D. G. Coates~\cite{Coates67} observes electron diffraction patterns in the SEM; later labelled electron channelling patterns (\textbf{ECPs}).  G. R.~Booker~\cite{Booker67} provides a theoretical interpretation for the phenomena based on the Darwin-Howie-Whelan theory.}\\
   
-  {\small 1967} & {\small  G. R.~Booker~\cite{Booker67} provides a theoretical interpretation for the phenomena based on the Darwin-Howie-Whelan theory. He also notices that the backscattered intensity varies rapidly with orientation close to Bragg condition, which will develop in a new technique of its own known as electron channelling contrast imaging (\textbf{ECCI}).}\\
-
-    {\small 1973} & {\small J. A. Venables and C. J. Harland~\cite{Venables73} describe another diffraction technique capable of providing local crystallographic information termed electron backscattering patterns (\textbf{EBSP}) or latter electron backscattered diffraction (\textbf{EBSD}). }\\
+  {\small 1973} & {\small J. A. Venables and C. J. Harland~\cite{Venables73} describe another diffraction technique capable of providing local crystallographic information termed electron backscattering patterns (\textbf{EBSP}) or latter electron backscattered diffraction (\textbf{EBSD}). }\\
   
+  {\small 1977-9} & {\small 5 and 7 years, respectively, after Spencer~\etal~\cite{Spencer72} predicted from dynamical simulations that individual dislocation could be visible in a highly optimised SEM, Pitaval and Morin~\etal~\cite{Morin79} actually observed individual dislocations, developing a new technique of its own known as electron channelling contrast imaging (\textbf{ECCI}).}\\
+    
+    
    {\small 2012} & {\small The latest diffraction technique in the SEM with improved spatial resolution compared to EBSD is reported as transmission EBSD (\textbf{t-EBSD}) by R. R. Keller and R. H. Geiss~\cite{Keller12} and Transmission Kikuchi Diffraction (\textbf{TKD}) by P. W. Trimby~\cite{Trimby12}. }\\
 \bottomrule
 \end{tabular}
 \end{table}
 \renewcommand{\arraystretch}{1.}
 
-While Bragg's law was good enough to explain the geometry of the diffraction spots, it proved inconsistent in predicting experimental X-ray diffraction intensities. This lead C. G. Darwin to develop a first form of dynamical diffraction theory. He took into account the interaction of X-rays with matter as partially transmitted and partially reflected amplitudes at each lattice plane. His theory predicted correct values for the reflected intensities. Later, in 1917, P. P. Ewald introduced a new form of dynamical theory in which he considered the crystal to be a periodic distribution of dipoles excited by the incident wave. The new theory predicted both transmitted and reflected intensities. 
+While Bragg's law was good enough to explain the geometry of the diffraction spots, it proved inconsistent in predicting experimental X-ray diffraction intensities. This lead C. G. Darwin to develop a first form of dynamical diffraction theory. He took into account the interaction of X-rays with matter as partially transmitted and partially reflected amplitudes at each lattice plane. His theory predicted correct values for the reflected intensities. Later, in 1917, P. P. Ewald introduced a new form of dynamical theory in which he considered the crystal to be a periodic distribution of dipoles excited by the incident wave. The new theory predicted both transmitted and reflected intensities. We will talk in the next section on page~\pageref{sec:kinvsDyn} on how the dynamical model can be reduced to the kinematical approximations when it is reasonable to assume independent direct and diffracted beams (for instance in cases where there would be maximum one inelastic coherent scattering event leading to the diffraction pattern).
 
 There were still limitations in the dynamical theories. In 1930, J. A. Prins~\cite{Prins30} modified Darwin's theory to take into account the fact that the crystal is an absorbing medium. Just a year later, in 1931, von Laue showed that the interaction in Ewald's theory can be described by solving Maxwell's equations in a continuous medium with dielectric susceptibility distributed periodically in three dimensions. It is in this form that the dynamical diffraction theory is most used today and also the one we will use in this work.
   
-The inverse effect was triggered by de Broglie's doctoral thesis in which he speculates that all particles ought to also behave as waves. The discovery of the remarkable phenomena that is electron diffraction provided the experimental means for the development of quantum mechanics. It soon became apparent that the diffraction theory must again be expanded to account for the more complex electron interaction with matter. Indeed, a number of dynamical theories for electrons have been developed over the years all carrying the legacy of X-ray diffraction theoretical interpretations.   
+The inverse effect, theory driving experimental observation this time, was triggered by de Broglie's doctoral thesis where he speculated that all particles ought to also behave as waves. Indeed, in just a couple of years, in 1927, G. P. Thomson~\cite{Thomson27} in UK pointed high energy electrons (10--60\si{\keV}) at a thin film and recorded the results on a fluorescent screen placed underneath the sample. Not only did they observe a diffraction pattern which would confirm the wave like nature of electrons, but the diffraction behaviour obeyed the familiar Bragg law, albeit for a very small Bragg angle. Davisson and Germer~\cite{Davisson27} in US observed electrons diffraction using a remarkably different set up (and rather mechanically complex). They used low energy electrons (30--600 \si{\eV}) which scattered, and diffracted from only the top layer of atoms of a crystalline sample. This approach placed the basis of what will become low energy electron diffraction (LEED) microscopy.  
 
-Electrons diffracting through crystals gives access to a plethora of information. When, in 1928, Shoji Nishikawa and Seishi Kikuchi directed a beam of \SI{50}{\kilo \electronvolt} electrons on a calcite sample at a grazing incidence of \SI{6}{\degree} diffraction was a phenomena associated with spots. But they have seen ``... black and white lines in pairs due to multiple scattering and selective reflection'' which we now recognise as diffraction patterns. A number of studies quickly followed the investigation of this new band features in electron diffraction. Notable here is that in 1937 Boersch~\cite{Boersch37}(paper in German) already proposed that these observations could be explain using von Laue's dynamical theory of electron diffraction.
+These observations provided the experimental means for the development of quantum mechanics, but more, more applicable to our story, marked the dawn of electron microscopy. Similarly to X-ray diffraction crystallography, electrons, with a wide range of energies and therefore wavelength, as we have seen, could now be used to study crystal structures. Electrons show a number of advantages over X-rays including the obvious smaller wavelengths meaning potential higher spatial resolution. From Thomson's experiment it becomes readily apparent also the fact that electrons are diffracted much more strongly than X-ray, requiring only small interaction volumes which means electron microscopy would easily lend itself applicable to the characterisation of micro-structures. 
 
 
-In 1948, a number of models have already been proposed to explain the full range of features in the Kikuchi patterns. Artmann~\cite{Artmann48} (paper in German) used the reciprocity law and solved the Schr{\"o}dinger equation for bound electrons in the three dimensional crystal potential to predict with good accuracy the intensity profile and geometry of Kikuchi bands. 
+Before that would happen in practice, it became apparent that the diffraction theory must again be expanded to accommodate for this stronger and more complex interaction with matter of charged electrons. Indeed, a number of dynamical theories for electrons have been developed over the years all carrying the legacy of X-ray diffraction theoretical interpretations. 
 
-While a beautiful physics experiment, electron diffraction would have lacked practical application before the development of the electron microscope; first the direct mode in 1934, where electrons penetrated through a sample and the image was collected on the other side (TEM) and, a few years later, the scanning mode, in which the incident electron beam scans over the sample in a raster manner and the backscattered electrons are recorded one ``pixel'' at a time to form an image (SEM). 
+Electrons diffracting through crystals gives access to a plethora of information and diffraction signals. When, in 1928, Shoji Nishikawa and Seishi Kikuchi directed a beam of \SI{50}{\kilo \electronvolt} electrons on a calcite sample at a grazing incidence of \SI{6}{\degree} diffraction was a phenomena associated with spots. But they have seen ``... black and white lines in pairs due to multiple scattering and selective reflection'' which we now recognise as diffraction patterns. 
 
-More insights could be derived from the electron signal. The diffraction spots observed in the TEM or when at a grazing incidence angle in the SEM (both conditions in which the crystal volume with which the electron beam interacts is small enough to approximate the behaviour to kinematical diffraction) were identified to be related to the crystal structure. The electron channelling patterns (ECP) observed now in the SEM can provide  information on the bulk crystal structure and orientation. If the detector is placed in the SEM such that mostly forward scattered electrons are collected, then one can obtained Kikuchi lines (EBSD) from a very small crystal volume or, in the language of microscopy, high spatial resolution.
+
+A number of studies quickly followed the investigation of these band features in electron diffraction. Notable here is that in 1937 Boersch~\cite{Boersch37}   (paper in German) already proposed that these observations could be explain using von Laue's dynamical theory of electron diffraction. By 1948, a number of models have already been proposed to explain the full range of features in the Kikuchi patterns. Artmann~\cite{Artmann48} (paper in German) used the reciprocity law and solved the Schr{\"o}dinger equation for bound electrons in the three dimensional crystal potential to predict with good accuracy the intensity profile and geometry of Kikuchi bands. 
+
+While a beautiful physics experiment, electron diffraction would have lacked practical application before the development of the electron microscope; first the direct mode, where electrons penetrated through a sample and the image was collected on the other side (TEM) and, a few years later, the scanning mode, in which the incident electron beam scans over the sample in a raster manner and the backscattered electrons are recorded one ``pixel'' at a time to form an image (SEM). More insights could be derived now from the electron signal. The diffraction spots observed in the TEM or when at a grazing incidence angle in the SEM\footnote{ Both conditions in which the crystal volume with which the electron beam interacts is small enough to approximate the behaviour to kinematical diffraction.} were identified to be closely related to the crystal structure. 
+
+
+In 1967, yet another crystal structure signal was observed in the SEM by Coates~\cite{Coates67}: the dependence of the backscattered electron yield on the orientation of the crystal with respect to the incident beam; what future microscopists will label as electron channelling patterns (ECP). The same year Booker~\etal~\cite{Booker67} gave an qualitative explanation of the phenomenon, comparing the ``bands of contrast'' with fringes observed from bent thin foils in TEM. It was, nevertheless, clear that this measurement could provide information on the bulk crystal structure and orientation and expand the toolkit for material characterisation. 
+
+
 
 
 The timely development of models and computer-aided indexing solutions for patterns from all seven crystal systems meant that fully automated EBSD could replace X-ray pole figure measurements for texture analysis avoiding the limitation that come with X-ray analysis where the sample is tilted through large angles. The model developed by Howie and Whelan for electron diffraction intensity predictions in the TEM could be easily be modified and implemented on a computer, as Hirsch had shown, to account for dislocations displacement fields and therefore predict dislocation contrast in transmission mode open the world of defect characterisation. 
 
 
-Even for far from perfect crystals, electron diffraction can provide great insight. By scanning over a micro-granular crystal in the SEM and recording the EBSD image for each pixel, one can pick up the orientation of individual grains using orientation indexing techniques. In the world of material science this is extremely powerful as a tool for mapping the quality of a new material in terms of its grains.  We will talk more in Chapter~\ref{chap:TKD} about the novel Kikuchi diffraction technique, known as TKD, that can increase the spatial resolution even further allowing the study of truly nano-structural materials.
+However, it was not immediate that the spatial resolution of the SEM overtook that of the optical microscope; it was only in the late 1970 that we can talk about high resolution SEM (HR-SEM) equipped with a field emission gun that could reach the same resolution as the TEM. Both of these developments were instrumental in achieving experimentally what Booker~\cite{Booker67} predicted, namely the detection of individual dislocation in the SEM. We will talk more about the short history of ECCI in the next chapter.
 
-By the late 80s and early 90s, with the development of computers,  we start talking about  pattern indexing software systems. A number of companies have focused on developing modern EBSD systems packaged with indexing software appeared and experienced reasonable success catering to the industry's requirements. Unfortunately, it also marked the steady decline of academic interest in open electron diffraction software. In chapter~\ref{chap:TKD} I describe one such unicorn, and how the TKD modality was implemented and what the models are predicting. 
+It transpires that even for far from perfect crystals, electron diffraction can provide great insight. By scanning over a micro-granular crystal in the SEM and recording the EBSD image for each pixel, one can pick up the orientation of individual grains using orientation indexing techniques. In the world of material science this is extremely powerful as a tool for mapping the quality of a new material in terms of its grains.  If the detector is placed in the SEM such that mostly forward scattered electrons are collected, then one can obtained Kikuchi lines (EBSD) from a very small crystal volume or, in the language of microscopy, high spatial resolution. We will talk more in Chapter~\ref{chap:TKD} about the novel Kikuchi diffraction technique, known as TKD, that can increase the spatial resolution even further allowing the study of truly nano-structural materials.
+
+By the late 80s and early 90s, with the development of computers,  we start talking about  pattern indexing software systems. A number of companies have focused on developing modern EBSD systems packaged with indexing software appeared and experienced reasonable success catering to the industry's requirements. Unfortunately, it also marked the steady decline of academic interest in open electron diffraction software. In Chapter~\ref{chap:TKD} I describe one such unicorn, and how the TKD modality was implemented and what the models are predicting. 
 
 
 In about the same time when EBSD was becoming popular in the world of material science, a new SEM diffraction technique was also gaining traction. If the geometry was such that the incident beam was close to a Bragg condition, high contrast around small crystallographic defects could be observed in the recorded images, similar to the case in TEM. This technique which will be known as electron channelling contrast imaging (ECCI). Since Booker already hinted at theoretical interpretation of these effects in relationship with the available Darwin-Howie-Whelan model, the next obvious step is  to extend and implement the dynamical model such that it takes into account such small phase perturbations and can predict contrast profiles for dislocations observed in SEM. This is exactly what I endeavour to do in  Chapter~\ref{chap:ECCI}. 
@@ -306,7 +317,7 @@ In the forward direction, each of the Z electrons will scatter the X-rays beam w
 It is now time to introduce the atomic scattering factor, $f^X$, for a given direction $\theta$ and wavelength $\lambda$ as the ratio of amplitude scattered by an entire atom to the amplitude scattered by only one electron in the same direction. Equivalently, the atomic scattering factor can be thought of as the probability amplitude that the atomic potential of an atom will scatter an incident wave with wave vector $\mathbf{k_0}$ into the direction $\mathbf{k'}$. But this probability is the Fourier transform of the atomic potential that does the scattering, which in the case of incident X-rays is the electron charge density. The \textit{International Tables of Crystallography} ~\cite{IntTableCrysBX} contain tabulated calculated scattering intensity values for all atoms. Since it would be tedious to list the scattering factor values for all possible $\theta$ and $\lambda$, it is often more convenient to list them as curve fitting parameters. The scattering factor fitted function as a function of the variable $s = \sin{\theta}/\lambda$ is then given by:
 
 \begin{equation}
-f^X(s) = Z - 41.78214 \, s^2 \, \sum_{i=1}^N a_i e^{-b_i s^2}
+f^X(s) = Z - 41.78214 [\si{\angstrom^2}]\, s^2 \, \sum_{i=1}^N a_i e^{-b_i s^2}
 \label{eq:xSF}
 \end{equation}
 
@@ -330,7 +341,7 @@ f^X(s) = Z - 41.78214 \, s^2 \, \sum_{i=1}^N a_i e^{-b_i s^2}
 \end{tabular}
 \end{table}
 
-Table \ref{table:parX} lists the Doyle-Turner~\cite{Doyle68} $a_i, b_i$ parameters values ($N=4$) for a few group III-nitrides semiconductor elements: N, Al, Ga and In. Note that the values in the table are given assuming $s$ is expressed in $\si{\angstrom}^{-1}$ and $\lambda$ is expressed in  $\si{\angstrom}$. 
+Table \ref{table:parX} lists the dimensionless Doyle-Turner~\cite{Doyle68} $a_i, b_i$ parameters values ($N=4$) for a few group III-nitrides semiconductor elements: N, Al, Ga and In. Note that the values in the table are given assuming $s$ is expressed in $\si{\angstrom}^{-1}$ and $\lambda$ is expressed in  $\si{\angstrom}$. 
 
 
 The behaviour of the X-ray scattering factor, $f^X_{el.}$, is shown in Figure~\ref{Fig:scatterFactorX} for N, Al, Ga and In. The coloured, vertical lines indicate the $s$ values for the most common planes in wurtzite materials (see Fig.~\ref{Fig:planes}). For instance, the first vertical line (orange), reaching the In line, corresponds to the $s$ value for the c-plane in InN. The scattering factor for $\theta=0$ is the atomic number, and as expected, the curve decreases rapidly with increasing scattering angle (or decreasing wavelength) or, increasing interplanar distance, $d_{hkl}$. 
@@ -384,7 +395,7 @@ Since the atoms studied are part of crystals we can use Bragg's condition, $\mat
 Making the approximation that the nuclear charge density can be mathematically written as a delta function of weight Z, we are now ready to inverse Fourier transform all the quantities in Eq.~\ref{eq:Poisson} to obtain:
 
 \begin{equation}
-f^e(s)  = \frac{|e|}{16 \pi^2 \epsilon_0 |s|^2} \left[Z-f^X(s) \right].
+f^e(s)  = \frac{|e|}{16 \pi^2 \epsilon_0 } \frac{1}{|s|^2} \left[Z-f^X(s) \right].
 \label{eq:MB}
 \end{equation}
 
@@ -394,10 +405,12 @@ If we use the convenient Doyle-Turner parametrised form of the X-ray scattering 
 
 \begin{equation}
 \label{eq:scatterFact}
-f^e(s) = 0.04787801\sum_{i=1}^{N=4}a_ie^{-b_is^2},
+f^e(s) = 0.04787801[\si{\volt \angstrom^3}]\sum_{i=1}^{N=4}a_ie^{-b_is^2},
 \end{equation}
 
-This expansion is accurate for values of $s$ up to 20~\si{\nano\meter^{-1}}. Values for the electron scattering factors in a large number of different materials can also be found in the \textit{International Tables for Crystallography}~\cite{IntTableCrysC}. Care must be taken when comparing values from different sources since the factor 0.0478701 can be present or not in the version of Mott-Bethe equation. 
+where we wrote the electron scattering function  in units of \si{\volt \angstrom^3} in this form.
+
+This expansion is accurate for values of $s$ up to 20~\si{\nano\meter^{-1}}. Values for the electron scattering factors in a large number of different materials can also be found in the \textit{International Tables for Crystallography}~\cite{IntTableCrysC}. Care must be taken when comparing values from different sources since the factor 0.0478701 can be present or not in the version of Mott-Bethe equation. Additionally, it is also possible for the pre-multiplier factor to be given in units of\si{\volt \nano\meter^3} resulting in the function having the same units. 
 
 The derivation of Eq.~\ref{eq:scatterFact} made the assumption that the atom is completely still (or at temperature of \SI{0}{K}). Nevertheless, we have already covered in Section~\ref{Sec:DWf} on page~\pageref{Sec:DWf}, that this is a very gross assumption and for any true attempt of understanding scattering we ought to take into account atomic vibrations. We therefore use Eq.~\ref{eq:scatterFactDW} to correct the scattering factor for isotropic, thermal atomic vibrations so we can rewrite the corrected Mott-Bethe formula as:
 
@@ -651,7 +664,7 @@ In practice crystals are not infinite, in fact they usually come in rather small
 \begin{figure}[ht]
     \centering
 \includegraphics[width=0.52\linewidth]{Figures/EwaldSpheresg.png}
-\caption[Ewald sphere construction for a positive deviation parameter $s_g$.]{Ewald sphere construction for a positive deviation parameter $s_g$. $\mathbf{n}$ is the normal to the foil. }
+\caption[Ewald sphere construction for a positive deviation parameter $s_g$.]{Ewald sphere construction for a positive deviation parameter $s$. $\mathbf{n}$ is the normal to the foil. }
 \label{Fig:Ewaldsg}
 \end{figure}
 %---------
@@ -748,26 +761,35 @@ In the above we have changed the label of the general reciprocal lattice vector 
 
 
 We can also  write out the wave vector of the incident electron beam corrected for refraction by the mean inner potential $V_0$:
-\begin{equation*}
+\begin{equation}
+\label{eq:k0}
  |\mathbf{k_0}|^2 = k_0^2  = 2me(E+V_0)/h^2
-\end{equation*}
+\end{equation}
 
 In preparation for the substitution of Eq.~\ref{eq:V0} in Eq.~\ref{eq:SE} we separate the term $V_0$ using the above identity and add the following shorthand notation:
 
-\begin{equation*}
+\begin{equation}
 U(\mathbf{r}) + iU'(\mathbf{r}) = \frac{2me}{h^2}\left\{ \sum_{\mathbf{q}\neq 0} V_{\mathbf{q}} e^{2 \pi i \mathbf{q} \cdot \mathbf{r}} + i \sum_{\mathbf{q}} W_{\mathbf{q}} e^{2 \pi i \mathbf{q} \cdot \mathbf{r}}\right\}
-\end{equation*}
+\end{equation}
 
 
 
-Substituting \ref{eq:psiBragg} and \ref{eq:V0} in the master equation \ref{eq:SE} and after some maths we get the following:
-\begin{equation*}
+Using the \ref{eq:psiBragg} solution form in the master equation \ref{eq:SE} and and making substitution  \ref{eq:V0} we get the following:
+
+\begin{multline}
+\sum_\mathbf{g}\left\{\Delta\psi_\mathbf{g} + i 4 \pi \mathbf{k}_g \cdot \nabla \psi_\mathbf{g}  - 4 \pi^2  |\mathbf{k}_g|^2 \psi_\mathbf{g} +\frac{8 \pi^2m_e}{h^2}(E+V_0) \right\} e^{2\pi i\mathbf{k}_g \cdot \mathbf{r}}  \\ =
+4 \pi^2\sum_{\mathbf{q}\neq 0} V_{\mathbf{q}} e^{2 \pi i \mathbf{q} \cdot \mathbf{r}} + i 4 \pi^2\sum_\mathbf{q} W_{\mathbf{q}} e^{2 \pi i \mathbf{q} \cdot \mathbf{r}}
+\end{multline}
+
+
+
+Van Dyck~\cite{VanDyck76} has shown that the second order derivative of the complex amplitude $\psi_{\vb{g}}$ is negligible for high energy electrons and we can dropped it here. This is known as the \textit{high-energy approximation} and Van Dyck showed that it holds for penetration depths up to a few hundred nanometres, depending on the average atomic number of the atoms in the crystal. For TEM high energy electrons, Howie~\cite{Howie61} ignores the first derivative, $\nabla \psi_{\vb{g}}$ as well, but we will keep it. Rewriting the equation above with all these assumptions and using substitution \ref{eq:k0} we finally obtain:
+\begin{equation}
 \label{eq:almost}
 \sum_\mathbf{g}\left\{ i \mathbf{k_g} \cdot \nabla \psi_\mathbf{g}  + \pi \left(k_0^2 - |\mathbf{k}_g|^2\right) \psi_\mathbf{g} \right\} e^{2\pi i\mathbf{k}_g \cdot \mathbf{r}} =
 -\pi \sum_\mathbf{q}\sum_\mathbf{g} [U_\mathbf{q} + iU'_\mathbf{q}]\psi_\mathbf{g} e^{2\pi i(\mathbf{q}+\mathbf{k}_g)\cdot \mathbf{r}} 
-\end{equation*}
+\end{equation}
 
-Van Dyck~\cite{VanDyck76} has shown that the second order derivative of the complex amplitude $\psi_{\vb{g}}$ is negligible for high energy electrons and we have dropped it here. This is known as the \textit{high-energy approximation} and Van Dyck showed that it holds for penetration depths up to a few hundred nanometres, depending on the average atomic number of the atoms in the crystal. For TEM high energy electrons, Howie~\cite{Howie61} ignores the first derivative, $\nabla \psi_{\vb{g}}$ as well, but we will keep it.
 
 Let us have a closer look at the $\vb{k}_g \cdot  \nabla \psi_\mathbf{g} $ term in the Eq.~\ref{eq:almost} above. This term can be read as the directional derivative of the Bloch wave $g$ in the direction $\vb{k}_g$ when in perfect Bragg condition. This means we can reduce the grad operator to only one derivative with no loss of information.  We will assign $z_{beam}$ to be the electron beam propagation direction and can be write the dot product as:
 \begin{equation*}
@@ -892,7 +914,7 @@ There is another benefit to writing the equations in the form in Eq.~\ref{eq:ODE
 \label{eq:Smatrix}
      \frac{d \textbf{S}}{dz_{beam}} = i \mathcal{A} \textbf{S} 
 \end{equation}
-where $\textbf{S}$ is the column vector $\mathbf{S} = \begin{pmatrix}S_0\\ S_g\end{pmatrix}$, and $\mathcal{A}$ is called \textit{the structure matrix }and is of the form: 
+where $\textbf{S}$ is the column vector $\mathbf{S} = \begin{pmatrix}S_0\\ S_g\end{pmatrix}$, and $\mathcal{A}$ is called \textit{the scattering matrix }and is of the form: 
 
 \begin{align}
 \mathcal{A}(s_g)=  \begin{pmatrix} 
@@ -1000,22 +1022,22 @@ Let us review what we have achieved so far. The dynamical theory solves the Schr
 \begin{figure}[ht]
     \centering
 \includegraphics[width=0.84\linewidth]{Figures/fringes.png}
-\caption[Thickness fringes.]{Penetration depth fringes for the direct and diffracted beams for a perfect centrosymmetric crystal.}
+\caption[Thickness fringes.]{\textit{Thickness fringes} for the direct and diffracted beams for a perfect centrosymmetric crystal.}
 \label{Fig:fringes}
 
 \end{figure}
 %---------
 
 
-Figure~\ref{Fig:fringes} shows exactly this periodic variation in the direct wave intensity  with penetration depth in crystal. In the TEM world this plot is known as thickness fringes, since if one would be to measure the transmitted intensity through a crystal shaped as a wedge and plot it as a function of sample thickness the same image would result. In the SEM case we can think of it as variation in the beams intensity as they travel inside the crystal. This plot can be achieved using any of the descriptions above. See \texttt{Task3.ipynb} for details.
+Figure~\ref{Fig:fringes} shows exactly this periodic variation in the direct wave intensity (orange) and the diffracted beam (blue) with penetration depth in a film of Ni crystal. In the TEM world this plot is known as \textit{thickness fringes}, since if one would be to measure the transmitted or diffracted intensity through a wedge shaped crystal and plot it as a function of sample thickness the same image would result; the oscillations being a direct result of the change in crystal thickness. In the SEM case we can think of it as variation in the beams intensity as they travel inside the crystal. This plot can be achieved using any of the descriptions above. See \texttt{Task3.ipynb} for implementation  details.
 
-A similarly oscillatory behaviour can be observed if we were to plot the intensity of the two beam as a function of deviation from the Bragg angle as we did in Fig.~\ref{Fig:rocking}. The name of rocking curves comes from the TEM world as well. Notice that the diffracted beam contributes only when very close to the Bragg angle. 
+A similarly oscillatory behaviour can be observed if we were to plot the intensity of the two beams as a function of deviation from the Bragg angle (``rocking'') as I did in Fig.~\ref{Fig:rocking}. Notice that the diffracted beam contributes only when very close to the Bragg angle. 
 
 
 \begin{figure}[ht]
     \centering
 \includegraphics[width=0.84\linewidth]{Figures/rocking.png}
-\caption[Rocking curves.]{Rocking curves for the direct and diffracted beams for a perfect centrosymmetric crystal. }
+\caption[Rocking curves.]{\textit{Rocking curves} for the direct and diffracted beams for a perfect centrosymmetric crystal. Here, on the x-axis, I replaced the $s_g$ with the dimensionless parameter $w=s_g \cdot\xi_g$.}
 \label{Fig:rocking}
 
 \end{figure}

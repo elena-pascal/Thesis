@@ -25,7 +25,7 @@ But first things first. We need to define terms and notions that we've both seen
 \label{Sec:crystalStruct}
 At the atomic level many solids can be described as periodic and rigid arrangements of atoms. It is this periodicity that, as we will see, gives rise to diffraction phenomena which in turn allow us to observe and study very small features in solids. The \textit{periodic arrangements of atoms or molecules} also constitutes the loose definition of a \textit{crystal structure}.
 
-The rigorous definition involves the mathematical construct of crystal \textit{lattice} which characterises its translational symmetry. Figure~\ref{Fig:motif} (b) shows an example of a lattice in 2D space (technically known as a \textit{net}). Every point is identical to any other point. When the lattice is populated uniformly by the same fixed structure, or motif, we generate the periodic arrangement we mentioned previously. We show in Fig.~\ref{Fig:motif}~(a) a $4\times4$ square motif which, when applied to every point in the 2D lattice, generates the tessellation or regular structure in Fig.~\ref{Fig:motif}~(c)\footnote{If you want to give 2D tessellation design a play here is a fun website: \href{http://gwydir.demon.co.uk/jo/tess/tess.htm}{link in pdf}.}. If the motif is a unit cell made up of atoms or molecules then we can talk about making up a crystal structure. 
+The rigorous definition involves the mathematical construct of crystal \textit{lattice} which characterises its translational symmetry. Figure~\ref{Fig:motif} (b) shows an example of a lattice in 2D space (technically known as a \textit{net}). Every point is identical to any other point. When the lattice is populated uniformly by the same fixed structure, or motif, we generate the periodic arrangement we mentioned previously. We show in Fig.~\ref{Fig:motif}~(a) a $4\times4$ square motif which, when applied to every point in the 2D lattice, generates the tessellation or regular structure in Fig.~\ref{Fig:motif}~(c)\footnote{If you want to give 2D tessellation design a play here is a fun website: \href{http://gwydir.demon.co.uk/jo/tess/tess.htm}{http://gwydir.demon.co.uk/jo/tess/tess.htm}.}. If the motif is a unit cell made up of atoms or molecules then we can talk about making up a crystal structure. 
 
 
 %---------
@@ -61,7 +61,7 @@ A good approximation, and the one we will use here, is to assume that for close-
 \centering
 \begin{tabular}{ l c c c c c r r}
 \toprule
-\tabhead{{\small Element}} & \tabhead{$a_0$} & \tabhead{$a_1$} &\tabhead{$a_2$} &\tabhead{$a_3$} & \tabhead{$a_4$} & \tabhead{{\small ME(\si{\percent})}} & \tabhead{{\small B(\si{\angstrom^2})}}   \\
+\tabhead{{\small Element}} & \tabhead{$a_0$(\si{\angstrom^2})} & \tabhead{$a_1$(\si{\angstrom^2 \kelvin^{-1}})} &\tabhead{$a_2$(\si{\angstrom^2 \kelvin^{-2}})} &\tabhead{$a_3$(\si{\angstrom^2 \kelvin^{-3}})} & \tabhead{$a_4$(\si{\angstrom^2 \kelvin^{-4}})} & \tabhead{{\small ME(\si{\percent})}} & \tabhead{{\small B(\si{\angstrom^2})}}   \\
 \midrule
   Al & {\small 0.19} & {\small \num{0.16e-02}} & {\small \num{0.25d-05}} & {\small \num{-0.26d-08}} & {\small \num{0.10d-11}} & 1.31 &  0.83\\
   Ga & {\small 0.11} & {\small \num{0.40e-03}} & {\small \num{0.66d-05}} & {\small \num{-0.18d-07}} & {\small \num{0.19d-10}} & 0.05 & 0.49\\
@@ -70,13 +70,15 @@ A good approximation, and the one we will use here, is to assume that for close-
 \end{tabular}
 \end{table}
 
-Gao and Peng~\cite{Gao99} used a fourth degree polynomial regression fit to determine the temperature dependent DW factor for elemental cubic crystals from experimental data. These fit parameters are shown in Table~\ref{Table:DWGao} for the metal elements Al, Ga and In together with their estimated maximum error (ME) values. The form of the polynomial fit function is shown below:
+Gao and Peng~\cite{Gao99} used a fourth degree polynomial regression fit to determine the temperature dependent DW factor for elemental cubic crystals from experimental data. These fit parameters ($a_i$) are shown in Table~\ref{Table:DWGao} for the metal elements Al, Ga and In together with their estimated maximum error (ME) values. The form of the polynomial fit function is shown below:
 
 \begin{equation*}
 B(T) = a_0 + a_1T + a_2T^2 + a_3T^3 + a_4T^4
 \end{equation*}
+where the temperature is measured in Kelvin and $B$ has units of \si{\angstrom^2}.
 
-We must note here, that the measured Debye-Waller factors for defective materials will be different from that of perfect crystals since defects also scatter electrons. For this reason and the fact that first principles calculations can only be trusted if they predict experimental values, it is always  a good rule to use experimental values wherever possible. 
+
+We must note here that the assumption of isotropic vibrations is made for atoms in cubic elemental crystal. For non-cubic system we will depart from this approximation significantly. Not only this, but the measured Debye-Waller factors for defective materials will be different from that of perfect crystals since defects also scatter electrons. For this reason and the fact that first principles calculations can only be trusted if they predict experimental values, it is always  a good rule to use experimental values wherever possible. 
 
 This being said, the literature on DW factors for nitrogen is limited and we must turn to theoretical predictions. Schowalter \etal~\cite{Schowalter09} calculated these values for a number of wurtzite structures. We show below, in Table~\ref{Table:DWSchowalter}, the values predicted for the DW factor of N in AlN, GaN and InN\footnote{ We will see later, that since N scatters electrons significantly less then the heavier metallic elements in the system, its DW factors will not carry great importance. However, we did include the computations here for completeness.}.
 
@@ -456,7 +458,7 @@ The crystallographer must always be extra careful if using both notations. The t
 We will explore, in more depth, crystallographic computations in the hexagonal system, both in the real and the reciprocal space in Section~\ref{chap:real+recAlg} on page~\pageref{chap:real+recAlg}.
 
 %%%%%
-\subsection{Wavefunction as physical observable}
+\subsection{Wavefunctions and physical observables}
 \label{sec:wave}
 In the language of quantum mechanics, physical quantities are described via operators. The allowed values of the physical quantities are then eigenvalues of these operators. One must find the eigenfunctions of the corresponding operator in order to compute the value of a certain physical observable (\ie one must solve the equation $\hat{f}\ket{\Psi}=f\ket{\Psi}$).
 
@@ -916,9 +918,9 @@ Yet another source of ambiguity is the manner in which we apply the rotation mat
 
 A useful property of the rotation matrix is that the inverse of a rotation can be calculated by simply transposing the matrix ($\mathcal{R} \mathcal{R}^\intercal  = \mathcal{I}$). Another property is that the product of rotation matrices is yet another rotation matrix. Even in the case in which the rotation axis is not just a basis vector, the rotation can be broken down in maximum tree basic rotations. 
 
-This latter scenario describes another rotation formalism known as \textit{Euler rotation} in terms of Euler angles; the rotation is given as a set of three angles which describe three successive rotations around a combination of the axes \hkl{\mathbf{x}, \mathbf{y}, \mathbf{z}}. Since matrix multiplication is not commutative, the order of the chosen axis is important and a lack of knowledge of the chosen convention makes the Euler notation ambiguous, in a yet different way. EBSD orientation mapping uses, for instance, the Bunge convention~\cite{Bunge}, which orders the Euler angles as: $(\phi_1, \phi_2, \phi_3)$ around $(\mathbf{x}, \mathbf{z}, \mathbf{x})$, such that the total rotation is given by:
+This latter scenario describes another rotation formalism known as \textit{Euler rotation} in terms of Euler angles; the rotation is given as a set of three angles which describe three successive rotations around a combination of the axes \hkl{\mathbf{x}, \mathbf{y}, \mathbf{z}}. Since matrix multiplication is not commutative, the order of the chosen axis is important and a lack of knowledge of the chosen convention makes the Euler notation ambiguous, in a yet different way. EBSD orientation mapping uses, for instance, the Bunge convention~\cite{Bunge}, which orders the Euler angles as: $(\phi_1, \phi_2, \phi_3)$ around $(\mathbf{z}, \mathbf{x}, \mathbf{z})$, such that the total rotation is given by:
 \begin{equation*}
-^{Bunge}\mathcal{R}_{Euler}(\phi_1, \phi_2, \phi_3) = \mathcal{R}_x(\phi_3) \mathcal{R}_z(\phi_2) \mathcal{R}_x(\phi_1).
+^{Bunge}\mathcal{R}_{Euler}(\phi_1, \phi_2, \phi_3) = \mathcal{R}_z(\phi_3) \mathcal{R}_x(\phi_2) \mathcal{R}_z(\phi_1).
 \end{equation*}
 This series of rotations for a coordinate system from one position to another can be read as a rotation of $\phi_1$ around the basis vector $\mathbf{x}$ followed by  $\phi_2$ around  $\mathbf{z}$ and, finally, $\phi_3$ around $\mathbf{x}$. 
 

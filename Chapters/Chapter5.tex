@@ -1,15 +1,9 @@
-\chapter{Diffraction in imperfect crystal -- TKD}
+\chapter{Electron diffraction in an imperfect crystal -- TKD}
 \label{chap:TKD}
 % Context
 In the previous chapters we have established that the electron channelling (diffraction) contrast  technique in the scanning electron microscope is a great tool to investigate dislocations close to a surface in crystalline materials. In this chapter we will explore different diffraction techniques used for the study of different kind of crystal imperfections. 
 
-%Kikuchi patterns
-Kikuchi patterns are another representation of the diffracting behaviour of electrons in the form of a variation in the angular distribution of escaping electrons undergoing diffraction, as we will see on page~\pageref{sec:Kikuchi}. Some real materials are not perfect crystals; instead they are made out of crystal grains with more or less different crystal orientations from their neighbouring grains -- what we call polycrystals. The investigation and characterisation of the micro structure of new materials is a core aspect of materials science in particular but also fundamental science in general. Kikuchi diffraction became a widespread SEM technique, in the form of electron backscattered diffraction (EBSD), able to provide quantitative microstructural information about most inorganic crystalline materials. 
 
-
-
-The history of Kikuchi diffraction patterns is almost ninety years old as we have seen on page~\pageref{table:historyDiff}, and the most applied version of it is in the form of EBSD.
-However, recently, stimulated by the increased attention to nanostructured materials, which promise new and enhanced properties when compared to their larger scale counterparts, the interest in improving the resolution of established characterisation techniques has also expanded. The use of forward-scattered electrons (FSEs) through a thin sample as diffraction signal collected from the bottom of the foil has been shown to improve the lateral spatial resolution to below $10$ nm~\cite{Keller12, Trimby12}; this technique is commonly known as transmission Kikuchi diffraction (TKD) or transmission EBSD (t-EBSD). 
 
 We have, in the previous chapters, focused mostly on elastic, coherent scattering. We treated inelastic scattering as a channel of intensity loss in the diffraction beams and approximated its effect through the complex optical crystal potential. Since Kikuchi patterns are not only formed by electrons of incident energy, we need to take a closer look, on page~\pageref{sec:scatter}, at models used to predict energy loss for high energy electrons.
 
@@ -44,7 +38,7 @@ An example of this is shown in Fig.~\ref{fig:tkspatter} for a 20 keV electron be
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.7\linewidth]{TKDpattern.png}
-\caption[EBSD pattern of Ni northern hemisphere.]{Simulated entire Northern hemisphere  EBSD pattern of Ni using 20 keV electrons.}
+\caption[EBSD pattern of Ni northern hemisphere.]{Simulated  Lambert projection of the entire Northern hemisphere  EBSD pattern of Ni using 20 keV incident electrons. Adapted from \cite{PascalTKD}.}
 \label{fig:tkspatter}
 \end{figure}
 
@@ -173,7 +167,7 @@ While this approach may not take into account the full extent of inelastic scatt
 \subsection{Electron scattering}
 \label{sec:scatter}
 
-So far we have only talked about one type of electron scattering: the coherent, elastic type that is also known as diffraction. But electrons can scatter in a variety of ways.  Classically, the collision of particles is fully defined by their velocities and interaction parameters. However, high energy electrons are quantum mechanical objects. The notion of defined path for a particle with known velocity is meaningless in the quantum mechanical world. Instead, we are interested in defining the probability that, as a result of the collision, the particle will deviate by a given angle. This is what we mean by \textit{scattering}.
+So far we have only talked about one type of electron scattering: the coherent, elastic type that is also known as diffraction. But electrons can scatter in a variety of ways.  Classically, the collision of particles is fully defined by their velocities and interaction parameters. However, high energy electrons are quantum mechanical objects. The notion of defined path for a particle with known velocity is meaningless in the Copenhagen interpretation of the quantum mechanical world\footnote{Note that in the Bohmian interpretation this is allowed \cite{Cheng18}.}. Instead, we are interested in defining the probability that, as a result of the collision, the particle will deviate by a given angle. This is what we mean by \textit{scattering}.
 
 For practical considerations it is common to classify the interaction of electrons with a crystal in two distinct processes:
 \begin{itemize}
@@ -242,7 +236,7 @@ The Monte Carlo model enables us to predict how any of these system parameters i
 As we have seen in Section~\ref{sec:scatter} on page~\pageref{sec:scatter}, the information about scattering angles, direction and distances comes as a stochastic package.  If we are to combine a number of scattering processes it would become cumbersome to keep track of all these probabilities and their predictions. Instead, it is more useful to use a random sampling approach with which we can run many simulations of the same process to predict its outcomes, like the Monte Carlo method.
 
 
-The use of Monte Carlo simulations in predicting energy and spatial distribution of diffracting electrons has been described before for EBSPs~\cite{degraef2013e} and ECPs~\cite{degraef2017k} on bulk samples. These simulations employ Joy and Luo's~\cite{joy1989} modified version of Bethe's continuous slowing down approximation (CSDA) as an empirical estimation for a sum of inelastic scattering processes probabilities. The probabilities of elastic scattering events are determined from the Rutherford scattering cross section in the single scattering approximation. Therefore, the loss of energy is uniquely determined by the CSDA while the angular deflections from the original direction are defined by the elastic scattering events. For further details on this simulation approach we refer to the book by Joy \cite{joy1995a}. 
+The use of Monte Carlo simulations in predicting energy and spatial distribution for the incoherent electron sources is a field of great interest \cite{Ren98, Tao04}. Its integration with the dynamical diffraction model has been described before for EBSPs~\cite{degraef2013e} and ECPs~\cite{degraef2017k} on bulk samples. These simulations employ Joy and Luo's~\cite{joy1989} modified version of Bethe's continuous slowing down approximation (CSDA) as an empirical estimation for a sum of inelastic scattering processes probabilities. The probabilities of elastic scattering events are determined from the Rutherford scattering cross section in the single scattering approximation. Therefore, the loss of energy is uniquely determined by the CSDA while the angular deflections from the original direction are defined by the elastic scattering events. For further details on this simulation approach we refer to the book by Joy \cite{joy1995a}. 
 
 In this work a similar approach is applied for the TKD modality with the modification that the sample is now a thin film and the escape surface is not the same as the entry one. A collimated beam of electrons with primary beam energy enter the top surface of a sample and start both losing energy and scattering away from their original trajectory. Eventually they will suffer one final forward-scattering event after which they will diffract on their way out of the bottom sample surface and reach the detector. The energy and depth distributions for each scattering direction of this last event is predicted using the MC model since all events leading to it can be assumed to be stochastic. These distributions are then binned for easy storage and used as estimated values of the weighing function $\bar{\lambda}_{\hat{\mathbf{k}}}(E,t)$.
 
@@ -254,7 +248,7 @@ Additionally, the Monte Carlo model can be used to predict general electron traj
 \begin{figure}[ht]
 \centering\leavevmode
 \includegraphics[width=6.in]{Fig1.eps} %TKD_SP_tilt.png
-\caption[Directional distributions of transmitted electrons intensity in TKD geometry.]{Directional distributions of transmitted electrons intensity in TKD geometry for two sample tilts (shown in the first column): 0$^{\circ}$~(a) and -30$^{\circ}$~(b). The intensities are shown here as stereographic projections where the intersection of the horizontal and vertical lines indicate the middle of the space (vertical line is the semicircle in the sketch). The first three images in each case are showing  ``energy filtered'' electron intensities (reversed contrast) while the last column displays the total intensity distribution. } 
+\caption[Directional distributions of transmitted electrons intensity in TKD geometry.]{Directional distributions of transmitted electrons intensity in TKD geometry for two sample tilts (shown in the first column): 0$^{\circ}$~(a) and -30$^{\circ}$~(b). The intensities are shown here as stereographic projections where the intersection of the horizontal and vertical lines indicate the middle of the space (vertical line is the semicircle in the sketch). The first three images in each case are showing  ``energy filtered'' electron intensities (reversed contrast) while the last column displays the total intensity distribution. Image adapted from \cite{PascalTKD}. } 
 \label{fig:SP_TKD}
 \end{figure}
 
@@ -275,7 +269,7 @@ It becomes apparent that the sample geometry constitutes an important parameter 
 \subsection{Non uniform sampled MC}
 
 
-Joy's Monte Carlo model~\cite{joy1995a}, as described in the previous section, is nothing more than an empiric fit for the energy and direction of backscatted electrons. This, in turn, means that the prediction of energy and directions is reliable. The assumption we have made in incorporating the MC model with the dynamical simulations, is that the exit distances of electrons can also be predicted from the MC model. In the absence of a better model, this approximation proves adequate. 
+Joy's Monte Carlo model~\cite{joy1995a}, as described in the previous section, is nothing more than an empiric fit for the energy and direction of backscatted electrons. This, in turn, makes a good start model for the prediction of energy and directions distributions of backscattered electron. The assumption we have made in incorporating the MC model with the dynamical simulations, is that the exit distances of electrons can also be predicted from the MC model. In the absence of a better model, this approximation proves adequate. 
 
 What I want to do in this section is to explore a different approach of sampling the MC predictions of escape distances. I will start by assuming the position in the sample of the primary electrons is  well represented by the elastic events predicted by the MC model. I then run a large MC simulation of electron scattering in a Si sample and store energy, position and direction information for every elastic scattering event. I consider these events my data points.
 
@@ -291,7 +285,7 @@ Fig.~\ref{fig:elasticscatter} shows a $xz$ plane projection of primary electron 
 
 
 
-Since for this study I use a relatively small sample size, in the following I integrate the KDE map and  use that as a weight in sampling, such that I sample more often from places with more points than from places with fewer points.  The jupyter notebooks \texttt{TKD\_distribution.ipynb} and \texttt{EBSD\_distribution.ipynb} show all the steps described here for sampled MC for a TKD geometry case and a EBSD case, respectively.
+Since for this qualitative study I use a small sample size, in the following I integrate the KDE map and  use that as a weight in sampling, such that I sample more often from places with more points than from places with fewer points.  The jupyter notebooks \texttt{TKD\_distribution.ipynb} and \texttt{EBSD\_distribution.ipynb} show all the steps described here for sampled MC for a TKD geometry case and a EBSD case, respectively.
 
 I then define the probability of incoherent scattering to be proportional to the distance travelled by the electron until that point. This is in line with the continuous slowing down approximation for inelastic scattering which also scales with travelled distance. Fig.~\ref{fig:incoherentscatter} is showing a weighted sample of 5000 positions and indicates the probability of incoherent scattering with different sized circles.
 
@@ -318,7 +312,7 @@ The last two weighting procedures are competing with each other, the first one f
 
 
 %
-\subsection{Sample Thickness in TKD}
+\subsection{Sample thickness in TKD}
 \label{sec:TKDthickness}
 While for the EBSD and ECP modalities one only needs to run a single Monte Carlo simulation to obtain the energy-depth-direction histogram $\bar{\lambda}_{\mathbf{k}}(E,t)$ for a bulk sample, for the TKD case, the MC simulation results depend on the thickness, $t$, of the sample.
 The larger the thickness, the more energy an electron will lose on its way to the exit surface, and this will shift the entire exit energy distribution to lower energies for increasing sample thickness. 
@@ -342,7 +336,7 @@ By comparing the two images in Fig.~\ref{fig:E_z_KDE}, we can see that the thick
 \begin{figure}[ht]
 \centering
 \includegraphics[width=5in]{Figures/TKD_escapeE.png}
-\caption[Energy distributions versus sample thickness.]{Energy distributions versus sample thickness for electrons exiting a \SI{20}{\degree}  tilted Ni sample for a 20 keV primary beam.   }
+\caption[Energy distributions versus sample thickness.]{Energy distributions versus sample thickness for electrons exiting a \SI{20}{\degree}  tilted Ni sample for a 20 keV primary beam. Image adapted from \cite{PascalTKD}.  }
 \label{fig:TKDescapeE}
 \end{figure}
 
@@ -355,7 +349,7 @@ In the next section, we will investigate special geometries for which electrons 
 
 
 %
-\subsection{Special Sample-Detector Geometries and the Master Pattern}
+\subsection{Special sample-detector geometries and the master pattern}
 \label{sec:geom}
 
 
@@ -417,7 +411,7 @@ The master pattern expression in Eq.~\ref{eq:Pn} reveals that EBSD, ECP, and TKD
 \begin{figure}[ht]
 \centering
 \includegraphics[width=6in]{Fig5.png}%{MP.png}
-\caption[(a) ECP, (b) and  (c) TKD for sample thicknesses of $50$ and $250$ nm and (d) EBSD]{Portion of the stereographic projection, centred on the $[111]$ pole, of a master pattern for silicon for (a) ECP, (b) and  (c) TKD for sample thicknesses of $50$ and $250$ nm and (d) EBSD. The profiles in (e) represent the intensity along the central line (marked as a dashed line in (a)), for all four cases; the profiles have been offset vertically for clarity. The energy loss distribution estimated by the MC model for all four cases is shown in (f) as Poisson distribution fitted curves. }
+\caption[(a) ECP, (b) and  (c) TKD for sample thicknesses of $50$ and $250$ nm and (d) EBSD]{Portion of the stereographic projection, centred on the $[111]$ pole, of a master pattern for silicon for (a) ECP, (b) and  (c) TKD for sample thicknesses of $50$ and $250$ nm and (d) EBSD. The profiles in (e) represent the intensity along the central line (marked as a dashed line in (a)), for all four cases; the profiles have been offset vertically for clarity. The energy loss distribution estimated by the MC model for all four cases is shown in (f) as Poisson distribution fitted curves. Image adapted from \cite{PascalTKD}. }
 \label{fig:MPs}
 \end{figure}
 
@@ -444,7 +438,7 @@ Patrick G. Callahan at University of California, Santa Barbara, acquired a numbe
 \begin{figure}[ht]
 \centering
 \includegraphics[width=5in]{Fig6.png}
-\caption[Experimental TKD patterns for Al at $30$ keV and corresponding simulated patterns]{(a) Experimental TKD patterns for Al at $30$ keV and (b) corresponding simulated patterns; brightness and contrast of the simulated patterns have been adjusted to better match the experimental patterns. }
+\caption[Experimental TKD patterns aquired by Patrick G. Callahan for Al at $30$ keV and corresponding simulated patterns]{(a) Experimental TKD patterns for Al at $30$ keV and (b) corresponding simulated patterns; brightness and contrast of the simulated patterns have been adjusted to better match the experimental patterns. Image adapted from \cite{PascalTKD}. }
 \label{fig:TKDpatternfit}
 \end{figure}
 
@@ -459,13 +453,13 @@ The \hkl[010] inverse pole figures in Fig.~\ref{fig:TKDindex}~e) and f) were obt
 \begin{figure}[t]
 \centering
 \includegraphics[width=6in]{Fig7.png}
-\caption[Dictionary indexing TKD pattern]{ (a) TKD master pattern for Al at 30 kV for a foil thickness of 100 nm; (b) selected experimental pattern; (c) simulated pattern corresponding to (b); (d) OSM (see text for details); (e) [010] inverse pole figure (IPF) obtained with the commercial OIM-8 indexing software; and (f) [010] IPF obtained using the dictionary indexing approach. }
+\caption[Dictionary indexing TKD pattern]{ (a) TKD master pattern for Al at 30 kV for a foil thickness of 100 nm; (b) selected experimental pattern; (c) simulated pattern corresponding to (b); (d) OSM (see text for details); (e) [010] inverse pole figure (IPF) obtained with the commercial OIM-8 indexing software; and (f) [010] IPF obtained using the dictionary indexing approach. Image adapted from \cite{PascalTKD}. }
 \label{fig:TKDindex}
 \end{figure}
 
 
 %
-\section{Discussion and Conclusions \label{sec:discussion}}
+\section{Discussion and conclusions \label{sec:discussion}}
 
 Inelastic scattering, a phenomenon usually discarded in diffraction simulations, has direct influence on the energy distribution of diffracting electrons and, consequently, on the imaged Kikuchi patterns. The broader the energy distribution of diffracting electrons, the more diffuse the Kikuchi band edges. Using a Monte Carlo model we can observe that the length of electron trajectories before diffraction is a determining factor in the broadening of the energy distribution. This factor, in turn, can be controlled in the Transmission Kikuchi Diffraction modality through the thickness of the sample, acting effectively as an energy-filtering mechanism. Another determining factor for the energy distribution is the sample-detector geometry which influences both TKD and EBSD modalities.
 

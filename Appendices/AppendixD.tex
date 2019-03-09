@@ -1,0 +1,35 @@
+
+\chapter{Implementations}
+
+I refer throughout this document to supplementary pieces of code, most in \emph{Python} and some in \emph{Fortran95}. I tried to describe in detail what they do, sometimes I included pseudocode and other times I just statet the relevant equations. They can all be found on my, otherwise rather pristine, public GitHub repository~\cite{myGitHub}. 
+
+The Python scripts have been written in Python 2 which can be easily installed on Ubuntu machines (or most Linux flavours) from the package manager or by typing in 18.04 or later:
+\begin{verbatim}
+$ apt install python-minimal
+\end{verbatim}
+
+Files containing Python script can be easily recognised from the \textit{.py} file type and can be run with with:
+\begin{verbatim}
+$ python filename.py
+\end{verbatim}
+
+To run Fortran code on a Ubuntu machine  use the gfortran compiler, which again can be found in the package manager or can be installed via:
+\begin{verbatim}
+$ apt install gfortran
+\end{verbatim}
+
+For the Fortran files I wrote a \textit{Makefile} that compiles the dependencies in the correct order. It can be run by simply typing $make$ in the command line. Once everything is compiled it iss just a matter of running the executable. 
+
+For the smaller scripts I use \href{http://jupyter.org}{\texttt{Jupyter}}~\cite{Jupyter} notebooks written in Python. I will assume the reader has Python 2.7 or greater installed. The \href{https://anaconda.org/}{\texttt{Anaconda}} Python distribution~\cite{Conda} ships with Jupyter among other packages useful for scientific computation. However, if you have Python already installed then you can use the package manager \href{https://pypi.org/project/pip/}{\texttt{pip}} to add new libraries:
+\begin{verbatim}
+$ pip install jupyter
+\end{verbatim}
+To start a Jupyter notebook kernel you just type:
+\begin{verbatim}
+$ jupyter notebook
+\end{verbatim}
+And navigate to the desired script file. Individual cells are compiled with \texttt{Shift} + \texttt{Enter}.
+
+In some notebooks I use the \href{https://plot.ly/}{\texttt{plotly}} package ~\cite{Plotly} for plotting. These figures are interactive but do require an account on the \href{https://plot.ly/}{\texttt{plotly} website}\footnote{ \texttt{Plotly} website url is \href{https://plot.ly/}{https://plot.ly/}.}.  
+
+In Chapter~\ref{chap:TKD} I talk about the open software implementation of electron and optical microscopy models EMsoft~\cite{EMsoftpaper}, which can be found on Prof. Marc De Graef's GitHub~\cite{EMsoft} page where installation instructions are also given.

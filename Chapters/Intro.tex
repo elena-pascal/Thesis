@@ -1,63 +1,12 @@
-\chapter{Motivation}
-
-\section{Science as an incremental, open process}
-
-The history of science is all too often taught as a chronological list of discoveries. There is undeniable value in this approach as it reflects the arrow of complexity of notions. However, it leads to a very simplified image of the development of scientific knowledge: one big idea bringing over the next and so on. On page~\pageref{table:historyDiff}, I too show the history of diffraction as a table of chronological events. These are big shift events, which radically and permanently changed the way future science was to be done in this area. A good number of names in this table were awarded for their significant contribution with Nobel prizes. Nevertheless, the table is clearly a gross simplification of history, omitting, due to lack of space, the incremental refinement and maintenance work that supported and propelled the bigger ideas. It is quite common for important work of individual voices to be wiped away from science history as we associate a breakthrough to a single name or even to a small group of people. Seeing the bigger picture is, undeniably, worthwhile, but we must not mistake it for the full picture.
-
-The ``unremarkable'' work done by the rest of the community, not awarded prestigious prizes, is not less important for the advancement of science. Quite the opposite. Neither science nor culture truly advance in big steps. In a recent study published in Nature, Miu \etal~\cite{Miu2018} looked at the way pieces of software get improved by a community of developers in a simulation of cumulative cultural evolution. One of the observations was that the vast majority of advances are of an incremental type and not, as the scientific community expect, leaps in knowledge. Observing the strong positive breakthrough bias of scientific publishing, one would find it hard to assume that enough credit is given to the ``tweakers''. 
-
-Another critical observation was that big changes in the paradigm are more likely to turn out unsuccessful than smaller tweaks. Remember the Nobel prize in medicine awarded for the ``discovery'' of brain lobotomies\footnote{ ``for his discovery of the therapeutic value of leucotomy in certain psychoses''-- The Nobel Prize in Physiology or Medicine 1949~\cite{Nobel49}.}? Thankfully, neuroscience moved away from this particular scientific breakthrough. And it did that with small, incremental improvements on the understanding of the brain. Any sort of conversation about the development of science focused only on the leaps of knowledge must ultimately be misrepresenting the scientific process.
-
-
-In this paradigm of scientific value misrepresentation, scientific code suffers perhaps even more. The philosopher Daniel C. Dennett, in his latest book \textit{From bacteria to Bach and back}~\cite{Dennett} makes the case that evolution is not only a good protocol for developing fit biological organisms but can, in fact, be successfully applied to a variety of concepts, perhaps, he argues, consciousness, the human mind and even code development. The latter analogy I find compelling. Similarly to adaptable organism having emerged from surviving a variety of conditions, the power of good code stands in the number of iterations it went through. Of course, we cannot wait around for functional code to ``occur'' as the results of tens of millions of years of iterations, and, after all, we expect developers to be somewhat wiser than the random processes occurring in nature. Nevertheless, in the end, each iterative step has the chance to rectify errors or limitations in the code, weed out unnecessary/old lines and replace them with new, more optimised, features. Established software tends to be software reviewed by many pairs of eyes. Yet, scientific software continues to be developed and  maintained by small groups and destined to see the light of only a handful of iterations.  
-
-
-To add insult to injury, scientific code is rarely developed to be open and even more rarely made easily accessible. Here is another example of anecdotal evidence of why I think this a counter-intuitive way of following the scientific method. Two condensed matter groups set out, independently, to predict the behaviour of supercooled water, and, even though they implemented the same method, their results contradicted each other for seven straight years~\cite{supercool}. During this time, while the groups were in contact with one another, the actual lines of code never changed hands. When it finally did, a bug was discovered by the ``competing'' team in just a few months. I'm pointing out that we could have known in a few months, not seven long years, that water is predicted to change phase when supercooled. When scientific groups working in the same field do not collaborate with each other for whatever reason, it is science that suffers.
-
-
-In the light of all these, I want my thesis work to make a positive tweak in the endeavour of making electron diffraction in the SEM a well-understood phenomena in the electron microscopy community. I aim for this work to aid the understanding of why we can observe and how we can study dislocations in the SEM and I do not expect it to be the definitive attempt. For these reasons I tried to make this document as accessible as possible for whoever wants to continue on this journey. I tried to explain in depth the building blocks I used and why I chose them, I provide access to whatever code I ran or wrote and I offer a small collection of extra materials. May your code and science be even a little bit better than mine!
+\chapter{Introduction}
 
 
 
-\section{Implementations}
-
-I will refer throughout this document to supplementary pieces of code, most in \emph{Python} and some in \emph{Fortran95}. I will try to describe in detail what they do, sometimes I will include pseudocode and other times I will just state the relevant equations. They can all be found on my, otherwise rather pristine, public GitHub repository~\cite{myGitHub}. 
-
-The Python scripts have been written in Python 2 which can be easily installed on Ubuntu machines (or most Linux flavours) from the package manager or by typing in 18.04 or later:
-\begin{verbatim}
-$ apt install python-minimal
-\end{verbatim}
-
-Files containing Python script can be easily recognised from the \textit{.py} file type and can be run with with:
-\begin{verbatim}
-$ python filename.py
-\end{verbatim}
-
-To run Fortran code on a Ubuntu machine  use the gfortran compiler, which again can be found in the package manager or can be installed via:
-\begin{verbatim}
-$ apt install gfortran
-\end{verbatim}
-
-For the Fortran files I wrote a \textit{Makefile} that compiles the dependencies in the correct order. It can be run by simply typing $make$ in the command line. Once everything is compiled it iss just a matter of running the executable. 
-
-For the smaller scripts I use \href{http://jupyter.org}{\texttt{Jupyter}}~\cite{Jupyter} notebooks written in Python. I will assume the reader has Python 2.7 or greater installed. The \href{https://anaconda.org/}{\texttt{Anaconda}} Python distribution~\cite{Conda} ships with Jupyter among other packages useful for scientific computation. However, if you have Python already installed then you can use the package manager \href{https://pypi.org/project/pip/}{\texttt{pip}} to add new libraries:
-\begin{verbatim}
-$ pip install jupyter
-\end{verbatim}
-To start a Jupyter notebook kernel you just type:
-\begin{verbatim}
-$ jupyter notebook
-\end{verbatim}
-And navigate to the desired script file. Individual cells are compiled with \texttt{Shift} + \texttt{Enter}.
-
-In some notebooks I use the \href{https://plot.ly/}{\texttt{plotly}} package ~\cite{Plotly} for plotting. These figures are interactive but do require an account on the \href{https://plot.ly/}{\texttt{plotly} website}\footnote{ \texttt{Plotly} website url is \href{https://plot.ly/}{https://plot.ly/}.}.  
-
-In Chapter~\ref{chap:TKD} I talk about the open software implementation of electron and optical microscopy models EMsoft~\cite{EMsoftpaper}, which can be found on Prof. Marc De Graef's GitHub~\cite{EMsoft} page where installation instructions are also given.
 
 \section{Diffraction and the SEM}
 
 
-The Venn diagram of electron diffraction and scanning electron microscopy (SEM) (Fig.~\ref{Fig:Venn}) is showing a very small overlap. Diffraction in general, and particularly that of electrons, which  we will discuss in more details in Chapter~\ref{Chap:Diffraction} from page~\pageref{Chap:Diffraction}, is a mature and well understood subject. So is the now ubiquitous materials investigation tool that is the SEM, which we will briefly cover on page~\pageref{sec:sem}. 
+The Venn diagram of electron diffraction and scanning electron microscopy (SEM), shown here in Fig.~\ref{Fig:Venn}, is showing a very small overlap. Diffraction in general, and particularly that of electrons, which  we will discuss in more details in Chapter~\ref{Chap:Diffraction} from page~\pageref{Chap:Diffraction}, is a mature and well understood subject. So is the now ubiquitous materials investigation tool that is the SEM, which we will briefly cover on page~\pageref{sec:sem}. 
 
 \begin{figure}[ht]
 \centering
@@ -70,7 +19,9 @@ The group of people engaged in studying both these fields is a very select one. 
 
 
 
-Some of these techniques are more novel than the others, but all of them carry mysteries about aspects of the underlying physical processes. These unanswered questions are enticing not only from the aspect of fundamental physics, but also as a promise of more information that could be derived from these measurements. Building and implementing models that accurately predict these behaviours is, therefore, an important aspect of the field. In Chapter~\ref{chap:ECCI} I present such model for threading dislocations contrast predictions in ECCI and describe the insights I find when studying the correction introduced by the displacement field of the dislocation in the dynamical diffraction model. In Chapter~\ref{chap:TKD} I talk about the new TKD modality implementation in EMsoft. The energy filtering approach used here provides more accurate indexing of patterns than the commercially available software can achieve. But, more importantly, being an open software, it also give us large data-set of information from which we can learn about the physics of electron scattering.  
+Some of these techniques are more novel than the others, but all of them carry mysteries about aspects of the underlying physical processes. These unanswered questions are enticing not only from the aspect of fundamental physics, but also as a promise of more information that could be derived from these measurements. Building and implementing models that accurately predict these behaviours is, therefore, an important aspect of the field. 
+
+In Chapter~\ref{chap:ECCI} I talk about ECCI, a SEM diffraction method  well suited for the characterisation of threading dislocations (TDs) in nitrates. Then, in Chapter~\ref{chap:TKD} I talk about TKD, a SEM diffraction technique optimised for the study of truly nano-crystalline materials.  
 
 
 
@@ -154,9 +105,9 @@ References~\cite{Hearle72, reimerSEM} discuss the electron optics and we will no
 
 
 %relativistic correction
-Let us briefly address relativistic corrections and the correction factor, $\gamma$,  for electrons used in electron microscopy. The de Broglie equation for the relativistic electron  wavelength, $\lambda$, can be written in terms of the accelerating voltage $V$ (equation 2.4 in \cite{goodhew88}) as:
+Let us briefly address relativistic corrections and the correction factor, $\gamma$,  for electrons used in electron microscopy. The de Broglie equation for the relativistic electron  wavelength, $\lambda$, can be approximated in terms of the accelerating voltage $V$ (equation 2.4 in \cite{goodhew88}) as:
 \begin{equation}
-    \lambda = \sqrt{\frac{150}{V + 10^{-6}\, V^2}} \,\, [\si{\angstrom}]
+    \lambda \approx \sqrt{\frac{150}{V + 10^{-6}\, V^2}}
 \end{equation}
 where the second term in the denominator  is due to Lorentz factor and only becomes important for voltages greater than $20$ \si{\kilo \electronvolt} as we can see in Table~\ref{Table:wavelength}. For SEM applications discussed in this work we will focus on $20$ \si{\kilo \electronvolt} incident electrons, and discard, quite acceptably, relativistic effects. 
 
@@ -176,3 +127,89 @@ where the second term in the denominator  is due to Lorentz factor and only beco
 \end{table}
 
 
+%%
+\section{ECCI and the characterisation of TDs in nitrides  }
+\label{sec:ECCITDmotivation}
+
+Over the past thirty years there has been no shortage of interest in electronic and light emitting devices based on semiconductors and, as a result, their impact on modern technologies has become notable. Brighter, more efficient and more reliable light sources have been developed. Specifically, the group III-nitride material systems and their alloys have been intensely studied due to a number of promising properties. We have witnessed an ever increasing  span of emerging applications: from ultraviolet light water purification and hydrogen production, to high power electronics and novel optical communication systems~\cite{Kneissl10}. The bottleneck of developing the next generation devices remains the material science of improving even further the efficiency for these devices.
+
+ The large difference in covalent bondings of the elements in these systems translates to greatly varying physical properties, including different lattice parameters and energy band gaps. The latter means that nitride alloy systems can offer a wide range of direct energy-band gaps, \ie high intensity luminescence at a wide range of wavelengths (\eg the band gap of InAlGaN systems ranges from infra-red to the ultraviolet region).  In addition, their structural stability at high temperatures and good thermal conductivity make them ideal candidates for the fabrication of high power transistors. GaN is a binary system belonging to this material group and together with its cousins, InN and AlN, and their ternary and quaternary alloys are one of the semiconductors on top\footnote{After the big ones like Si and Ge and the more established systems of arsenides and phosphides} of material scientists minds, due to their many applications in optical and electrical devices.  
+
+Nevertheless, unlike Si and Ge, the group III-nitrides epitaxial growth is challenging due to the lack of a suitably lattice matched material. The lattice mismatch can be significant and the usual compromise between cost and growth impairment is sapphire ($Al_2O_3$), which at room temperature and along the $r$-plane has a lattice mismatch of $\sim1.1\%$ even on a coincident lattice~\cite{nitrides} with GaN grown in the \hkl[0001] direction. The epitaxial layers will be further strained during the cooling down stage, such that, at the end of the growth process, a thick layer can relax through the formation of dislocations along the interface of lattice mismatched materials.
+
+An interface misfit dislocation introduces a discontinuous strain in the crystalline lattice, and the way to resolve the discontinuity is through the generation of \textit{threading dislocations} (TDs) which run from the layer interface through the crystal up to its surface. Dislocations and line defects of crystalline solids can strongly affect the properties of the material and the performance of the devices we would like to use these materials for.
+
+Surprisingly, the blue emitting devices based on III-nitrides are able to function even in the presence of TD  densities of the order of $10^{11}$cm$^{-2}$, due to carrier localisation effects~\cite{Graham}. However, for a great number of devices, TDs prove to be problematic as they tend to be associated with impaired optical and electrical performances. For example, TDs correlate with increased leakage currents in green and blue light emitting diodes (LEDs) \cite{Ferdous} and overall reduction in efficiency in near-UV LEDs~\cite{Kamiyama}. Moreover, TDs can be blamed for reducing the lifespan of laser diodes as well as decreasing the electron mobility in high electron mobility transistors~\cite{Bougrioua}. TDs can cause premature junction breakdowns as well as inhibiting high current gains in GaN based UV avalanche photodiodes~\cite{Limb}. They are also connected to the current collapse in GaN field-effect transistors~\cite{Disanto} and the general degradation in performance of high power GaN based devices. Therefore, the need to study the origin, development and impact of TDs becomes apparent if we are to optimise growth methods aimed at reducing the TDs density.
+
+
+
+%-------
+\begin{figure}
+\centering
+\noindent\begin{minipage}{0.47\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth, height=0.25\textheight]{Figures/TEM.png}
+    \captionsetup{width=0.8\linewidth}
+    \caption[AlGaN TEM.]{Transversal TEM image\footnote{Taken at the Kelvin Nanocharacterisation Center, University of Glasgow. ~~By permission of David Thomson, University of Strathclyde} of an AlGaN on sapphire showing threading dislocations reaching an interface.}
+     \label{fig:tem}
+\end{minipage}
+\;\;\;
+\begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=0.9\linewidth, height=0.25\textheight]{Figures/ECCI.png}
+      \captionsetup{width=0.8\linewidth}
+     \caption[GaN ECCI.]{Plan view ECC image\footnote{By permission of Allehiani Nouf Mohammad, University of Strathclyde} of a \hkl[0001] GaN on sapphire showing black-white contrast around threading dislocations.}
+     \label{fig:ecci}
+\end{minipage}
+\end{figure}
+%---------
+
+Electron diffraction is one mechanism that is sensitive to the presence of strain due to dislocations in the crystal, facilitating therefore dislocation imaging. Transmission electron microscopy (TEM) has established itself as the default technique for the study of lattice deformations and for identifying defect types. We will talk more about dislocations in the next section but for now it is useful to know that two extreme \hkl[0001] threading dislocation characters can be distinguished: pure screw type (or \textit{\textbf{c}-type}) where the Burgers vector (\textbf{b}) is aligned along the \textit{c}-axis and pure edge dislocation (or \textit{\textbf{a}-type}) when the Burgers vector is confined to the (0001) basal plane. If neither of these conditions is strictly met, the dislocation is called mixed, or \textit{\textbf{a+c} type}.
+
+
+
+TEM is especially reliable as a dislocation characterisation method as it can unambiguously identify  the \textbf{c} and \textbf{a} components of a dislocation line running parallel to the imaged surface. This is achieved through the application of certain relationships between the diffraction vector $\vb{g}$, Burgers vector $\mathbf{b}$ and the direction of the dislocation line $\mathbf{u}_l$ ($\vb{g} \cdot \vb{b} = 0$ and $\vb{g} \cdot \vb{b} \times \vb{ u}_l = 0$), known as the \textit{invisibility criteria}, for which no contrast associated
+with \textbf{c} or \textbf{a} components can be observed. This method has been applied broadly in the study and
+characterisation of dislocations in cross sectional GaN samples (\eg~\cite{Hino00}). For TDs which penetrate the sample surface normally (or almost normally) high resolution TEM (HRTEM) can provide direct observation of the Burgers vector direction of \textbf{a} type TDs. However, as the images are usually acquired in plan view, the \textbf{c} components are invisible. The destructive TEM sample preparation and its limited field of view can also restrict the number of defects that can be observed and hence may impact the statistical limits on estimating defect densities, particularly for materials with lower numbers of dislocations.
+
+
+There are characterisation methods which do not share TEM’s requirements for sample preparation. These include atomic force microscopy (AFM), which can offer information on TDs associated with surface pits~\cite{Craven02} (often after an etching or decoration treatment) or when terminating step edges. However, AFM can be sensitive to surface debris and may require extended periods of time to image even relatively small areas~\cite{Koinkar97}. Alternatively, for larger area measurements, X-ray diffraction (XRD)~\cite{Heinke00} or cathodoluminescence~\cite{Rosner97} can provide information on the global material defect densities but can have serious limitations in terms of resolving individual dislocations, especially XRD. 
+
+An alternative to the above methods is the use of the electron  channelling contrast imaging (ECCI) technique which can be employed within generally available field emission scanning electron microscopes (FE-SEMs). This approach can image defects with resolution of a few nanometers with a micrometer scale field of view, and is neither destructive nor based on direct sample contact. However, in order to obtain the maximum amount of information from these images, a thorough understanding of the contrast mechanisms is required.
+
+Trager-Cowan \etal\cite{Carol} showed that using ECCI in the characterisation of nitrides is an excellent idea. ECCI has been used in the forescatter geometry to reveal extended defects and
+morphological features of GaN samples while also delivering information about crystallographic orientation~\cite{Picard}. The electron channelling contrast images obtained in the SEM can provide structural information on dislocations  interacting with the sample surface, particularly when obtained in highly diffracting channelling conditions~\cite{Naresh}. This information is shown in the form of variation in the electron backscattered contrast intensity around a dislocation -- or dark-bright signal contrast on the micrograph. Because it can resolve individual dislocations while imaging larger areas (e.g. Nouf-Allehiani et al.~\cite{Nouf} for material with TDs having a mean separation of $\approx$ 200 nm), ECCI is an ideal candidate for both precise and accurate number estimates for a wide range of TD densities (\SI{e6}{\centi \metre^{-2}} -- \SI{e10}{\centi \metre^{-2}} ).
+
+
+\subsection{What is Chapter~\ref{chap:ECCI} about?}
+
+
+In this work I continue on the path of analysing the ECCI as a TD characterisation technique. In Chapter~\ref{chap:ECCI} I look at the theoretical models that could be applied to predict the TD contrast in ECC images of \hkl[0001] grown GaN. It was clear that the contrast predictions methods used for TEM will be inappropriate when considering contrast in bulk samples. If a TD dislocation in a thin TEM sample will introduce two opposite, and cancelling in effect, surface relaxations on the top and bottom surface, a beam in ECCI will only image the top surface and therefore be far more sensitive to the top surface relaxation. An model for ECCI contrast should therefore take into account the surface relaxation, to begin with. The questions I followed were \textit{What can a suitable model predict about the behaviour of the TD contrast?} and \textit{What can we then learn from this predicted behaviour?}.
+
+Since diffraction conditions in the SEM are more challenging to pinpoint then in the TEM, I wanted to remove this hard to determine variable from the predictions and look, qualitatively, at the behaviour of a property that causes the contrast in the first place: the strain flavoured parameter that quantifies the correction to the deviation parameter $\beta$ due to the dislocation. I give it the name of \textit{ECC-strain}. 
+
+By looking at isosurfaces of this newly minted ECC-strain for different types of dislocations in different conditions, I can make a few observations regarding the effect of geometry, the effect of dislocation type and the effect of diffraction condition on the imaged contrast. This observation can then be turned into recipes for contrast optimisation on one hand and dislocation characterisation on the other.
+
+
+
+\section{TKD and study of truly nanostructured materials}
+
+
+
+
+
+%Kikuchi patterns
+Kikuchi patterns are another representation of the diffracting behaviour of electrons in the form of a variation in the angular distribution of escaping electrons undergoing diffraction, as we will see on page~\pageref{sec:Kikuchi}. We have already established that real materials are not perfect crystals. Dislocations are not the only imperfections that can dictate the properties of a carefully engineered material. The material structure can show features sometimes even at the nano scale level, in the form of crystal grains with more or less different crystal orientations from their neighbouring grains -- what we call polycrystals. 
+
+The investigation and characterisation of the micro structure of new materials is a core aspect of materials science in particular but also fundamental science in general. Kikuchi diffraction became a widespread SEM technique, in the form of electron backscattered diffraction (EBSD), able to provide quantitative microstructural information about most inorganic crystalline materials. The history of Kikuchi diffraction patterns is almost ninety years old as we have seen on page~\pageref{table:historyDiff}, and the most applied version of it is in the form of EBSD.
+
+
+However, recently, stimulated by the increased attention to nanostructured materials, which promise new and enhanced properties when compared to their larger scale counterparts, the interest in improving the resolution of established characterisation techniques has also expanded. The use of forward-scattered electrons (FSEs) through a thin sample as diffraction signal collected from the bottom of the foil has been shown to improve the lateral spatial resolution to below $10$ nm~\cite{Keller12, Trimby12}; this technique is commonly known as transmission Kikuchi diffraction (TKD) or transmission EBSD (t-EBSD). 
+
+\subsection{What is Chapter~\ref{chap:TKD} about?}
+
+The work described in Chapter~\ref{chap:TKD} was the outcome of a collaboration with Prof. Marc De Graef's group from Carnegie Mellon University. The CMU group developed a vast, open-source software called EMsoft~\cite{EMsoft} aimed at modelling a variety of diffraction techniques in the SEM including EBSD. 
+
+The aim of our particular project was to add a TKD modality implementation in EMsoft. Since EMsoft comes with energy filtering abilities we showed that it provides more accurate indexing of patterns than the commercially available software can achieve. But, more importantly, being an open software, it also give us large data-set of information from which we can learn about the physics of electron scattering.  
+
+In the resulting published paper~\cite{PascalTKD}  we compare the energy distributions of the different diffraction modalities of the SEM: ECP, EBSD and TKD. While Kikuchi like lines in ECPs are the result of electrons with a energies very close to the incident energy diffracting, in EBSD the relatively large interaction volume causes a spread of electron energies which in turn contributes to a blurring of the lines. On the other hand, for TKD we can predict that, in a sense, the sample thickness acts as an energy filtering mechanism. For samples thinner than the EBSD interaction volume the model predicts an increase in resolution of the Kikuchi bands which is observed experimentally. 
