@@ -12,7 +12,7 @@ Since I believe some insight into the theory comes from the chronological develo
 While the phenomenon is described by the same physics regardless of the type of particles used, the way individual diffracting particles interact with matter can differ. While X-rays diffract from the electron density in the crystal, electrons are scattered elastically by the Coulomb potential. The latter is related to the electron density via the Poisson equation and, additionally, it also includes the nuclear contributions. Similarly, neutrons interact mainly with the nuclear potentials in the crystal sample. Table~\ref{table:diffractingParticles} shows the properties of the most common types of particles used in diffraction experiments together with their scattering sources.
 
 \begin{table}[!h]
-\caption{Particles used in diffraction experiments together with their scattering properties.}
+\caption[Scattering properties of particles used in diffraction.]{Particles used in diffraction experiments together with their scattering properties.}
 \label{table:diffractingParticles}
 \centering
 \begin{tabular}{ l l c l}
@@ -418,7 +418,7 @@ The derivation of Eq.~\ref{eq:scatterFact} made the assumption that the atom is 
 \label{eq:scatterFactDW}
 f_T^e(s) = 0.04787801\sum_{i=1}^{N=4} a_i e^{-b_i s^2}  e^{-B_{el.} s^2},
 \end{equation}
-where $B_{el.}$ is the Debie-Whelar factor for the given element which we calculated on page~\pageref{Sec:DWf} for some of the nitride elements.
+where $B_{el.}$ is the Debye-Waller factor for the given element which we calculated on page~\pageref{Sec:DWf} for some of the nitride elements.
 
 Figure~\ref{Fig:scatterFactor_e} plots electron scattering factors (Eq.~\ref{eq:scatterFact}) for Al, Ga, In and N in continuous lines together with the DW corrected versions (Eq.~\ref{eq:scatterFactDW}) at \SI{300}{K} in dashed lines. We can see the overall behaviour is not completely dissimilar from that of X-ray scattering in Fig.~\ref{Fig:scatterFactorX}. See the description for that figure on how to read the vertical lines. The code used for this plot can be found, as well, in the Jupyter notebook {\tt scatterFactor.ipynb}. 
 
@@ -1014,11 +1014,6 @@ with the boundary conditions:
 
 
 
-
-
-
-Let us review what we have achieved so far. The dynamical theory solves the Schr\"{o}dinger equation for the high energy electrons inside a crystal. The electrons see the perfect crystal as a periodic potential and their wavefunction is perturbed in such a way that if we consider a direct electron wavefunction and  diffracted one, the amplitude will be dynamically transferred between these two waves as they travel through the crystal in a manner similar to the transfer of energy in the coupled pendulum oscillations.
-
 \begin{figure}[ht]
     \centering
 \includegraphics[width=0.84\linewidth]{Figures/fringes.png}
@@ -1029,11 +1024,15 @@ Let us review what we have achieved so far. The dynamical theory solves the Schr
 %---------
 
 
+Let us review what we have achieved so far. The dynamical theory solves the Schr\"{o}dinger equation for the high energy electrons inside a crystal. The electrons see the perfect crystal as a periodic potential and their wavefunction is perturbed in such a way that if we consider a direct electron wavefunction and  diffracted one, the amplitude will be dynamically transferred between these two waves as they travel through the crystal in a manner similar to the transfer of energy in the coupled pendulum oscillations.
+
+
+
+
 Figure~\ref{Fig:fringes} shows exactly this periodic variation in the direct wave intensity (orange) and the diffracted beam (blue) with penetration depth in a film of Ni crystal. In the TEM world this plot is known as \textit{thickness fringes}, since if one would be to measure the transmitted or diffracted intensity through a wedge shaped crystal and plot it as a function of sample thickness the same image would result; the oscillations being a direct result of the change in crystal thickness. In the SEM case we can think of it as variation in the beams intensity as they travel inside the crystal. This plot can be achieved using any of the descriptions above. See \texttt{Task3.ipynb} for implementation  details.
 
-A similarly oscillatory behaviour can be observed if we were to plot the intensity of the two beams as a function of deviation from the Bragg angle (``rocking'') as I did in Fig.~\ref{Fig:rocking}. Notice that the diffracted beam contributes only when very close to the Bragg angle. 
 
-
+%---------
 \begin{figure}[ht]
     \centering
 \includegraphics[width=0.84\linewidth]{Figures/rocking.png}
@@ -1042,3 +1041,8 @@ A similarly oscillatory behaviour can be observed if we were to plot the intensi
 
 \end{figure}
 %---------
+
+A similarly oscillatory behaviour can be observed if we were to plot the intensity of the two beams as a function of deviation from the Bragg angle (``rocking'') as I did in Fig.~\ref{Fig:rocking}. Notice that the diffracted beam contributes only when very close to the Bragg angle. 
+
+
+

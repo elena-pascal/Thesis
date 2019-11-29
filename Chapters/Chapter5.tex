@@ -5,10 +5,10 @@ In the previous chapters we have established that the electron channelling (diff
 
 
 
-We have, in the previous chapters, focused mostly on elastic, coherent scattering. We treated inelastic scattering as a channel of intensity loss in the diffraction beams and approximated its effect through the complex optical crystal potential. Since Kikuchi patterns are not only formed by electrons of incident energy, we need to take a closer look, on page~\pageref{sec:scatter}, at models used to predict energy loss for high energy electrons.
+So far, we have focused mostly on elastic, coherent scattering. We treated inelastic scattering as a channel of intensity loss in the diffraction beams and approximated its effect through the complex optical crystal potential. Since Kikuchi patterns are not only formed by electrons of incident energy, we need to take a closer look, on page~\pageref{sec:scatter}, at models used to predict energy loss for high energy electrons.
 
 
-While the physics of EBSD is somewhat well understood, the question explored in this chapter is whether the existing models can accommodate for the new geometry of the transmission EBSD modality. In the following pages the implementation of diffraction pattern predictions of EMsoft software~\cite{EMsoftpaper} is described (page~\pageref{sec:TKDtheory}). Then, I will talk about the difference in electron escape distances between the EBSD and TKD modalities, as predicted by Monte Carlo simulations, and why that matters on page~\pageref{sec:MC}. 
+While the physics of EBSD is somewhat well understood, the question explored in this chapter is whether the existing models can accommodate for the new geometry of the transmission-EBSD modality. In the following pages the implementation of diffraction pattern predictions of EMsoft software~\cite{EMsoftpaper} is described (page~\pageref{sec:TKDtheory}). Then, I will talk about the difference in electron escape distances between the EBSD and TKD modalities, as predicted by Monte Carlo simulations, and why that matters on page~\pageref{sec:MC}. 
 
 
 The work I will show in this chapter was the outcome of a collaboration with Prof. Marc De Graef's group and parts of the results were published in \textit{Energy-weighted dynamical scattering simulations of electron diffraction modalities in the scanning electron microscope}~\cite{PascalTKD}.
@@ -21,6 +21,7 @@ In section~\ref{sec:TKDtheory} on page~\pageref{sec:TKDtheory} we describe the t
 %%%%%
 \section{Introduction}
 
+
 \subsection{How does it work?}
 \label{sec:EBSD}
 
@@ -28,17 +29,17 @@ Let us cover the grounds of the technique first. What we need for an electron ba
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=3.7in]{Fig3.eps}
-\caption[EBSD, TKD and ECP set-up geometry.]{(a) and (b) EBSD geometry, with the sample inclined at $70^{\circ}$ and $50^{\circ}$; the detector is indicated by a thick line and is inclined by $10^{\circ}$ with respect to the vertical direction. (c) and (d) show typical TKD geometries with a horizontal sample, and one inclined at $-20^{\circ}$. (e) and (f) show typical ECP geometries with two different sample tilt angles.}
+\includegraphics[width=0.6\linewidth]{Fig3.eps}
+\caption[EBSD, TKD and ECP set-up geometry.]{(a) and (b) EBSD geometry, with the sample inclined at $70^{\circ}$ and $50^{\circ}$; the detector is indicated by a thick line and is inclined by $10^{\circ}$ with respect to the vertical direction. (c) and (d) show typical TKD geometries with a horizontal sample, and one inclined at $-20^{\circ}$. (e) and (f) show typical ECP geometries with two different sample tilt angles.  Adapted from \cite{PascalTKD}.}
 \label{fig:geometries}
 \end{figure}
 
-An example of this is shown in Fig.~\ref{fig:tkspatter} for a 20 keV electron beam incident on a Ni sample. The simulation was done using EMsoft~\cite{EMsoft} and shows all possible independent exit directions in the Northern hemisphere using equal area Lambert projection (see ref.~\cite{degraef2013e}). 
+An example of this is shown in Fig.~\ref{fig:tkspatter} for a 20 keV electron beam incident on a Ni sample. The simulation was done using EMsoft~\cite{EMsoft} and shows all possible independent exit directions in the Northern hemisphere as a stereographic projection (see ref.~\cite{degraef2013e}). 
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.7\linewidth]{TKDpattern.png}
-\caption[EBSD pattern of Ni northern hemisphere.]{Simulated  Lambert projection of the entire Northern hemisphere  EBSD pattern of Ni using 20 keV incident electrons. Adapted from \cite{PascalTKD}.}
+\caption[EBSD pattern of Ni northern hemisphere.]{Simulated stereographic projection of the entire Northern hemisphere  EBSD pattern of Ni using 20 keV incident electrons. The 90$^{\circ}$ represents the north pole and the 0$^{\circ}$ circle the equator and the geometry of the crystal is shown in the bottom left corner (see also Fig. \ref{fig:TKDgeometry} for coordinate frames geometry). The blue rectangle shows the area plotted in Fig.  \ref{fig:MPs}. Adapted from \cite{PascalTKD}.}
 \label{fig:tkspatter}
 \end{figure}
 
@@ -73,12 +74,12 @@ The modalities above are sometimes referred to as ``channelling out'' diffractio
 \subsection{Interaction volume}
 
 
-\begin{figure}[ht]
+\begin{sidewaysfigure}
 \centering
-\includegraphics[width=1.1\linewidth]{Figures/TKDpendepth.png}
+\includegraphics[width=0.9\linewidth]{Figures/TKDpendepth.png}
 \caption[Interaction volume]{Interaction volume of backscattered (top images) and transmitted electrons (bottom images) shown here as kernel density estimates plots of the escaping electrons. The darker colour indicates larger probability of large angle elastic scattering event in that region.}
 \label{fig:intvolume}
-\end{figure}
+\end{sidewaysfigure}
 
 
 
@@ -167,28 +168,34 @@ While this approach may not take into account the full extent of inelastic scatt
 \subsection{Electron scattering}
 \label{sec:scatter}
 
-So far we have only talked about one type of electron scattering: the coherent, elastic type that is also known as diffraction. But electrons can scatter in a variety of ways.  Classically, the collision of particles is fully defined by their velocities and interaction parameters. However, high energy electrons are quantum mechanical objects. The notion of defined path for a particle with known velocity is meaningless in the Copenhagen interpretation of the quantum mechanical world\footnote{Note that in the Bohmian interpretation this is allowed \cite{Cheng18}.}. Instead, we are interested in defining the probability that, as a result of the collision, the particle will deviate by a given angle. This is what we mean by \textit{scattering}.
+So far we have only talked about one type of electron scattering: the coherent, elastic type that is also known as diffraction. But electrons can scatter in a variety of ways.  Classically, the collision of particles is fully defined by their velocities and interaction parameters. However, high energy electrons are quantum mechanical objects. The notion of defined path for a particle with known velocity is meaningless in the Copenhagen interpretation of the quantum mechanical world\footnote{Note that in the Bohmian interpretation this is allowed \cite{Cheng18}.}. In any interpretation of quantum mechanics a version of the uncertainty principle limits us from knowing both the precise position and velocity of a particle, making the classical approach of predicting particle behaviour unfeasible at the scale of the very small. Instead, we are interested in defining the probability that, as a result of the collision, the particle will deviate by a given angle. This is what we mean by \textit{scattering}.
 
 For practical considerations it is common to classify the interaction of electrons with a crystal in two distinct processes:
 \begin{itemize}
 \item \textit{Elastic scattering}, defined as a process which does not change the state of the crystal. Mostly made up by interactions with the nucleus. \textit{Rutherford scattering} is the model commonly used to predict this behaviour and it does that by taking into account just Coulomb forces between the charged electron and the nucleus. 
 
-Let's say an elastic event will deviate the trajectory of an electron by an angle $\phi$. This scattering effect is described in terms of particles traversing a solid angle $d\Omega$ per unit time which is usually given by the angular differential form of the Rutherford cross section~\cite{Reimer76}, $\frac{d \sigma}{d \Omega}$:
+Let's say an elastic event will deviate the trajectory of an electron by a polar angle $\phi$ from its original trajectory. The probability of the electron being scattered in the solid angle ${d \Omega}$ is given by the angular differential form of the screeened Rutherford cross section~\cite{Reimer76}:
 \begin{equation*}
-\frac{d \sigma}{d \Omega} = 5.21 \times 10^{-21} \frac{Z^2}{E^2} \left(\frac{E+511}{E+1,024}\right)^2 \frac{1}{\sin^2{\frac{\phi}{2}} + \alpha}
+\frac{d \sigma}{d \Omega} = \left( \frac{e^2 }{4 \pi \epsilon_0 } \frac{Z}{4 E}\right)^2 \frac{1}{\sin^2{\frac{\phi}{2}} + \alpha} (\si{m^{-2}})
 \end{equation*}
 
-where $E$ is the energy of the electron in keV and $\alpha$ is a screening factor accounting for the fact that some of the atomic charge is ``screened'' by the orbiting electrons from the perspective of the incident electrons.
+where $E$ is the energy of the electron in \si{\kilo eV}and $\alpha$ is a screening factor accounting for the fact that some of the atomic charge is ``screened'' by the orbiting electrons from the perspective of the incident electrons.
 
 As a result, it is common to assume that this scattering mechanism accounts for  the bulk of angular scattering of electrons including the behaviour we call backscattering.
 
 
-\item \textit{Inelastic scattering}, defined as the process in which the state of the crystal is modified by the interaction. An important contribution here is made by the electron-electron scattering which causes the incident beam electron to loose small amounts of energy to the crystal. The angular deflections caused by these events is relatively small allowing us to use, what is known as, the \textit{continuously slowing down approximation} (CSDA) to  predict this particular type of inelastic scattering processes. We simply assume the electrons are carrying on the same path but slowly and continuously lose energy. The \textit{Bethe's theory} describes electrons as a system of oscillators that lose energy due to excitations caused by the crystal and can predict a ``stopping power'' of inelastic events~\cite{joy1989}:
-
+\item \textit{Inelastic scattering}, defined as the process in which the state of the crystal is modified by the interaction. An important contribution here is made by the electron-electron scattering which causes the incident beam electron to loose small amounts of energy to the crystal. The angular deflections caused by these events is relatively small allowing us to use, what is known as, the \textit{continuously slowing down approximation} (CSDA) to  predict this particular type of inelastic scattering processes. We simply assume the electrons are carrying on the same path but slowly and continuously lose energy. The \textit{Bethe's theory} describes electrons as a system of oscillators that lose energy due to excitations caused by the crystal and can predict a \textit{stopping power} of inelastic events~\cite{joy1989}:
+\begin{equation}
+    \frac{dE}{ds} = -2\pi e^4 N_A  \frac{Z \rho}{A E} \log{\left( \frac{1.166E}{J}\right)} \, \, \, (\si{eV/\angstrom})
+\end{equation}
+where $E$ is the incident energy in units of \si{\eV}, $s$ is the path length along the trajectory (in \si{\angstrom}), $N_A$ is Avogadro's number, $\rho$ is the density (in \si{\gram/\cm^3}), $Z$ is the atomic number and $A$ is the atomic weight of the target. $J$ is an empirical parameter representing the mean ionisation potential, has units of \si{\eV} and represents the effective average energy loss of the incident electron in the material. $\pi e^4$ is a common constant appearing in inelastic scattering cross sections and used in Gaussian units:
 \begin{equation*}
-    \frac{dE}{dS} = -78,500 \frac{Z}{A E} \log{\left( \frac{1.166E}{J}\right)}
+\pi e^4 = \pi (a_0 E_h) (\si{\cm^2 \eV^2})
 \end{equation*}
-where $S= s \rho$ is the product between the distance $s$ travelled in the material and its density,  and $J$ is an empirical parameters representing the mean ionisation potential, has units of keV and represents the effective average energy loss of the incident electron in the material. 
+where $a_0$ is the Bohr radius and  $E_h$ is the Hartree constant. The pre-multiplying factors are sometimes written out explicitly as:
+\begin{equation}
+    2 \pi e^4 N_A = 784 (\si{\eV^2 \cm \angstrom/  \mol) }.
+\end{equation}
 \end{itemize}
 
 
@@ -246,9 +253,9 @@ Additionally, the Monte Carlo model can be used to predict general electron traj
 
 
 \begin{figure}[ht]
-\centering\leavevmode
-\includegraphics[width=6.in]{Fig1.eps} %TKD_SP_tilt.png
-\caption[Directional distributions of transmitted electrons intensity in TKD geometry.]{Directional distributions of transmitted electrons intensity in TKD geometry for two sample tilts (shown in the first column): 0$^{\circ}$~(a) and -30$^{\circ}$~(b). The intensities are shown here as stereographic projections where the intersection of the horizontal and vertical lines indicate the middle of the space (vertical line is the semicircle in the sketch). The first three images in each case are showing  ``energy filtered'' electron intensities (reversed contrast) while the last column displays the total intensity distribution. Image adapted from \cite{PascalTKD}. } 
+\centering
+\includegraphics[width=1\linewidth]{Fig1.eps} %TKD_SP_tilt.png
+\caption[Directional distributions of transmitted electrons intensity in TKD.]{Directional distributions of transmitted electrons intensity in TKD geometry for two sample tilts (shown in the first column): 0$^{\circ}$~(a) and -30$^{\circ}$~(b). The intensities are shown here as stereographic projections where the intersection of the horizontal and vertical lines indicate the middle of the space (vertical line is the semicircle in the sketch). The first three images in each case are showing  ``energy filtered'' electron intensities (reversed contrast) while the last column displays the total intensity distribution. Image adapted from \cite{PascalTKD}. } 
 \label{fig:SP_TKD}
 \end{figure}
 
@@ -269,13 +276,13 @@ It becomes apparent that the sample geometry constitutes an important parameter 
 \subsection{Non uniform sampled MC}
 
 
-Joy's Monte Carlo model~\cite{joy1995a}, as described in the previous section, is nothing more than an empiric fit for the energy and direction of backscatted electrons. This, in turn, makes a good start model for the prediction of energy and directions distributions of backscattered electron. The assumption we have made in incorporating the MC model with the dynamical simulations, is that the exit distances of electrons can also be predicted from the MC model. In the absence of a better model, this approximation proves adequate. 
+Joy's Monte Carlo model~\cite{joy1995a}, as described in the previous section, is nothing more than an empirical fit for the energy and direction of backscattered electrons. This, in turn, makes a good start model for the prediction of energy and directions distributions of backscattered electron. The assumption we have made in incorporating the MC model with the dynamical simulations, is that the exit distances of electrons can also be predicted from the MC model. In the absence of a better model it seems adequate to use this approach and experimental results seem to agree to a first approximation~\cite{Deal08}. 
 
 What I want to do in this section is to explore a different approach of sampling the MC predictions of escape distances. I will start by assuming the position in the sample of the primary electrons is  well represented by the elastic events predicted by the MC model. I then run a large MC simulation of electron scattering in a Si sample and store energy, position and direction information for every elastic scattering event. I consider these events my data points.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=6.in]{Figures/elasticscatter.png}
+\includegraphics[width=1\linewidth]{Figures/elasticscatter.png}
 \caption[Elastic scatter events distribution.]{Visualisation of \SI{10}{\kilo \electronvolt} primary electrons distribution in a Si sample tilted at \SI{70}{\degree}. The scatter points are elastic scattering positions as predicted by the MC model and the pink background is the KDE distribution plot with darker colours indicating higher probability in a linear manner as indicated by the legend in arbitrary units. }
 \label{fig:elasticscatter}
 \end{figure}
@@ -285,14 +292,14 @@ Fig.~\ref{fig:elasticscatter} shows a $xz$ plane projection of primary electron 
 
 
 
-Since for this qualitative study I use a small sample size, in the following I integrate the KDE map and  use that as a weight in sampling, such that I sample more often from places with more points than from places with fewer points.  The jupyter notebooks \texttt{TKD\_distribution.ipynb} and \texttt{EBSD\_distribution.ipynb} show all the steps described here for sampled MC for a TKD geometry case and a EBSD case, respectively.
+In the following I integrate the KDE map and  use that as a weight in sampling, such that I sample more often from places with more points than from places with fewer points.  The jupyter notebooks \texttt{TKD\_distribution.ipynb} and \texttt{EBSD\_distribution.ipynb} show all the steps described here for sampled MC for a TKD geometry case and a EBSD case, respectively.
 
 I then define the probability of incoherent scattering to be proportional to the distance travelled by the electron until that point. This is in line with the continuous slowing down approximation for inelastic scattering which also scales with travelled distance. Fig.~\ref{fig:incoherentscatter} is showing a weighted sample of 5000 positions and indicates the probability of incoherent scattering with different sized circles.
 
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=5.8in]{Figures/incoherentscatter.png}
+\includegraphics[width=1.\linewidth]{Figures/incoherentscatter.png}
 \caption[Incoherent scatter probability.]{Probability of incoherent scattering of primary electrons on their trajectory in the sample. The probability scales with the size of the circle.  }
 \label{fig:incoherentscatter}
 \end{figure}
@@ -303,7 +310,7 @@ The last two weighting procedures are competing with each other, the first one f
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=5.8in]{Figures/last_weight.png}
+\includegraphics[width=1.\linewidth]{Figures/last_weight.png}
 \caption[Estimated spatial distribution of diffraction out ``sources''.]{Estimated spatial distribution of ``sources'' of diffracting out electrons shown as KDE map. Like before, darker colours correspond to higher probability linearly for the colours in the legend.  }
 \label{fig:last_weight}
 \end{figure}
@@ -322,7 +329,7 @@ The larger the thickness, the more energy an electron will lose on its way to th
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=6.2in]{Fig2.eps}%{Energy_depth_KDE.png}
+\includegraphics[width=1.\linewidth]{Fig2.eps}%{Energy_depth_KDE.png}
 \caption[KDE plots of electron energy versus escape distance distributions]{KDE plots of electron energy versus escape distance distributions as predicted by the MC model for TKD geometry for two sample thicknesses (a) 100 nm and (b) 200 nm. The area enclosed by the thick line contains 90$\%$ of events. See text for further details. }
 \label{fig:E_z_KDE}
 \end{figure}
@@ -335,7 +342,7 @@ By comparing the two images in Fig.~\ref{fig:E_z_KDE}, we can see that the thick
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=5in]{Figures/TKD_escapeE.png}
+\includegraphics[width=1.\linewidth]{Figures/TKD_escapeE.png}
 \caption[Energy distributions versus sample thickness.]{Energy distributions versus sample thickness for electrons exiting a \SI{20}{\degree}  tilted Ni sample for a 20 keV primary beam. Image adapted from \cite{PascalTKD}.  }
 \label{fig:TKDescapeE}
 \end{figure}
@@ -356,8 +363,8 @@ In the next section, we will investigate special geometries for which electrons 
 Let us consider again the sample and detector geometries shown in Fig.~\ref{fig:geometries} (a-f) back on page~\pageref{fig:geometries} where the lighter region on the samples depicts the volume in which electrons suffer scattering events.  Different $\mathbf{k}$ directions are indicated for which energy-distance KDEs distributions are shown in Figure~\ref{fig:ks}.  The top row shows two potential EBSD geometries, one with the sample tilted at the standard $70^{\circ}$ angle with respect to the horizontal plane, the other with the sample tilted at $50^{\circ}$. As previously discussed, the sample geometry will determine the manner in which the radial symmetry of scattering will be broken. Nevertheless, the region of SP space sampled by the position of the detector will also influence the uniformity (or lack thereof) of the electron energies and diffraction distances distributions. In Fig.~\ref{fig:geometries} (a), the electrons that reach the top and bottom of the detector (thick line on the left, inclined at $10^{\circ}$ from vertical) ought to have travelled approximately the same length inside the sample before channelling out; in Fig.~\ref{fig:geometries} (b) on the other hand, the electrons that reach the bottom of the detector have travelled a significantly larger distance inside the sample. 
 
 \begin{figure}[ht]
-\centering\leavevmode
-\includegraphics[width=6.2in]{Fig4.eps}%{ks_KDEs.png}
+\centering
+\includegraphics[width=1.\linewidth]{Fig4.eps}%{ks_KDEs.png}
 \caption[KDE plots of electron energy versus escape distance distributions]{KDE plots of electron energy versus escape distance distributions as predicted by the Monte Carlo model for TKD geometries and directions $\mathbf{k_i}$ shown in Figure~\ref{fig:geometries} (c) and (d). The area enclosed by the thick line contains 90$\%$ of the events.}
 \label{fig:ks}
 \end{figure}
@@ -366,7 +373,7 @@ In TKD, the situation is similar: in Fig.~\ref{fig:geometries} (c) the sample is
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=4.1in]{TKD_angles.png}
+\includegraphics[width=0.8\linewidth]{TKD_angles.png}
 \caption[Mean angular dependence of exit energies in TKD]{TKD electron escape path length  (top) and electron exit energy (bottom) dependence on exit angle. Purple line shows the running mean values for more data points than shown. The pink coloured area indicated the solid angle of the detector as shown in the top left insert.}
 \label{fig:angles}
 \end{figure}
@@ -386,7 +393,7 @@ This observation has consequences for the numerical approach to be used to obtai
 \end{equation}
 which no longer depends on the electron direction $\mathbf{k}$.  This has significant advantages numerically, since one can now pre-compute the probabilities $P(\mathbf{k})$ for a spherical sampling of incident beam orientations and store the resulting BSE yields in a master pattern (MP) that can be used to generate individual EBSD/TKD patterns by means of bi-linear interpolation, a fast and efficient way to compute many patterns in a short amount of time.  
 
-For EBSD and TKD simulations and sample orientations that deviate significantly from the standard orientations, one cannot apply the above approximation, since the range of distances travelled inside the sample is quite broad; thus, in these cases one must carry out the integrations of Equation~\ref{eq:Pn} for each individual EBSD/TKD pattern, which results in a slow computational tool.
+For EBSD and TKD simulations and sample orientations that deviate significantly from the standard orientations, one cannot apply the above approximation, since the range of distances travelled inside the sample is quite broad; thus, in these cases one must carry out the integrations of Eq.~\ref{eq:Pn} for each individual EBSD/TKD pattern, which results in a slow computational tool.
 
 For ECPs, the situation is quite different, since only BSE1 electrons carry coherent diffraction information; all other (BSE2) electrons only contribute to the background intensity.  A BSE1 electron has nearly the same exit energy as the incident electron since the Rutherford backscatter event is the first major scattering event after entering the sample.  Therefore, nearly all BSE1 electrons have the same exit energy and the energy integration can be eliminated, leading to the following expression which is valid for the ECP case only (with $E_0$ the incident electron energy):
 \begin{equation}
@@ -402,7 +409,6 @@ integrals of equation~\ref{eq:Pn}, using the Monte Carlo $\lambda(E,t)$ weightin
 
 
 
-
 \section{Results}
 \subsection{Comparison between EBSD, ECP, and TKD master patterns}
 \label{sec:comparison}
@@ -410,17 +416,25 @@ The master pattern expression in Eq.~\ref{eq:Pn} reveals that EBSD, ECP, and TKD
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=6in]{Fig5.png}%{MP.png}
-\caption[(a) ECP, (b) and  (c) TKD for sample thicknesses of $50$ and $250$ nm and (d) EBSD]{Portion of the stereographic projection, centred on the $[111]$ pole, of a master pattern for silicon for (a) ECP, (b) and  (c) TKD for sample thicknesses of $50$ and $250$ nm and (d) EBSD. The profiles in (e) represent the intensity along the central line (marked as a dashed line in (a)), for all four cases; the profiles have been offset vertically for clarity. The energy loss distribution estimated by the MC model for all four cases is shown in (f) as Poisson distribution fitted curves. Image adapted from \cite{PascalTKD}. }
+\includegraphics[width=0.9\linewidth]{Fig5a.png}%{MP.png}
+\caption[Master patterns for ECP, TKD and EBSD]{Portion of the stereographic projection shown in Fig. \ref{fig:tkspatter}, centred on the $[111]$ pole, of a master pattern for silicon for (a) ECP, (b) and  (c) TKD for sample thicknesses of $50$ and $250$ nm and (d) EBSD.  Image adapted from \cite{PascalTKD}. }
 \label{fig:MPs}
 \end{figure}
 
-Fig.~\ref{fig:MPs} (e) shows line scans through each of the master patterns, slightly vertically offset to make the profiles more clearly visible. The differences in details across the patterns is seen here distinctly. The scan across the ECP pattern in Fig.~\ref{fig:MPs} (a) displays significantly better resolved peaks compared to the EBSD one Fig.~\ref{fig:MPs} (d), supporting the better resolution observed in the ECP master pattern. Since the main signal in the ECP case consists of BSE1 electrons which have lost only a small amount of energy in the sample before being backscattered, one can consider ECPs to be energy-filtered versions of EBSPs. 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\linewidth]{Fig5b.png}
+\caption[Line scans for previous maps and energy distributions]{The profiles in (a) represent the intensity along the central line (marked as a dashed line in Fig. \ref{fig:MPs} (a)), for all four cases; the profiles have been offset vertically for clarity. The energy loss distribution estimated by the MC model for all four cases is shown in (b) as Poisson distribution fitted curves.  Image adapted from \cite{PascalTKD}.}
+\label{fig:MPs_lines}
+\end{figure}
+
+Fig.~\ref{fig:MPs_lines} (a) shows line scans through each of the master patterns, slightly vertically offset to make the profiles more clearly visible. The differences in details across the patterns is seen here distinctly. The scan across the ECP pattern in Fig.~\ref{fig:MPs} (a) displays significantly better resolved peaks compared to the EBSD one Fig.~\ref{fig:MPs} (d), supporting the better resolution observed in the ECP master pattern. Since the main signal in the ECP case consists of BSE1 electrons which have lost only a small amount of energy in the sample before being backscattered, one can consider ECPs to be energy-filtered versions of EBSPs. 
 
 
 The line scans across the TKD patterns for different thickness films are more similar to each other, except for the shift in peaks in the zone axis (highlighted by the grey box). It is rather apparent that both the peak positions and the sharpness of the thin film (50~nm) TKD pattern are more similar to the ECP pattern, while the peaks and blurriness of the thick film TKD pattern are closer to those of the EBSPs. In effect, the Master Pattern for TKD on very thin samples is very similar to the ECP MP in similar geometry. If the sample is thicker, the blurriness in the MP for TKD reaches asymptotically the EBSD one. 
 
-We explain this behaviour by considering the energy loss of electrons contributing to the patterns in each case. The Monte Carlo predicted energy loss spectra for all four cases described above are shown in Fig.~\ref{fig:MPs} (f) as fitted Poisson distribution curves. Thin film TKD patterns are produced by electrons with an energy range very close to the ECP case. Similarly, increasing the sample thickness causes the electron exit energy distribution to become wider and shift to lower energies, which corresponds to a broadening and slight blurring of the Kikuchi bands due to the increased Bragg angles; these phenomena are common to EBSPs and thick films TKD patterns. 
+We explain this behaviour by considering the energy loss of electrons contributing to the patterns in each case. The Monte Carlo predicted energy loss spectra for all four cases described above are shown in Fig.~\ref{fig:MPs_lines} (b) as fitted Poisson distribution curves. Thin film TKD patterns are produced by electrons with an energy range very close to the ECP case. Similarly, increasing the sample thickness causes the electron exit energy distribution to become wider and shift to lower energies, which corresponds to a broadening and slight blurring of the Kikuchi bands due to the increased Bragg angles; these phenomena are common to EBSPs and thick films TKD patterns. 
 
 
 It becomes apparent that the sample thickness can be seen as an energy filtering mechanism in TKD as we have seen in Fig.~\ref{fig:TKDescapeE} on page~\pageref{fig:TKDescapeE}. In terms of the traditional Hough-based indexing approach, one must thus select a butterfly mask of the appropriate width, depending on the sample thickness and incident electron energy. For the dictionary indexing approach~\cite{Marquardt17}, used by EMsoft, the pattern dictionary must be computed using the appropriate Monte Carlo and master pattern data, to ensure accurate matches between experimental and simulated patterns.
@@ -432,30 +446,53 @@ The EBSD master pattern is an energy-weighted average of individual master patte
 
 \subsection{TKD patterns comparison with experiments}
 
-Patrick G. Callahan at University of California, Santa Barbara, acquired a number of experimental TKD patterns, an example of which is shown in Fig.~\ref{fig:TKDpatternfit} a) (for a nano-crystalline Aluminum sample, acquired at $30$ kV with a sample tilt of $-18^{\circ}$ in a FEI Teneo field emission scanning electron microscope, using the TSL Hikari EBSD detector system). The sample foil is approximately $150$ nm thick.  Fig.~\ref{fig:TKDpatternfit} b) shows the dictionary indexing simulations with this model and we can see that it matches the experimental patterns well. The dot product values between normalised patterns are equal to $0.881$ which indicates a satisfactory match. For more details about the parameters that go into the simulation see the paper~\cite{PascalTKD}.
+Patrick G. Callahan at University of California, Santa Barbara, acquired a number of experimental TKD patterns, an example of which is shown in Fig.~\ref{fig:TKDpatternfit} a) for a nano-crystalline Aluminum sample, acquired at $30$ kV with a sample tilt of $-18^{\circ}$ in a FEI Teneo field emission scanning electron microscope, using the TSL Hikari EBSD detector system.  The sample foil is approximately $150$ nm thick.  The calibration parameters are given in Table \ref{Table:calParams}. I added axes showing the radial distance components from the pattern centre, $r_x$ and $r_y$, respectively :
+
+\begin{align*}
+    r_x &= tan(\theta_x) = \frac{(x - x_{PC}) \rho}{L} \\ 
+    r_y &= tan(\theta_y) = \frac{(y - y_{PC}) \rho}{L}
+\end{align*}
+
+
+\begin{table}
+    \centering
+    \begin{tabular}{l l l l }
+    \toprule
+    $x_{PC}$ (pixels) & $y_{PC}$ (pixels) & $\rho$ (\si{\micro \meter}/pixel) & $L$ (\si{\micro \meter})\\
+    \midrule
+     6.4406 & 264.1950 & 0.292 & 23471.48 \\
+    \bottomrule     
+    \end{tabular}
+    \caption[Calibration parameters.]{Pattern centre position $(x_{PC}, y_{PC})$ (given in the reference frame of the detector with origin in the middle as shown in Fig. \ref{fig:TKDgeometry}), detector pixel size $\rho$ and distance from sample to detector $L$  for the TKD pattern shown in Fig. \ref{fig:TKDpatternfit}. }
+    \label{Table:calParams}
+\end{table}
+
 
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=5in]{Fig6.png}
-\caption[Experimental TKD patterns aquired by Patrick G. Callahan for Al at $30$ keV and corresponding simulated patterns]{(a) Experimental TKD patterns for Al at $30$ keV and (b) corresponding simulated patterns; brightness and contrast of the simulated patterns have been adjusted to better match the experimental patterns. Image adapted from \cite{PascalTKD}. }
+\includegraphics[width=1.\linewidth]{Fig6.png}
+\caption[Experimental TKD patterns.]{(a) Experimental TKD patterns for Al at $30$ keV; brightness and contrast of the simulated patterns have been adjusted to better match the experimental patterns. The axes are showing the radial distance components from the pattern centre $r_x$ and $r_y$. (b) Corresponding simulated patterns. Image adapted from \cite{PascalTKD}. }
 \label{fig:TKDpatternfit}
 \end{figure}
 
+Fig.~\ref{fig:TKDpatternfit} b) shows the dictionary indexing simulations with this model and we can see that it matches the experimental patterns well. The dot product values between normalised patterns are equal to $0.881$ which indicates a satisfactory match. For more details about the parameters that go into the simulation see the paper~\cite{PascalTKD}.
+
 Note that the only adjustments to the simulated patterns were brightness and contrast changes to maximise the visual agreement between the simulated and experimental patterns.  The overall intensity gradient (from bright at the bottom of the pattern to dark at the top) follows directly from the use of the direction-dependent Monte Carlo statistical data, and is in good agreement with the intensity gradients of the experimental patterns.  The satisfactory agreement between simulated and experimental patterns indicates that the energy-weighted dynamical scattering model employed in the pattern simulations is sufficient to obtain realistic pattern simulations. 
 
-Next, he generated a TKD master pattern with the energy filtering model for the Al sample as shown in Fig.~\ref{fig:TKDindex} a). For all of the experimental patterns (like the one shown in  Fig.~\ref{fig:TKDindex}~b)) of an acquired TKD map of a nano-crystalline Al sample  the dictionary indexing approach finds the simulated patterns from the MP that best matches it (like the one shown in Fig.~\ref{fig:TKDindex}~c)). 
+Next, he generated a TKD master pattern with the energy filtering model for an Al sample as shown in the paper. For all of the experimental patterns  of an acquired TKD map of a nano-crystalline Al sample  the dictionary indexing approach finds the simulated patterns from the MP that best matches it. 
 
-Fig.~\ref{fig:TKDindex}~d) shows an orientation similarity map. The dictionary indexing approach produces a list of the top N best matches (dictionary patterns with the N highest dot products, where N is typically set to 30). For each sampling point, the orientation similarity is computed by determining the average number of top matches that this sampling point has in common with its four nearest neighbours; this value is then displayed as a grey scale image. Since sampling points near grain boundaries will have fewer best matches in common with their neighbours, the orientation similarity map (OSM) provides an easy overview of the microstructure in which grain interiors have a uniform intensity level and all grain boundaries have lower intensity.
+Fig.~\ref{fig:TKDindex}~a) shows an orientation similarity map. The dictionary indexing approach produces a list of the top N best matches (dictionary patterns with the N highest dot products, where N is typically set to 30). For each sampling point, the orientation similarity is computed by determining the average number of top matches that this sampling point has in common with its four nearest neighbours; this value is then displayed as a grey scale image. Since sampling points near grain boundaries will have fewer best matches in common with their neighbours, the orientation similarity map (OSM) provides an easy overview of the microstructure in which grain interiors have a uniform intensity level and all grain boundaries have lower intensity.
 
-The \hkl[010] inverse pole figures in Fig.~\ref{fig:TKDindex}~e) and f) were obtained by the standard commercial OIM-8 indexing package and the dictionary indexing approach, respectively. The dark regions near the top of the field of view in Fig.~\ref{fig:TKDindex}~d) correspond to surface contamination from the XeF2 etching step and result in clusters of incorrectly indexed or unindexable points in both indexing approaches; patterns were deemed to be unindexable when the Image Quality was low (according to the commercial software analysis package). However, overall, the dictionary indexing approach with the energy-weighted model has fewer undindexable or incorrectly indexed points, in particular near grain boundaries.
+The \hkl[010] inverse pole figures in Fig.~\ref{fig:TKDindex}~b) and c) were obtained by the standard commercial OIM-8 indexing package and the dictionary indexing approach, respectively. The dark regions near the top of the field of view in Fig.~\ref{fig:TKDindex}~b) correspond to surface contamination from the XeF2 etching step and result in clusters of incorrectly indexed or unindexable points in both indexing approaches; patterns were deemed to be unindexable when the Image Quality was low (according to the commercial software analysis package). However, overall, the dictionary indexing approach with the energy-weighted model has fewer undindexable or incorrectly indexed points, in particular near grain boundaries.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=6in]{Fig7.png}
-\caption[Dictionary indexing TKD pattern]{ (a) TKD master pattern for Al at 30 kV for a foil thickness of 100 nm; (b) selected experimental pattern; (c) simulated pattern corresponding to (b); (d) OSM (see text for details); (e) [010] inverse pole figure (IPF) obtained with the commercial OIM-8 indexing software; and (f) [010] IPF obtained using the dictionary indexing approach. Image adapted from \cite{PascalTKD}. }
+\includegraphics[width=1.\linewidth]{Fig7b.png}
+\caption[Dictionary indexing TKD pattern]{ (a) Orientation similarity map (see text for details); (b) [010] inverse pole figure (IPF) obtained with the commercial OIM-8 indexing software; and (c) [010] IPF obtained using the dictionary indexing approach. Image adapted from \cite{PascalTKD}. }
 \label{fig:TKDindex}
 \end{figure}
+
 
 
 %

@@ -35,7 +35,7 @@ But first, a bit of background.
 When applied to metals ECCI tended to be used in a low tilt ($<$ \SI{10}{\degree}) configuration~\cite{Simkin99}. This set up offers a number of advantages: the standard Si-diode detector can be mounted on the pole piece offering a large BSE signal collection angle and the interaction volume is minimised granting higher spatial resolution. The downside to this geometry is the reduction in BSE signal which, for metals, is less of an issue than for semiconductors due to higher atomic numbers. A comprehensive overview of the applications of ECCI for metallic materials has been made by Weidner and Biermann~\cite{Weidner15}.
 
 From 2006 Trager-Cowan group~\cite{Trager06} showed that using ECCI in the characterisation of nitrides is an excellent idea. Since then ECCI has been used in the forescatter geometry to reveal extended defects and
-morphological features of GaN samples~\cite{Picard}. Picard~\etal~\cite{Picard09} also argued that the $\mathbf{g}\cdot\mathbf{b}$ dislocation type identification criterion can no longer be applied due to surface relaxation. They used simulations instead to determine the Burger vectors of dislocations instead, laying the grounds for a non-destructive dislocation characterisation method. 
+morphological features of GaN samples~\cite{Picard}. Picard~\etal~\cite{Picard09} also argued that the $\mathbf{g}\cdot\mathbf{b}$ dislocation type identification criterion can no longer be applied due to surface relaxation. They used simulations instead to determine the Burgers vectors of dislocations instead, laying the grounds for a non-destructive dislocation characterisation method. 
 
 Literature continues to call ECCI a new technique even though it has been around for almost forty years. There are a number of reasons for this including the fact that it resisted being standardised such that every group has their own method of acquiring ECC-images depending on the material studied, the SEM abilities and the available detectors. Different groups proposed flavours of ECCI to distinguish between procedures. Gutierrez-Urrutia~\etal~\cite{Gutierrez09} and Zaefferer and Elhami~\cite{Zaefferer14} coined the term \textit{controlled ECCI} (cECCI) for a low tilt geometry ECCI aided by crystallographic information obtained form EBSD maps acquired at \SI{70}{\degree} tilt. Similarly, Mousour~\etal~\cite{Mansour15} used low tilt ECCI together with high resolution selected area channelling patterns to characterise dislocations in fine-grained Si steel and labelled it \textit{accurate ECCI} (aECCI). 
 
@@ -304,7 +304,7 @@ Such that the total displacement components are: $u^t_x = u_x + u^i_x$, $u^t_y =
 
 
 %%%%%%%%%%
-\section{Correction \texorpdfstring{$\beta$}{beta} to \texorpdfstring{$\mathbf{s}_g$}{sg} due to TD strain}
+\section{TD ECC-strain}
 \label{sec:beta}
 The image of a single crystal surface in high magnification mode should consist of a constant backscattered electron yield as the near parallel beam is scanned over a small area. Around a dislocation line the crystal structure is distorted, which in turn affects the diffraction of the electron beam. The shift in diffraction behaviour close to the dislocation is observed as a change in the number of backscattered electrons originating from the distorted crystal region and provides direct information about departures from the perfect crystal structure in the ECCI micrograph. Similarly to the contrast mechanism in TEM described by Hirsch~\etal~\cite{Hirsch60}, the lattice curvature directly affects the distance by which the diffracting reciprocal lattice points deviate from the Bragg condition and is quantified by the deviation parameter $\mathbf{s}_g$. The correction needed to account for the distortion introduced by a lattice defect is then the change in the direction of the incident electron beam, $\mathbf{r}_{inc}$, of the component of the displacement field, $\mathbf{u}$, which is parallel to the reciprocal vector, $\mathbf{g}$, defining the diffraction condition. Tunstall~\etal~\cite{Tunstall64} showed geometrically that there is a second, smaller correction term which accounts for the change in lattice parameters close to the dislocation:
 \begin{equation}
@@ -313,14 +313,18 @@ The image of a single crystal surface in high magnification mode should consist 
 \end{equation}
 where $\theta_B$ is taken to be the Bragg angle and $\mathbf{\hat{r}}_{g}=\mathbf{r}_g/ |\mathbf{r}_g|$  is the coordinate in the dislocation frame parallel to $\mathbf{g}$.
 
-The new variable $\beta$ is the sum of all corrections to the deviation parameter due to the defect. If defined in an orthogonal coordinate system it can also be written as:
+The new variable $\beta$, which I will also call \textit{ECC-strain}, is the sum of all corrections to the deviation parameter due to the defect. If defined in an orthogonal coordinate system it can also be written as:
 \begin{equation}
 \label{eq:beta}
-    \beta = \frac{\partial u_g}{\partial r_{inc}} + \theta_B\frac{\partial u_g}{\partial r_g}
+   \boxed{ \beta = \frac{\partial u_g}{\partial r_{inc}} + \theta_B\frac{\partial u_g}{\partial r_g}}
 \end{equation}
 where $u_g$ is the displacement field in the direction of $\mathbf{g}$.
 
  If the displacement field is defined in a Cartesian reference frame in which $\mathbf{g}$ is parallel to one of the axes then the corrections terms above can be considered as strain-like components since they measure displacements field gradients. Due to the $\theta_B$ weighting factor, the second strain-like term introduced by Tunstall is negligible and can be ignored whenever the first term is non-zero as we will see later. It is these strain-like components that disturb the electron diffraction as compared to a perfect crystal and generate the dark-bright contrast features associated with dislocations in ECCI images.
+
+
+Note that the magnitude of $\beta$ will be left as arbitrary more often than not since a one-to-one comparison against experimental results cannot be (yet) made. The comparisons I do make is against backscattered electron intensity, which in turn is also of arbitrary magnitude. What we are interested in instead, is how the change in strain compares with the change in contrast which I will investigate using contour plots. 
+
  
 %%%%%%%%%%     
 \subsection{The failure of the invisibility criterion for ECCI}
@@ -338,7 +342,7 @@ This reduction in dislocation contrast at the invisibility criteria had been alr
 
 
 %%%%%%%%     
-\subsection{ECCI strain profile for the forward scattering geometry}
+\subsection{ECC-strain profile for the forward scattering geometry}
 \label{sec:tilteffect}
 
 \begin{figure}[ht]
@@ -348,17 +352,17 @@ This reduction in dislocation contrast at the invisibility criteria had been alr
     \label{fig:tilt}
 \end{figure}
 
-From Eq.~\ref{eq:beta} we can see that the strain profile imaged by ECCI, $\beta$,  of the \textbf{a} character of a TD normal to the surface is sensitive to variations in the angle of incidence of the electron beam, $r_{inc}$. This is indeed the case for the forward-scattering SEM geometry; I show what I mean by this schematically in Fig.~\ref{fig:tilt}. This effect is especially strong for edge TDs because they introduce elastic displacement mostly in the plane normal to the dislocation line and present almost no variation along a normally incident beam. Shown schematically in Fig.~\ref{fig:tilting}, the strain-like component only contains surface terms and anisotropy effects. Titling the sample (or the beam) translates to rotating the coordinate system in which the ECCI strain is defined, which means the tensor element in the new system will have to contain components from the plane normal to the dislocation line.
+From Eq.~\ref{eq:beta} we can see that the strain profile imaged by ECCI, $\beta$,  of the \textbf{a} character of a TD normal to the surface is sensitive to variations in the angle of incidence of the electron beam, $r_{inc}$. This is indeed the case for the forward-scattering SEM geometry; I show what I mean by this schematically in Fig.~\ref{fig:tilt}. This effect is especially strong for edge TDs because they introduce elastic displacement mostly in the plane normal to the dislocation line and present almost no variation along a normally incident beam. Shown schematically in Fig.~\ref{fig:tilting}, the strain-like component only contains surface terms and anisotropy effects. Titling the sample (or the beam) translates to rotating the coordinate system in which the ECC-strain is defined, which means the tensor element in the new system will have to contain components from the plane normal to the dislocation line.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\linewidth]{Figures/tilting.png}
-    \caption[Rotation transformation of sample tilting.]{2D diagram of rotation transformation in ECCI strain tensor. A $\theta$ clockwise rotation of the sample is equivalent to the same rotation of the coordinate system in which the strain components are defined. }
+    \caption[Rotation transformation of sample tilting.]{2D diagram of rotation transformation in ECC-strain tensor. A $\theta$ anticlockwise rotation of the sample is equivalent to the same rotation of the coordinate system in which the strain components are defined. }
     \label{fig:tilting}
 \end{figure}
 
 
-The diagram in Fig.~\ref{fig:tilting_eff} illustrates this in two dimensions in the case when \textbf{b} is parallel to\textbf{ g}. For a clockwise rotation of the sample around a direction normal to both the dislocation line and its \textbf{b}, the first term of in the new coordinate system will be:
+The diagram in Fig.~\ref{fig:tilting_eff} illustrates this in two dimensions in the case when \textbf{b} is parallel to\textbf{ g}. For a passive rotation of the sample around a direction normal to both the dislocation line and its \textbf{b}, the first term of Eq.~\ref{eq:beta} in the new coordinate system will be:
 \begin{equation*}
     \frac{\partial u'_g}{\partial r'_{inc}} = \cos^2{\theta}  \frac{\partial u_g}{\partial r_{g}} + \sin{\theta} \cos{\theta}  \frac{\partial u_g}{\partial r_{inc}}
 \end{equation*}
@@ -369,12 +373,12 @@ very small. The first part in the equation above is the variation of the displac
 
 It is to be expected, then, that tilting the sample will improve the observed contrast of edge dislocations significantly. Fig.~\ref{fig:tilting_eff}  a) to c) show how a small tilt can significantly change not only the intensity of the sampled strain but also the orientation of its high-low profile. This second effect has to do with the fact that our definition of $\beta$ (Eq.~\ref{eq:beta}) contains two strain-like components. Since the variation of displacement field along the line direction  (the first term of Eq.~\ref{eq:beta}) for the \textbf{a} character of a threading dislocation is negligibly small, what we observe in Fig.~\ref{fig:tilting_eff} a) is purely the second strain-like component introduced by Tunstall. This strain profile closely resembles TEM bright field intensity maps for an edge dislocation normal to the foil surface computed by Tunstall \etal~\cite{Tunstall64}  with the high-low ``butterfly'' lobes oriented on each side of the Burgers vector.
 
-\begin{figure}
+\begin{sidewaysfigure}
     \centering
-    \includegraphics[width=1.1\linewidth]{Figures/tilting_effect.png}
+    \includegraphics[width=0.9\linewidth]{Figures/tilting_effect.png}
     \caption[Planar edge TD $\beta$ strain profile. ]{The $\beta$ strain profile due to an edge TD in a cubic material shown in a plane $z_s$ parallel to the surface for three electron beam incidence angles close to zero a) \SI{0}{\degree}, b) \SI{-0.05}{\degree} and c) \SI{-0.2}{\degree}. The red arrows show both the Burgers vector direction and the projection of \textbf{g}.}
     \label{fig:tilting_eff}
-\end{figure}
+\end{sidewaysfigure}
 
 However, Tunstall’s component is orders of magnitudes less significant than the first term of $\beta$, $\frac{\partial u_g}{\partial r_{g}}$. This means that when the foil is tilted, Tunstall’s strain profile will be replaced by the profile of the first term. It is remarkable that, in the case when the diffraction vector is aligned parallel with the Burgers vector, any amount of sample tilt will change the direction of the minimum-maximum strain direction from being perpendicular to \textbf{b} to being parallel.
 When the full three dimensional displacement field is considered it becomes apparent that the variation of the field
@@ -396,7 +400,7 @@ Eq.~\ref{eq:tunstall} contains mathematical objects specified in various referen
 \end{equation}
 where Einstein summation convention is used for repeating subscript indices. The superscripts indicate the reference frame in which the expression of the vector is known. $B$ is the reciprocal structure matrix for the unit cell of the material.  $\mathcal{T}^{ds}_{js}$ is the coordinate transformation matrix which can be applied to a vector described in the dislocation frame ($d$) in order to be translated in the sample frame ($s$).
 
-Fig.~\ref{fig:sampleframe} shows the relationship between the lab frame, the sample frame and the dislocation frame as well as the rotations required to orient one with respect to the others. For instance, the sample is rotated clockwise with the angle $\alpha_{rot}$ about the $x$ axis direction with respect to the lab frame.
+Fig.~\ref{fig:sampleframe} shows the relationship between the lab frame, the sample frame and the dislocation frame as well as the rotations required to orient one with respect to the others. For instance, the sample is rotated anticlockwise with the angle $\alpha_{rot}$ about the $x$ axis direction with respect to the lab frame.
 
 \begin{figure}[ht]
     \centering
@@ -418,7 +422,7 @@ then the transformation matrix from the dislocation reference frame to the sampl
 \begin{equation}
     \mathcal{T}_{ds} = \mathcal{R}^z(\alpha_{rot}) \mathcal{R}^x(\pi) \mathcal{R}^z(3\pi/4)
 \end{equation}
-where $\mathcal{R}^w(\theta)$ is the anticlockwise rotation in a right handed coordinate system looking along $w$ by an angle $\theta$ as discussed on page~\pageref{subchap:basicRot}.
+where $\mathcal{R}^w(\theta)$ is the passive anticlockwise rotation in a right handed coordinate system looking along $w$ by an angle $\theta$ as discussed on page~\pageref{subchap:basicRot}.
 
 These transformations are implemented in this work using the \textit{ReferenceFrame} class from Python's
 \textit{sympy.physics.vector} module~\cite{sympy} which proved useful in keeping track of the frames in which vectors and fields
@@ -490,7 +494,7 @@ I want to quickly touch on how to predict mixed type dislocations. A mixed dislo
 \begin{figure}[ht]
     \centering
     \includegraphics[width=1\linewidth]{Figures/GaNTDtop.png}
-    \caption[Mixed TD ECC-strain.]{Top view of equidistant ECC-strain isosurfaces for a pure screw dislocation, a mixed and a pure edge dislocation, respectively in GaN. The sample is tilted at \SI{49.6}{\degree} and rotated by \SI{49.6}{\degree} such that \textbf{g}=\hkl[75-3] is available.}
+    \caption[Mixed TD ECC-strain.]{Top view of equidistant dimensionless ECC-strain isosurfaces for a pure screw dislocation, a mixed and a pure edge dislocation, respectively in GaN. The sample is tilted at \SI{49.6}{\degree} and rotated by \SI{49.6}{\degree} such that \textbf{g}=\hkl[75-3] is available.}
     \label{fig:mixed}
 \end{figure}
 
@@ -518,7 +522,7 @@ To emphasise this point in practice, Gunnar Kusch took two ECC images, Fig.~\ref
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.95\linewidth]{Figures/gimportance.png}
-    \caption{Forward geometry ECC image of AlN in two diffraction conditions shown by the ECPs inserts in the bottom corners.}
+    \caption[AlN ECCI in two diffraction conditions.]{Forward geometry ECC image of AlN in two diffraction conditions shown by the ECPs inserts in the bottom corners.}
     \label{fig:gimportance}
 \end{figure}
 %%%%%%
@@ -529,8 +533,8 @@ In Fig.~\ref{fig:bdependence} I show the top of the sample view of the ECC-strai
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=1.05\linewidth]{Figures/bdependence.png}
-    \caption{Top view of equidistant ECC-strain isosurfaces for a pure edge dislocation in different orientations indicated by the Burgers vector direction (grey rod).  }
+    \includegraphics[width=1\linewidth]{Figures/bdependence.png}
+    \caption[Edge TD top view of equidistant ECC-strain isosurfaces.]{Top view of equidistant ECC-strain isosurfaces for a pure edge dislocation in different orientations indicated by the Burgers vector direction (grey rod).}
     \label{fig:bdependence}
 \end{figure}
 
@@ -540,7 +544,6 @@ It is safe, therefore, to conclude that for the same diffraction condition the B
 
 
 
-\pagebreak
 %%%%%%%%%%%%%
 \section{Backscattering event model}
 
@@ -570,7 +573,7 @@ The trick now is to calculate the Bloch waves contributions in the equations abo
 \end{equation}
 
 
-The first line is the electron wavefunction inside the as superposition of Bloch waves of amplitudes  $\alpha^{(i)}$ and partial Bloch waves components $\phi^{(i)}$, and the second line is in terms of beams for every diffraction condition $\mathbf{g}$. Note that in the equation above the wavefunction is given in terms of the position vector $\mathbf{r}$ which needs to be replaced by the atoms positions $\tau_n$ for the probability computations. 
+The first line is the electron wavefunction inside the crystal as superposition of Bloch waves of amplitudes  $\alpha^{(i)}$ and partial Bloch waves components $\phi^{(i)}$, and the second line is in terms of beams for every diffraction condition $\mathbf{g}$. Note that in the equation above the wavefunction is given in terms of the position vector $\mathbf{r}$ which needs to be replaced by the atoms positions $\tau_n$ for the probability computations. 
 
 The probability distribution function in terms of two beams is then:
 \begin{equation}
@@ -580,7 +583,7 @@ Note that both the direct and diffracted beam(s) contribute to the contrast and 
  
 
 
-Twigg and Picard~\cite{Twigg09} used a slightly different approach, yielding very similar contrast predictions results. They assumed that the localisation of the backscattering process is implicit in the imaginary potential used to treat absorption. Therefore, they integrate the beam intensities along their path in order to calculate the probability of backascattering.  
+Twigg and Picard~\cite{Twigg09} used a slightly different approach, yielding very similar contrast predictions results. They assumed that the localisation of the backscattering process is implicit in the imaginary potential used to treat absorption. Therefore, they integrate the beam intensities along their path in order to calculate the probability of backscattering.  
 
 
 %%%%%%%%%%%%%%
@@ -597,9 +600,9 @@ With the electron beam wavefunction numerically solved, I then ``integrate along
     \label{fig:code}
 \end{figure}
 
-The full code I used can be found in  the ``ecci-model'' folder on the GitHub repository. The Howie-Whelan two beam integration is not particularly easy  to read, neither is the backscattering process. I hope one day to make it readable, but until then, the schematics of it is shown in Fig.~\ref{fig:code}. I calculate the ECCI strain for each specific geometry and diffraction condition using Python and generate the long, unsimplifiable three dimensional numerical $\beta$ function. These functions are turned to Fortran readable modules using the \textit{codegen} function. Eventually, the $\beta$ functions are fed into the Howie-Whelan ODEs, which are then integrated column-wise on a 2D mesh using the \texttt{zvode} library. There is an option to compare a TEM prediction to the ECCI one.   The main file is \texttt{doHW.f90} which also contains all the hard-coded GaN parameters, the depth of integration and the sample area considered. I wrote a \textsc{Makefile} to control all of this. In the end, I obtain a file containing a two dimensional contrast function which could be plotted, for instance using more Python. 
+The full code I used can be found in  the ``ecci-model'' folder on the GitHub repository. The Howie-Whelan two beam integration is not particularly easy  to read, neither is the backscattering process. I hope one day to make it readable, but until then, the schematics of it is shown in Fig.~\ref{fig:code}. I calculate the ECC-strain for each specific geometry and diffraction condition using Python and generate the long, unsimplifiable three dimensional numerical $\beta$ function. These functions are turned to Fortran readable modules using the \textit{codegen} function. Eventually, the $\beta$ functions are fed into the Howie-Whelan ODEs, which are then integrated column-wise on a 2D mesh using the \texttt{zvode} library. There is an option to compare a TEM prediction to the ECCI one.   The main file is \texttt{doHW.f90} which also contains all the hard-coded GaN parameters, the depth of integration and the sample area considered. I wrote a \textsc{Makefile} to control all of this. In the end, I obtain a file containing a two dimensional contrast function which could be plotted, for instance using more Python. 
 
-
+\pagebreak
 
 %%%%%%
 \section{Contrast predictions in GaN}
@@ -608,32 +611,27 @@ Dislocation analysis of GaN cross sections in TEM shows that the TDs predominant
 
 The ECC images of these types of TDs in the forescatter geometry, with the film tilted at a high angle, will sample strain components which are not parallel to the dislocation line. While the plan view TEM images show TD black-white contrast being aligned perpendicularly to the  Burgers vector of the dislocation, the geometry of the ECCI highlights a different set of strain components which can align the contrast direction along the Burgers vector.
 
-In Fig.~\ref{fig:rotateEdge} I show possible strain profiles sampled in a sub-surface plane parallel to the top of the film (similar to Fig.~\ref{fig:tilting} for three geometries of orientation of \textbf{b} with respect to \textbf{g}. In Fig.~\ref{fig:rotateEdge} a) and c) the maximum variation in strain is aligned with the direction of the Burgers vector. The image in Fig.~\ref{fig:rotateEdge} b) shows a quasi-invisibility (drastic reduction in strain variation) criterion when the infinite-lattice dislocation strain component dominates, in particular in the case when vector \textbf{g} is perpendicular to the Burgers vector~\textbf{b}.
+In Fig.~\ref{fig:rotateEdge} I show possible strain profiles sampled in a plane 10 nm below the surface (similar to Fig.~\ref{fig:tilting} for three geometries of orientation of an edge dislocation. The dislocation geometry is represented by the rotation of the vector \textbf{b} with respect to \textbf{g}. In Fig.~\ref{fig:rotateEdge} a) and c) the maximum variation in strain is somewhat aligned with the direction of the Burgers vector. 
 
-\begin{figure}[ht]
+The image in Fig.~\ref{fig:rotateEdge} b) shows the invisibility criterion used in TEM, \textit{ie} the case when vector \textbf{g} is perpendicular to the Burgers vector~\textbf{b}. Note that the strain here is not exactly zero; in fact the maximum strain value is about a quarter of the value in the other two cases. Taking into account the exponential radial decay, this could be enough to suggest this geometry would be challenging to observe. But there is something else that contributes to the quasi-invisibility: there is a four dipole of strain variation, with alternating signs making it extra difficult to resolve the contrast.  
+
+Nevertheless, this is not the full picture of the contrast due to an edge TD. At 10 nm below the surface, we are sampling mostly infinite-lattice dislocation strain components. For a complete dislocation contrast picture, one would integrate over depth the relevant effect of the strain components.
+
+\clearpage
+
+\begin{sidewaysfigure}[ht]
     \centering
-    \includegraphics[width=1.1\linewidth]{Figures/rotateEdge.png}
+    \includegraphics[width=0.9\linewidth]{Figures/rotateEdge.png}
     \caption[Edge TD ECC-strain in different orientations.]{Accessible strain profiles for an edge TD in wurtzite GaN sampled in a plane parallel  to the surface and \SI{1}{\nano \meter} below the interface. The sample is tilted  \SI{60}{\degree} from the original horizontal position. The marked red and blue arrows show the direction of the Burgers vector projection and the direction of the projection of \textbf{g}, respectively. Vector\textbf{ g} remains the same across the three images while vector \textbf{b} is rotated in  increments in the same plane such that the angle between the vectors is: a) \SI{30}{\degree}, b) \SI{90}{\degree}, c) \SI{150}{\degree} }
     \label{fig:rotateEdge}
-\end{figure}
-
+\end{sidewaysfigure}
+\clearpage
 
 \label{Naresh}
 Two beam plan view ECC images were acquired by Naresh-Kumar~\cite{Naresh} using a \SI{50}{\degree}  sample tilt together with electron channelling patterns from the same area for two different crystal rotation: $\mathbf{g}_a$ =\hkl[-5-7-3] and $\mathbf{g}_b$ =\hkl[75-3]. This was achieved by tilting the crystal in plane with about \SI{3}{\degree}. The electron beam energy was \SI{30}{\kilo \electronvolt}. The same small area from the two images is shown on the left in Fig.~\ref{fig:contrast} a) and b) with the predicted dislocation contrast for three different possible Burgers vectors shown on the right. From the qualitative comparison we can determine which dislocations show similar behaviour to the model cases and assign Burgers vectors.
 
 The modelling parameters used here are shown in the Table~\ref{Table:params}. The extinction distances are calculated numerically from the Fourier coefficient of the electrostatic potential of the crystal. The scattering factors of this potential are calculated using Weickenmeier-Kohl parametrisation as implemented in EMsoft~\cite{EMsoft}. For the beam penetration depth calculation needed for the estimation of the diffraction columns integration depth we made use of a continuously slowing down inelastic scattering Monte Carlo model~\cite{casino}. 
 
-
-
-
-
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{Figures/contrast.png}
-    \caption[Predicted contrast comparison with experiments.]{ Experimental images on the left (see page \ref{Naresh} for details) versus predicted edge TD dark-bright contrast in ECC images on the right. The two experimental images a) and b) are from the same area but the crystal has been tilted a few degrees to access the new diffraction condition. The boxes correspond to the contrast produced by an edge TD with \textbf{b} = [010] (green box),\textbf{ b} = [-100] (dark blue box), \textbf{b} = [-1-10] (purple box). See details in text. The Bravais three index notation was used throughout.}
-    \label{fig:contrast}
-\end{figure}
 
 \begin{table}[ht]
     \centering
@@ -649,9 +647,20 @@ The modelling parameters used here are shown in the Table~\ref{Table:params}. Th
     \label{Table:params}
 \end{table}
 
-The predicted contrasts shown are plotted as variation from the perfect crystal BSE yield. Namely, the calculated BSE intensity is normalised with respect to the BSE yield far away from the dislocation. Normalisation is not used when comparing with the experimental contrast images. The intensity is plotted using the BuPu multi-hue colour scheme with white showing the highest intensity, blue - intermediate values, and dark purple the lowest intensity.
+The predicted contrasts shown are plotted as variation from the perfect crystal BSE yield. Namely, the calculated BSE intensity is normalised with respect to the BSE yield far away from the dislocation. Normalisation is not used when comparing with the experimental contrast images. The intensity is plotted using the\textit{ BuPu} multi-hue colour scheme with white showing the highest intensity, blue - intermediate values, and dark purple the lowest intensity.
 
 A very similar behaviour to the strain field profile in a plane is observed: the darker-lighter intensity appears to follow the Burgers vector direction. This points towards the fact that a qualitative prediction of TD behaviour can be achieved from a bare strain model correctly ``sampled''. In order to reduce the characterisation uncertainty a larger number of different diffraction conditions should be acquired.
+
+\clearpage
+\begin{sidewaysfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{Figures/contrast.png}
+    \caption[Predicted contrast comparison with experiments.]{ Experimental images on the left (see page \ref{Naresh} for details) versus predicted edge TD dark-bright contrast in ECC images on the right. The two experimental images a) and b) are from the same area but the crystal has been tilted a few degrees to access the new diffraction condition. The boxes correspond to the contrast produced by an edge TD with \textbf{b} = [010] (green box),\textbf{ b} = [-100] (dark blue box), \textbf{b} = [-1-10] (purple box). See details in text. The Bravais three index notation was used throughout.}
+    \label{fig:contrast}
+\end{sidewaysfigure}
+\clearpage
+
+
 
 
 \subsection{Equivalence between contrast and ECC-strain}
@@ -660,7 +669,7 @@ In the end, the only change in the crystal is the dislocation displacement field
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.7\linewidth]{Figures/screwcompare.png}
+    \includegraphics[width=0.8\linewidth]{Figures/screwcompare.png}
     \caption[ECC-strain vs contrast for a screw TD]{  Comparison between ECC-strain (bottom left) and contrast (top left) for a screw TD in two different diffraction conditions $\textbf{g}_1$ and $\textbf{g}_2$ (given on the bottom right). On the top right two TDs from ECC images taken in the same conditions as the simulations are shown.}
     \label{fig:screwcompare}
 \end{figure}
@@ -668,18 +677,6 @@ In the end, the only change in the crystal is the dislocation displacement field
 
 In the left columns of Fig.~\ref{fig:screwcompare} and Fig.~\ref{fig:edgecompare} I want to show that if I plot the ECC-strain isosurfaces and compare them to the two-beam dynamical simulation prediction of TD contrast they show the exact same geometry of features.  Again, I compare the contrast prediction to selected TDs in ECC images taken in the same diffraction conditions as the simulations shown in the right column.  The ECCIs were taken by Naresh-Kumar and can be found in this paper~\cite{Naresh}.
 
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.7\linewidth]{Figures/edgecompare.png}
-    \caption[ECC-strain vs contrast for an edge TD]{ Comparison between ECC-strain (bottom left) and contrast (top left) for an edge TD in two different diffraction conditions $\textbf{g}_1$ and $\textbf{g}_2$ (given on the bottom right). On top right two TDs from ECC images taken in the same conditions as the simulations are shown.}
-    \label{fig:edgecompare}
-
- \vspace*{\floatsep}
-
-    \includegraphics[width=0.7\linewidth]{Figures/edgecompare0.png}
-    \caption[Vanishing ECC-strain vs vanishing contrast for an edge TD]{ Comparison between vanishing ECC-strain (bottom left) and vanishing contrast (top left) for an edge TD in two different diffraction conditions $\textbf{g}_1$ and $\textbf{g}_2$ (given on the bottom right).}
-    \label{fig:edgecompare0}
-\end{figure}
 
 
 Fig.~\ref{fig:screwcompare} shows the top surface view strain isosurfaces (bottom) of a screw TD in two different diffraction conditions $\mathbf{g_1}$ and $\mathbf{g_2}$, whose projections on the viewing plane is shown as red rods. Like before the modelled material is \hkl[001] GaN and red strain isosurface indicated compressive strain (positive) while blue isosurface indicates tensile strain (negative). As discussed on page~\pageref{fig:edge}, for a screw TD in forward-scattering geometry the ECC-strain will be significant close to the surface. 
@@ -693,14 +690,27 @@ A very similar behaviour is observed for an edge TD and is shown in Fig.~\ref{fi
 
 I conclude from these comparisons that it is the ECC-strain that gives the features of the contrast profile we observe in the SEM. If we are interested in understanding what the ECCI TD contrast tells us about the dislocation observed then we ``simply'' need to simulate the ECC-strain. The simulation involves juggling a number of different frames as we have seen on page~\pageref{sec:coordinates} which, in turn, requires a good understanding not only of coordinates transformation calculations which we covered in the introductory chapter, but also of the diffraction condition and exact beam-sample-detector geometry. Unfortunately, none of these are obvious in an SEM since the SEM is not optimised for diffraction, especially not for channelling in the same way the TEM is. Everything from the small and controlled interaction volume designed for TEM to the detector position optimised to maximise diffraction signal in diffraction mode are incongruous with the SEM. 
  
+\clearpage
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/edgecompare.png}
+    \caption[ECC-strain vs contrast for an edge TD]{ Comparison between ECC-strain (bottom left) and contrast (top left) for an edge TD in two different diffraction conditions $\textbf{g}_1$ and $\textbf{g}_2$ (given on the bottom right). On top right two TDs from ECC images taken in the same conditions as the simulations are shown.}
+    \label{fig:edgecompare}
 
+ \vspace*{\floatsep}
+
+    \includegraphics[width=0.8\linewidth]{Figures/edgecompare0.png}
+    \caption[Vanishing ECC-strain vs vanishing contrast for an edge TD]{ Comparison between vanishing ECC-strain (bottom left) and vanishing contrast (top left) for an edge TD in two different diffraction conditions $\textbf{g}_1$ and $\textbf{g}_2$ (given on the bottom right).}
+    \label{fig:edgecompare0}
+\end{figure}
+\clearpage
 
 
 
 
 We can also see that for certain dislocation geometries like the one in Fig.~\ref{fig:edgecompare0} where the strain isosurfaces come very close to the core of the dislocation, \ie reduced ECC-strain, the contrast predicted will become faint. We do expect, then, that some dislocation can appear faint in the ECC images. If we were interested in a good approximation of their density, we would have to acquire multiple images in different diffraction conditions. 
 
-\clearpage
+
 
 
 

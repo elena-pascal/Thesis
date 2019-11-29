@@ -1,16 +1,54 @@
 \chapter{Introduction}
 
+\section{The big picture}
 
 
+\epigraph{\textit{Without microscopy, there is no modern science. End of story.}}{Dr. Alan Finkel, opening the \nth{19} International Microscopy Congress \cite{alanSpeech}}
+% Microscopy
+Alan went on to point out that a simple Google search of the word \textit{scientist} returns two activities: people pouring coloured solutions into beakers and people looking down microscopes. Since Google recently improved the diversity of said people, the results make up a decent overview of the position microscopy has in science overall.
+The truth value of his statement can be quantified not only by the engagement it received on Twitter late last year, but also by the plethora of examples that back this claim. 
+  
+Every high resolution image of bugs, cells, viruses you ever wondered at? Microscopy.  Forensic science? Microscopy. Environmental scientists monitoring particles in air, water or soil? Microscopy. Identification of bacteria in food along its entire life cycle? Microscopy~\cite{microscopy}. Weather scientists understanding the complicated behaviour of snow? Microscopy~\cite{Leppard96}. 
+ 
+And it doesn't stop at science. The art history world had been stuck for a while with four almost identical copies of a \nth{16} century painting of \textit{``Christ Driving the Traders from the Temple''} in various galleries around Europe~\cite{GoogleArts}. Three too many for unambiguously declaring one as the original. In 2009 an interdisciplinary research project was established with the purpose of applying, you guessed it, microscopy to characterise the pigments used, how they were ground and then how were applied to the wood. They use a combination of polarised microscopy to look at the pigments and stereomicroscopy to analyse the brushwork \cite{Hermens2012}. Unfortunately, they found that the copy in Glasgow, signed Hieronymus Bosch, appears to have been painted eighty years after his death.  
+
+%Characterisation 
+Then, there is the world of nanotechnology including, at one end of the spectrum, the manufacturing of smaller and smaller devices and, at the other, the engineering at smaller and smaller scale of materials. No matter what quality control entails for a specific sub-field the task is the same: to characterise these materials. For instance, group-III nitrides are a type of very promising and exciting semiconductors, used in lights emitting diodes (LEDs) among others. In these materials dislocations reduce the luminescence output. Of course we want to improve the bang for our buck. The obvious way to understand and overcome the defect impact is, if you've been paying attention so far, by doing some microscopy. We will cover the details of this in Chapter~\ref{chap:ECCI}.
+
+%Modelling of Characterisation
+But, just like there will likely not be one single cure for cancer, microscopy, this ``cure'' for many of our scientific problems, is in truth an umbrella term for quite a wide range of physical phenomena. From light polarisation to scattering and diffraction, all these different behaviours need then to be well understood if we are to apply them to probe nature. In the age of fast computers it becomes a no-brainer that we can afford to create numerically demanding models in order to increase the accuracy of our predictions.  
+
+%Problems
+The two main results chapters of this thesis are focused on developing models for two different characterisation techniques in the scanning electron microscope (SEM) based on diffraction. Chapter \ref{chap:ECCI} will talk about electron channelling contrast imaging (ECCI) and Chapter \ref{chap:TKD} about transmission Kikuchi diffraction (TKD). I call both of these microscopy techniques novel, partly because they are relatively young (we will see in the respective chapters how that is something more of a stretch for ECCI),  but more importantly because the physical mechanism behind these imaging techniques is not yet well understood. My definition of \textit{well understood} involves having access to a model that predicts quantitatively the experiments, matching intensity values for all pixels and all conditions. We are probably at least a few PhDs away from that.
+
+%Per chapter more specific
+%ECCI 
+A question useful to look at when using ECCI is: \textit{What does the dislocation contrast tell us?} Like many things in science the answer is ``it's complicated''. In Chapter \ref{chap:ECCI} I try to unpack that and talk about the two main contributions: on one hand the electron beam--sample geometry and on the other the type of dislocation. Clearly this is an excellent problem to tackle with a model since one (me) can easily change a number of parameters and see how the results are affected. It turns out that tilting the sample, a tactic quite standard in the world of ECCI, increases the strain observed by the incident electrons for the specific type of dislocations common in group-III nitrides and, as a result, the contrast in the image and our chances to observe the defect. 
+
+Now, the relationship between dislocation type and how the contrast looks in the ECCI, has become along the years a sort of holy grail of the field. A small one but a sacred one nevertheless. If this relationship would be undeniably established one could characterise dislocations in the SEM. This would be cheaper, faster with less work, with fewer doubts about sample integrity and better statistics for defect densities than the standard method used at the moment (TEM). Almost too good to be true. Perhaps, but it does look great on grants. 
+
+Like all good problems, answering it involves isolating a cause and effect from a number of possible causes; in this case the dislocation type and the (possibly unknown) diffraction condition will both affect the contrast features of the dislocation. Since there are no suggestions on how one would separate these effects with a backwards engineering approach, we are left with comparing against a number of possible features predicted by a forward model. I did not solve this problem, but I did make a dent in it. In this thesis, I proposed that the modelled strain profile of the limited number of possible dislocations in these materials will predict the observed contrast. Armed with this theory I went on to predict what affects the contrast more: the type of dislocation or the diffraction condition. 
+
+%TKD
+Talking of holy grails in the field of scanning electron microscopy, another interesting question is which backscattered electrons contribute to electron backscattered diffraction patterns. There are generally two schools of thought here: either a very narrow subset of electrons are allowed to diffract on the way out~\cite{Winkelmann07}, or all electrons are given a nonzero chance to do so~\cite{degraef2013e}. It might not sound so, but the difference becomes quite substantial especially when very small changes in the Kikuchi bands are being used as a method of strain characterisation. In Chapter \ref{chap:TKD} I show the predictions of \textsf{EMsoft}, an implemented model based on the second approach, where Monte Carlo models are used to estimate the statistical effect of electron scattering. 
+
+There are a number of electron diffraction modalities in the SEM, and each has its relative strengths and weaknesses. Transmission Kikuchi patterns, also known as transmission electron backscattering diffraction (t-EBSD) (to emphasise that the physics is similar for these transmitted diffracted electrons as it is for the more conventional backscattered ones) is a new addition to these modalities and the topic of Chapter~\ref{chap:TKD}. The interest in this novel technique is fuelled by the promise of high spatial resolution due to its geometry which allows for a smaller interaction volume. 
+
+Unlike the first type of models which ignore the backscattered electron source distribution, with our approach we can study the physics of these sources. We also show that the escape position actually changes with the thickness of the sample. Additionally, we can predict the energy and angular distribution of the electrons on the detector. All of these important details about the image ought to be well understood if characterisation techniques reliant on small changes in images are to be developed. Which seems to be a trend not going away any time soon. 
+
+
+
+%Open source
+If you want to have a look at any of the code used in this thesis, you should; it's all on GitHub (\href{https://github.com/elena-pascal/}{https://github.com/elena-pascal/}). One thing I am pleased about is that I employed coordinate reference frames as objects, using a nifty SciPy library in Python~\cite{ReferenceFrame}, to make sense of them. Easy to read as well. Super important when you have about five of them to track during one computation. How does your local commercial software track reference frames? You probably don't know and that is a problem. In the best case scenario there is documentation, or even an actual paper about it. But can anyone be sure the implementation matches the documentation if no one but the vendor has access to the code? I vote no. I return to this in Section \ref{sec:Epilogue}. For now let us come back to microscopy.     
 
 \section{Diffraction and the SEM}
 
 
 The Venn diagram of electron diffraction and scanning electron microscopy (SEM), shown here in Fig.~\ref{Fig:Venn}, is showing a very small overlap. Diffraction in general, and particularly that of electrons, which  we will discuss in more details in Chapter~\ref{Chap:Diffraction} from page~\pageref{Chap:Diffraction}, is a mature and well understood subject. So is the now ubiquitous materials investigation tool that is the SEM, which we will briefly cover on page~\pageref{sec:sem}. 
 
-\begin{figure}[ht]
+\begin{figure}[th]
 \centering
-\includegraphics[width=0.71\linewidth]{Figures/VenSEM.png}
+\includegraphics[width=0.7\linewidth]{Figures/VenSEM.png}
 \caption[SEM and electron diffraction Venn diagram.]{Venn diagram showing how many Google scholar results contain the keywords: diffraction (yellow), electron diffraction (orange) and SEM (blue). The small overlap  summarises the topics addressed in this Thesis. The area of the circles is proportional to the number of search results.}
 \label{Fig:Venn}
 \end{figure}
@@ -105,7 +143,7 @@ References~\cite{Hearle72, reimerSEM} discuss the electron optics and we will no
 
 
 %relativistic correction
-Let us briefly address relativistic corrections and the correction factor, $\gamma$,  for electrons used in electron microscopy. The de Broglie equation for the relativistic electron  wavelength, $\lambda$, can be approximated in terms of the accelerating voltage $V$ (equation 2.4 in \cite{goodhew88}) as:
+Let us briefly address relativistic corrections and the correction factor, $\gamma$,  for electrons used in electron microscopy. The de Broglie equation for the relativistic electron  wavelength, $\lambda$, in \si{\angstrom}, can be approximated in terms of the accelerating voltage $V$ given in \si{\kilo\electronvolt} (equation 2.4 in \cite{goodhew88}) as\footnote{Note that this is the result of an empirical fit and the dimensions of the parameters have not been taken into account. Changing the voltage units must be done with caution.}:
 \begin{equation}
     \lambda \approx \sqrt{\frac{150}{V + 10^{-6}\, V^2}}
 \end{equation}
@@ -158,7 +196,7 @@ Surprisingly, the blue emitting devices based on III-nitrides are able to functi
      \centering
      \includegraphics[width=0.9\linewidth, height=0.25\textheight]{Figures/ECCI.png}
       \captionsetup{width=0.8\linewidth}
-     \caption[GaN ECCI.]{Plan view ECC image\footnote{By permission of Allehiani Nouf Mohammad, University of Strathclyde} of a \hkl[0001] GaN on sapphire showing black-white contrast around threading dislocations.}
+     \caption[GaN ECCI.]{Plan view ECCI\footnote{By permission of Allehiani Nouf Mohammad, University of Strathclyde} of a \hkl[0001] GaN on sapphire showing black-white contrast around threading dislocations.}
      \label{fig:ecci}
 \end{minipage}
 \end{figure}
@@ -181,18 +219,18 @@ Trager-Cowan \etal\cite{Carol} showed that using ECCI in the characterisation of
 morphological features of GaN samples while also delivering information about crystallographic orientation~\cite{Picard}. The electron channelling contrast images obtained in the SEM can provide structural information on dislocations  interacting with the sample surface, particularly when obtained in highly diffracting channelling conditions~\cite{Naresh}. This information is shown in the form of variation in the electron backscattered contrast intensity around a dislocation -- or dark-bright signal contrast on the micrograph. Because it can resolve individual dislocations while imaging larger areas (e.g. Nouf-Allehiani et al.~\cite{Nouf} for material with TDs having a mean separation of $\approx$ 200 nm), ECCI is an ideal candidate for both precise and accurate number estimates for a wide range of TD densities (\SI{e6}{\centi \metre^{-2}} -- \SI{e10}{\centi \metre^{-2}} ).
 
 
-\subsection{What is Chapter~\ref{chap:ECCI} about?}
+\subsection{Modelling of diffraction-in}
 
 
-In this work I continue on the path of analysing the ECCI as a TD characterisation technique. In Chapter~\ref{chap:ECCI} I look at the theoretical models that could be applied to predict the TD contrast in ECC images of \hkl[0001] grown GaN. It was clear that the contrast predictions methods used for TEM will be inappropriate when considering contrast in bulk samples. If a TD dislocation in a thin TEM sample will introduce two opposite, and cancelling in effect, surface relaxations on the top and bottom surface, a beam in ECCI will only image the top surface and therefore be far more sensitive to the top surface relaxation. An model for ECCI contrast should therefore take into account the surface relaxation, to begin with. The questions I followed were \textit{What can a suitable model predict about the behaviour of the TD contrast?} and \textit{What can we then learn from this predicted behaviour?}.
+In this work I continue on the path of analysing the ECCI as a TD characterisation technique. In Chapter~\ref{chap:ECCI} I look at the theoretical models that could be applied to predict the TD contrast in ECC images of \hkl[0001] grown GaN. It was clear that the contrast predictions methods used for TEM will be inappropriate when considering contrast in bulk samples. If a TD dislocation in a thin TEM sample will introduce two opposite, and cancelling in effect, surface relaxations on the top and bottom surface, a beam in ECCI will only image the top surface and therefore be far more sensitive to the top surface relaxation. A model for ECCI contrast should therefore take into account the surface relaxation, to begin with. The questions I followed were \textit{What can a suitable model predict about the behaviour of the TD contrast?} and \textit{What can we then learn from this predicted behaviour?}.
 
 Since diffraction conditions in the SEM are more challenging to pinpoint then in the TEM, I wanted to remove this hard to determine variable from the predictions and look, qualitatively, at the behaviour of a property that causes the contrast in the first place: the strain flavoured parameter that quantifies the correction to the deviation parameter $\beta$ due to the dislocation. I give it the name of \textit{ECC-strain}. 
 
-By looking at isosurfaces of this newly minted ECC-strain for different types of dislocations in different conditions, I can make a few observations regarding the effect of geometry, the effect of dislocation type and the effect of diffraction condition on the imaged contrast. This observation can then be turned into recipes for contrast optimisation on one hand and dislocation characterisation on the other.
+By looking at isosurfaces of this newly minted ECC-strain for different types of dislocations in different conditions, I can make a few observations regarding the effect of geometry, the effect of dislocation type and the effect of diffraction condition on the imaged contrast. For instance, I predict that the contrast profile will depend firstly on the type of dislocation and its geometry and only secondly on the diffraction condition. These predictions could then be turned into recipes for contrast optimisation on one hand and dislocation characterisation on the other.
 
 
 
-\section{TKD and study of truly nanostructured materials}
+\section{TKD and the study of truly nanostructured materials}
 
 
 
@@ -206,7 +244,7 @@ The investigation and characterisation of the micro structure of new materials i
 
 However, recently, stimulated by the increased attention to nanostructured materials, which promise new and enhanced properties when compared to their larger scale counterparts, the interest in improving the resolution of established characterisation techniques has also expanded. The use of forward-scattered electrons (FSEs) through a thin sample as diffraction signal collected from the bottom of the foil has been shown to improve the lateral spatial resolution to below $10$ nm~\cite{Keller12, Trimby12}; this technique is commonly known as transmission Kikuchi diffraction (TKD) or transmission EBSD (t-EBSD). 
 
-\subsection{What is Chapter~\ref{chap:TKD} about?}
+\subsection{Modelling of diffraction-out}
 
 The work described in Chapter~\ref{chap:TKD} was the outcome of a collaboration with Prof. Marc De Graef's group from Carnegie Mellon University. The CMU group developed a vast, open-source software called EMsoft~\cite{EMsoft} aimed at modelling a variety of diffraction techniques in the SEM including EBSD. 
 

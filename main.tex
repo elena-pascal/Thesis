@@ -28,8 +28,8 @@ oneside, % Two side (alternating margins) for binding by default, uncomment to s
 english, % ngerman for German
 onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
 %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
-%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
-%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
 %toctotoc, % Uncomment to add the main table of contents to the table of contents
 %parskip, % Uncomment to add space between paragraphs
 %nohyperref, % Uncomment to not load the hyperref package
@@ -67,22 +67,26 @@ chapterinoneline, % Uncomment to place the chapter title next to the number on o
 \usepackage{caption}
 \usepackage{color}
 \usepackage{collcell}
+\usepackage{combelow}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{longtable} 
-\usepackage{physics}
 \usepackage{makecell} % Multirow in table header
 \usepackage{mathtools}
 \usepackage{miller}   % Miller indices package
 \usepackage{multirow} % Multirow in tables package
 \usepackage[super]{nth}
+\usepackage{physics}
+\usepackage{rotating}  % landscape figures
 \usepackage{setspace}
+\usepackage{epigraph}
 \usepackage{etoolbox}
-\usepackage{xargs}                      % Use more than one optional parameter in a new commands
-\usepackage{rotating}   % landscape figures
+\usepackage{xargs}     % Use more than one optional parameter in a new commands
 
 
-\usepackage{combelow}
+
+
+\setlength{\epigraphwidth}{2.8in} 
 
 
 % All the notes
@@ -158,7 +162,7 @@ complex-root-position = before-number
 \newcommand{\eg}{\textit{e}.\textit{g}. }
 %------------------------------------------------
 
-\usepackage[backend=bibtex,style=alphabetic,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\usepackage[backend=bibtex,style=alphabetic,natbib=true, maxbibnames=99]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 \addbibresource{Biblio/intro}
 \addbibresource{Biblio/theory}
 \addbibresource{Biblio/diffraction}
@@ -172,9 +176,9 @@ complex-root-position = before-number
 
 \geometry{
 	paper=a4paper, % Change to letterpaper for US letter
-	inner=3.5cm, % Inner margin
+	inner=4.0cm, % Inner margin
 	outer=2.5cm, % Outer margin
-	bindingoffset=.5cm, % Binding offset
+	bindingoffset=.1cm, % Binding offset
 	top=2.0cm, % Top margin
 	bottom=4.0cm, % Bottom margin
 	%showframe, % Uncomment to show how the type block is set on the page
@@ -281,10 +285,16 @@ in, or derived from, this thesis.
 
 \vfill
 
-\noindent Signed:\\
+\begin{flushleft}
+\hspace{0.2\textwidth}
+\vspace{-.06\textheight}
+ \includegraphics[scale=0.2]{signature.png}
+\end{flushleft} 
+
+\noindent Signed: \\
 \rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
  
-\noindent Date:\\
+\noindent Date: \today\\
 \rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
 \end{declaration}
 
@@ -327,10 +337,12 @@ I want to thank the entire SSD group for being welcoming and generous with their
 
 I am incredibly indebted to my supervisors for guiding me at every step on this long and sometimes challenging journey. I have to thank Carol for taking me on the program and giving me a chance to do research. I am grateful to her for always being available to hear any concerns I might have. I think I struggled with a lot of impostor's syndrome, and while I still do, I know that having Ben as a supervisor helped a lot. I am truly indebted for Ben's patience of framing the work I did in a way that made it sound meaningful even when we both knew that PhD work is rarely impactful. I am also thankful for all the very last minute revisions and feedback. 
 
+Gratitude must undoubtedly be extended to Marc for replying, always promptly, to my emails from the other side of the pond even though he was under no obligation to do so. I have only recently realised that the skill of answering and clarifying naive and sometimes confused, if not incoherent questions, is indeed very rare. Thank you for always making me feel like my understanding of a concept or idea is worth your time. And thank you for welcoming my visit.
+
 I am extremely grateful for the support of my partner, Gunnar, without whom I don't think this manuscript would exist. Thank you for believing I am strong all the times I did not. Thank you for not doubting for a second I will hand in a Thesis for all the times I did.  
 
 
-Most importantly, I would like to thank my mother, who, despite having been denied further education, values it so greatly that it took surprisingly little convincing work to let me leave ten years ago, with only a precarious survival plan, for a foreign land in the pursuit of it.   
+Most importantly, I would like to thank my mother, who, despite having been denied further education, or perhaps because of it, values it so greatly that it took surprisingly little convincing work to let me leave ten years ago, with only a precarious survival plan, for a foreign land in the pursuit of it.   
 
 
 \end{acknowledgements}
@@ -354,7 +366,7 @@ Most importantly, I would like to thank my mother, who, despite having been deni
     \item \textbf{E Pascal}, S Singh, B Hourahine, C Trager-Cowan, M De Graef \href{https://www.cambridge.org/core/journals/microscopy-and-microanalysis/article/dynamical-simulations-of-transmission-kikuchi-diffraction-tkd-patterns/1863E684CEDF207910A5BFE58D7DE902/share/e286c71a1d759f81d3417ebf6cb4e78b8d81fcd2}{\textit{Dynamical Simulations of Transmission Kikuchi Diffraction (TKD) Patterns}}, Microscopy and Microanalysis, \textbf{23} (S1), 2017, 540-541.
 \end{itemize}
 
-\vspace{0.3cm}
+
 
 \noindent{\Large Invited Talk:}
 \begin{itemize}
@@ -362,12 +374,12 @@ Most importantly, I would like to thank my mother, who, despite having been deni
     Heimbach International workshop on physics of III-nitrides, Mansfeld, Germany.
 \end{itemize}
 
-\vspace{0.3cm}
+
 \noindent{\Large Prizes and Awards:}
 \begin{itemize}
 \item \begin{flushleft}\textbf{ Corbett prize } \hfill{} 2017  \end{flushleft}
 for \textit{Modelling of ECCI strain-like profiles as a method of TD identification.}\\
-    Awarded every four years for an outstanding contribution at the International Conference of Defects in Semiconductors, Matsue, Japan.
+    Awarded every two years for an outstanding contribution at the International Conference of Defects in Semiconductors, Matsue, Japan.
 
 \item \begin{flushleft}\textbf{ Poster prize } \hfill{} 2017  \end{flushleft}
 for \textit{Dynamical modelling of channelling contrast in ECCI.}\\
@@ -403,9 +415,11 @@ for \textit{International collaboration on energy filtering dynamical electron d
 \begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
 \textbf{BSEs} & \textbf{B}ack  \textbf{S}cattered \textbf{E}lectrons\\
 \textbf{CSDA} & \textbf{C}ontinuously  \textbf{S}lowing \textbf{D}own \textbf{A}pproximation\\
+\textbf{DW} & \textbf{D}ebye-\textbf{W}aller \\
 \textbf{EBSD} & \textbf{E}lectron  \textbf{B}ack\textbf{s}cattered \textbf{D}iffraction\\
 \textbf{EBSP} & \textbf{E}lectron  \textbf{B}ack\textbf{s}cattering \textbf{P}attern\\
 \textbf{ECC} & \textbf{E}lectron  \textbf{C}hannelling \textbf{C}ontrast \\
+\textbf{ECC-strain} & \textbf{E}lectron  \textbf{C}hannelling \textbf{C}ontrast - strain\\
 \textbf{ECCI} & \textbf{E}lectron  \textbf{C}hannelling \textbf{C}ontrast \textbf{I}maging\\
 \textbf{ECP} & \textbf{E}lectron  \textbf{C}hannelling \textbf{P}attern\\ 
 \textbf{EM} &  \textbf{E}lectron \textbf{M}icroscopy\\
@@ -472,9 +486,9 @@ $V_\mathbf{g}$                                                        & Fourier 
 $\theta_B$                                                           & Bragg angle                    &  \si{\degree}  \\
 $\Omega$                                                             & Unit cell volume in real space &  \si{\angstrom^3}  \\
 \addlinespace
-$\mathbf{u}$                                                             & Displacement field &    \\
-$\mathbf{s}_{g}$                                                             & Deviation parameter &    \\
-$\beta$                                                             & Correction to $\mathbf{s}_g$ due to presence of defects &    \\
+$\mathbf{u}$                                                          & Displacement field &    \\
+$\mathbf{s}_{g}$                                                      & Deviation parameter &    \\
+$\beta$ (or ECC-strain)                                                  & Correction to $\mathbf{s}_g$ due to presence of defects &    \\
 \addlinespace % Gap to separate the special symbols
 
 \hkl(hkil), \hkl(hk.l)                                               & Miller-Bravais plane indices  \\
